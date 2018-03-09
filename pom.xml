@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>edu.csus.csc131</groupId>
+    <artifactId>yaam</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+
+    <organization>
+        <name>CSUS CSC131 Sprint 2018</name>
+        <url>https://github.com/CSUS-CSC-131-Spring2018</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>JohnPCsus</id>
+            <name>John P</name>
+            <url>https://github.com/JohnPCsus</url>
+        </developer>
+        <developer>
+            <id>lihaven</id>
+            <name>Lindsay Haven</name>
+            <url>https://github.com/lihaven</url>
+        </developer>
+        <developer>
+            <id>paul-mchugh</id>
+            <name>Paul McHugh</name>
+            <url>https://github.com/paul-mchugh</url>
+        </developer>
+        <developer>
+            <id>ryan-cr</id>
+            <name>Ryan R</name>
+            <url>https://github.com/ryan-cr</url>
+        </developer>
+    </developers>
+
+
+    <modules>
+        <module>desktop-client</module>
+        <module>server-api</module>
+    </modules>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.java.version>1.8</project.build.java.version>
+    </properties>
+
+    <dependencies>
+        <!-- Project Lombok: Java Boilerplate Code Generation -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>LATEST</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Sentry: Error Capturing -->
+        <dependency>
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+        <!-- JSON: Parser and Serializer -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
+    </dependencies>
+</project>
