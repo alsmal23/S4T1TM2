@@ -45,7 +45,7 @@ Your overview should lead naturally into your architecture. Here you have to do 
 ## Requirements
 |Req#|Description|
 |----|-----------|
-|**REQ-1**|The application server must maintian a record of sprints, tasks and their associated attributes.|
+|**REQ-1**|The application server must maintain a record of sprints, tasks and their associated attributes.|
   
   
 ## Use Cases  
