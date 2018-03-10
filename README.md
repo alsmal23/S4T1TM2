@@ -45,9 +45,15 @@ Your overview should lead naturally into your architecture. Here you have to do 
 ## Requirements
 |Req#|Description|
 |----|-----------|
-|**REQ-1**|The application server must maintain a record of sprints, tasks and their associated attributes.|
-  
-  
+|**REQ-1**|The server application must maintain and provide a record of sprints, tasks, and their associated attributes.|
+|**REQ-2**|The client application must be able to retrieve the record of sprints, tasks, and their associated attributes from the server.|
+|**REQ-3**|Users shall be able to view the project record including the sprints and their deadlines, the tasks and their associated attributes such as tags, assigned developer, description, and task size, and any other properties of the project.|
+|**REQ-4**|Users that are assigned the attribute manager shall be able to creat new tasks, create new sprints, assign attributes to both tasks and sprints, create new accounts for developers on the server, and reset a developer's password.|
+|**REQ-5**|Developers shall be able to log the times when they started and stopped work on tasks, including tasks that they are not assigned.|
+|**REQ-6**|Developers shall be able to amend their task histories to rectify user or technical errors.  All task history amendments shall be logged.|
+|**REQ-7**|Developers shall be able to view a work summary of their own work that shall include information about how much time they have spent on each task.|
+|**REQ-8**|Managers shall be able to view the work summaries of all developers including the amendments made to the developer's task history.|
+
 ## Use Cases  
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
 
