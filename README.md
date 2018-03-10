@@ -42,8 +42,10 @@ Here you bring together your introduction and lessons learned from the reviews. 
 Your overview should lead naturally into your architecture. Here you have to do the best you can if you have limited experience. Decide based on your vision of what your project should be with the understanding that you may have to learn some specific technologies later. You do not have specify specific technology now. If you are going to use an SQL database to store task data, then just say that and use that language on any diagrams.  
   
   
-## Requirements  
-Your discussion so far should be causing your to think about delineating specific requirements. While I don't want to state that you need some specific number, look at some of the example projects on Ivan Marsik's website to get a sense of scope. If you don't have between one and two dozen requirements, you probably have not done enough work.  
+## Requirements
+|Req#|Description|
+|----|-----------|
+|**REQ-1**|The application server must maintian a record of sprints, tasks and their associated attributes.|
   
   
 ## Use Cases  
