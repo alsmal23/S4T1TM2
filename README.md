@@ -44,10 +44,18 @@ Here you bring together your introduction and lessons learned from the reviews. 
 Your overview should lead naturally into your architecture. Here you have to do the best you can if you have limited experience. Decide based on your vision of what your project should be with the understanding that you may have to learn some specific technologies later. You do not have specify specific technology now. If you are going to use an SQL database to store task data, then just say that and use that language on any diagrams.  
   
   
-## Requirements  
-Your discussion so far should be causing your to think about delineating specific requirements. While I don't want to state that you need some specific number, look at some of the example projects on Ivan Marsik's website to get a sense of scope. If you don't have between one and two dozen requirements, you probably have not done enough work.  
-  
-  
+## Requirements
+|Req#|Description|
+|----|-----------|
+|**REQ-1**|The server application must maintain and provide a record of sprints, tasks, and their associated attributes.|
+|**REQ-2**|The client application must be able to retrieve the record of sprints, tasks, and their associated attributes from the server.|
+|**REQ-3**|Users shall be able to view the project record including the sprints and their deadlines, the tasks and their associated attributes such as tags, assigned developer, description, and task size, and any other properties of the project.|
+|**REQ-4**|Users that are assigned the attribute manager shall be able to creat new tasks, create new sprints, assign attributes to both tasks and sprints, create new accounts for developers on the server, and reset a developer's password.|
+|**REQ-5**|Developers shall be able to log the times when they started and stopped work on tasks, including tasks that they are not assigned.|
+|**REQ-6**|Developers shall be able to amend their task histories to rectify user or technical errors.  All task history amendments shall be logged.|
+|**REQ-7**|Developers shall be able to view a work summary of their own work that shall include information about how much time they have spent on each task.|
+|**REQ-8**|Managers shall be able to view the work summaries of all developers including the amendments made to the developer's task history.|
+
 ## Use Cases  
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
 
