@@ -33,12 +33,34 @@ Functionalities related to YAAM:
     - Categorizes usage into functionality groups (e.g. software development, communication & scheduling, utilities, entertainment).
 
   
-### [Timesheets](https://www.timesheets.com/)  
+### [Timesheet](https://www.timesheet.io/)  
 >This section definitely not done yet, but wanted to get some of my research visable. I plan to make this into a more compact and presentible form.
 
-Individual user time tracking with a focus on contract work. I've found it useful when tracking my school work.
-Structures flow: Projects -> Tasks -> Tags
-            		                   -> Rates
+#### Overview
+Timesheet is and individual user time tracking solution with a focus on tracking contract work. Although it includes a lot of features that probabably won't want to consider for YAAM (including, but not limited to billing and expense tracking because the assumption is that YAAMs users are salaried), it is primarly a time and completed task tracking applciation. This makes it relelevant our research because it's conceptually very similar to out first TM application in class, but with a GUI and some critical features added, primarily projects, tags, and GUIs on web and mobile. 
+
+The general user flow in Timesheets is for a user to create a project, maybe a tag or two, and then start tracking tasks with the timer, once tasks are stopped they will ask for tags and a description. Note the mobile app is free, but the web app is not, therefore the mobile app with timer is the most common use case.
+
+#### Structures flow
+
+<table>
+  <tr>
+    <td colspan="6"><center>Projects hold</center></td>
+  </tr>
+  <tr>
+    <td colspan="6"><center>Tasks hold</center></td>
+  </tr>
+  <tr>
+    <td>Task Data</td>
+    <td>Tags</td>
+    <td>Breaks</td>
+    <td>Expenses</td>
+    <td>Notes</td>
+    <td>Feelings</td>
+  </tr>
+</table>
+
+#### Details on Major Features and Functions
 
 __Timer__ 
 * Start: Starts a timer and displays it in notification bar with simple options
@@ -46,49 +68,22 @@ __Timer__
 * Stop: Stops the task. Brings up a simple page to save notes about the task or change any of the feilds on the task.
 
 __Project__
-* Name
-* Employer/Client
-* Description
-* Location
-* Rate
-* Color
-* Archive (yes/no)
+Project fields: Name, Employer/Client, Description, Location, Rate, Color, Archive (yes/no)
 
 __Tasks__
-* Project
-* Start Date & Time
-* End Date & Time
-* Tags (many)
-* Task Type (Task, Milage, Call [predefined, not editable])
-* Billable (yes/no)
-* Paid (yes/no)
-* Feeling, Options-> :D :| :/ :(
-**	This one seems kind of out of place, I suppose it's a quality of job/life measure. No compiling or statistcis on this field (right?)
-* Notes <Added after the task has been saved (either after creation or after the timer has stopped and details are collected>
-**	Large-ish text field
-* Expenses
-**	Date & time incured
-**		Amount
-**		Description
-**		Paid <yes/no>
-* Breaks Pauses
-**		Start/Stop & Duration
-**		Description
-
+Two different task views calendar or list on web app, list only on mobile app.
+* Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Milage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
+* Feeling Options → :D     :|     :/    :( ...This features seems kind of out of place in the app, I suppose it's a quality of job/life measure. No compiling or statistics on this field.
+* Notes section: A Large-ish text field where notes can be added after the task has been completed (either at manual creation or when the timer is stopped).
+* Expenses Fields: Date & time incurred, Amount, Description, Paid Status <yes/no>
+* Break Fields (pause): Start/Stop & Duration, Description
 
 __Tags__
-Name
-Color
-
-__Settings__
-Buzz for breaks
+* Tag fields: Name and color
 
 __Statistics__
-  
-## Project Overview  
-Here you bring together your introduction and lessons learned from the reviews. What are you doing the same, what is different?  
-  
-  
+* Reporting Features: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Salary, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour break down text 
+
 ## Project Architecture  
 Your overview should lead naturally into your architecture. Here you have to do the best you can if you have limited experience. Decide based on your vision of what your project should be with the understanding that you may have to learn some specific technologies later. You do not have specify specific technology now. If you are going to use an SQL database to store task data, then just say that and use that language on any diagrams.  
   
