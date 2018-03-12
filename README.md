@@ -7,7 +7,7 @@ Here is where you motivate some of your own ideas and describe your customer.
 ## Product Reviews  
 ### [Agilean](https://agilean.in/) 
 Agilean is an online SaaS agile development team management system. Agilean comes in two flavors. The Kanban flavor and the scrum flavor. This changes how task progress is managed and viewed. Kanban supports a more continuous work flow, while scrum is more of a sprint style work flow.  We chose to review the Scrum flavor as that seemed to more closely correspond to sprints in Agile Development.  
-#####Task Management  
+##### Task Management  
 Agilean allows many users to view the progress of the many projects. Users have roles for each project, Users are developers on some projects, but may be managers/team leads on other projects.  
 On the requirements tab managers create Epics. Epics are assigned to projects. User Stories are assigned to epics. Tasks are assigned to user stories. And sub-tasks can be associated with tasks. Tasks are assigned story points.Tasks can be tagged with custom tags, and colored from a set of predefined colors, teams are able to use these in indicate whatever they need. A task may be tagged however a team finds useful.   
 
@@ -15,7 +15,7 @@ Managers then create Sprints and Releases, and assign tasks to them.
 - Projects → Epics → User Stories → Tasks (→ Sub-tasks)  
 - Releases → Sprints → Tasks
    
-#####Reporting  
+##### Reporting  
 
 Agilean offers many views of the project. The Requirements view displays all of the Epics, User Stories and Tasks. The board view displays all of the tasks in the current sprint on a swim lane board with lanes representing various levels of completion, from Backlog to Done. Agilean also offers a comprehensive reporting view, showing how many tasks are assigned to each developer, how many tasks are in each stage of completion, a burndown chart, among others. 
   
