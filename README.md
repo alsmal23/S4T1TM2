@@ -34,7 +34,56 @@ Functionalities related to YAAM:
 
   
 ### [Timesheets](https://www.timesheets.com/)  
-  
+>This section definitely not done yet, but wanted to get some of my research visable. I plan to make this into a more compact and presentible form.
+
+Individual user time tracking with a focus on contract work. I've found it useful when tracking my school work.
+Structures flow: Projects -> Tasks -> Tags
+            		                   -> Rates
+
+__Timer__ 
+* Start: Starts a timer and displays it in notification bar with simple options
+* Pause: Pauses timer, tasks track paused time. Unpause brings up a simple page to save notes about the break or change the time of the break.
+* Stop: Stops the task. Brings up a simple page to save notes about the task or change any of the feilds on the task.
+
+__Project__
+* Name
+* Employer/Client
+* Description
+* Location
+* Rate
+* Color
+* Archive (yes/no)
+
+__Tasks__
+* Project
+* Start Date & Time
+* End Date & Time
+* Tags (many)
+* Task Type (Task, Milage, Call [predefined, not editable])
+* Billable (yes/no)
+* Paid (yes/no)
+* Feeling, Options-> :D :| :/ :(
+**	This one seems kind of out of place, I suppose it's a quality of job/life measure. No compiling or statistcis on this field (right?)
+* Notes <Added after the task has been saved (either after creation or after the timer has stopped and details are collected>
+**	Large-ish text field
+* Expenses
+**	Date & time incured
+**		Amount
+**		Description
+**		Paid <yes/no>
+* Breaks Pauses
+**		Start/Stop & Duration
+**		Description
+
+
+__Tags__
+Name
+Color
+
+__Settings__
+Buzz for breaks
+
+__Statistics__
   
 ## Project Overview  
 Here you bring together your introduction and lessons learned from the reviews. What are you doing the same, what is different?  
