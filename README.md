@@ -12,7 +12,8 @@ On the requirements tab managers create Epics. Epics are assigned to projects. U
 
 Managers then create Sprints and Releases, and assign tasks to them.  
 - Projects → Epics → User Stories → Tasks (→ Sub-tasks)  
-- Releases → Sprints → Tasks
+- Projects →  Releases → Sprints → Tasks
+- Projects →  Impedements
    
 ##### Reporting  
 
@@ -80,7 +81,10 @@ Tags
 Statistics
 * Reporting Features: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Salary, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour break down text 
 
-## Project Overview (@JohnPCsus TODO → Write)
+## Project Overview  
+Yaam is a client-server, application with all data stored on the server. Customers will host a yaam server and make accounts for their team on that server. They will run a client side desktop application in order to access that server. The client will observe the developer and issue smart reminders to log work done when the developer uses IDEs for example. This will allow us to bring  Rescue Times tracking ability, and TimeSheets intentional tracking with Agilean's application domain specific reporting, and project progress tracking.   
+  
+
 
 ## Project Architecture (@ryan-cr TODO → Write)
 Your overview should lead naturally into your architecture. Here you have to do the best you can if you have limited experience. Decide based on your vision of what your project should be with the understanding that you may have to learn some specific technologies later. You do not have specify specific technology now. If you are going to use an SQL database to store task data, then just say that and use that language on any diagrams.  
