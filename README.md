@@ -86,7 +86,7 @@ Statistics
 Your overview should lead naturally into your architecture. Here you have to do the best you can if you have limited experience. Decide based on your vision of what your project should be with the understanding that you may have to learn some specific technologies later. You do not have specify specific technology now. If you are going to use an SQL database to store task data, then just say that and use that language on any diagrams.  
   
 ## Requirements (@ryan-cr, @JohnPCsus, @lihaven TODO → Review)
-|Req-##|Description|
+|Req###|Description|
 |------|-----------|
 |**REQ-1**|The server application must maintain and provide a record of projects, sprints, tasks, and their associated attributes.|
 |**REQ-2**|The client application must be able to retrieve the record of sprints, tasks, and their associated attributes from the server.|
