@@ -83,8 +83,9 @@ Statistics
 
 
 ## Project Overview  
-Yaam is a client-server, application with all data stored on the server. Customers will host a yaam server and make accounts for their team on that server. They will run a client side desktop application in order to access that server. The client will observe the developer and issue smart reminders to log work done when the developer uses IDEs for example. This will allow us to bring  Rescue Times tracking ability, and TimeSheets intentional tracking with Agilean's application domain specific reporting, and project progress tracking.   
+YAAM is a client-server application with all data stored on a private server. Customers will host a YAAM server and make accounts for their team on that server. They will run a client side desktop application in order to access that server. The client will observe the developer and issue smart reminders to log work done when the developer uses IDEs for example. This will allow us to bring  Rescue Times tracking ability, and TimeSheets intentional tracking with Agilean's application domain specific reporting, and project progress tracking.   
   
+With automatic reminders tracking data will be more reliable. This will enable project leads to understand their teams velocity and generate more accurate predictions about future productivity. With online storage, YAAM will provide project managers with powerful options for communicating with their customers, and permissions will allow those customers to only see what information matters to them, without all of the technical details. 
 
 ## Project Architecture  
 The project architecture for our software incorporates various ideas from both our team and our product reviews. Our architecture will make use a client-server approach to maximize team collaboration and accessibility. All software implementations (client and server) will be written in Java 8, with the exception of the server's persistent data storage. The client's role is to provide the means for inputting and reviewing project data. The server's role is to serve as a database endpoint to synchronize all relevant project data to an entire development team.
@@ -113,7 +114,7 @@ The following third-party softwares will be used in the server architecture:
   - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
   
   
-## Requirements (@ryan-cr, @JohnPCsus, @lihaven TODO → Review)
+## Requirements (@ryan-cr, @lihaven TODO → Review)
 |Req###|Description|
 |------|-----------|
 |**REQ-1**|The server application must maintain and provide a record of projects, sprints, tasks, and their associated attributes.|
@@ -132,3 +133,5 @@ The following third-party softwares will be used in the server architecture:
 
 ## Use Cases  (@paul-mchugh TODO → Get use cases tasks list, assign out)
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
+
+
