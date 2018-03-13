@@ -88,14 +88,17 @@ Your overview should lead naturally into your architecture. Here you have to do 
 ## Requirements (@ryan-cr, @JohnPCsus, @lihaven TODO → Review)
 |Req#|Description|
 |----|-----------|
-|**REQ-1**|The server application must maintain and provide a record of sprints, tasks, and their associated attributes.|
+|**REQ-1**|The server application must maintain and provide a record of projects, sprints, tasks, and their associated attributes.|
 |**REQ-2**|The client application must be able to retrieve the record of sprints, tasks, and their associated attributes from the server.|
 |**REQ-3**|Users shall be able to view the project record including the sprints and their deadlines, the tasks and their associated attributes such as tags, assigned developer, description, and task size, and any other properties of the project.|
-|**REQ-4**|Users that are assigned the attribute manager shall be able to create new tasks, create new sprints, assign attributes to both tasks and sprints, create new accounts for developers on the server, and reset a developer's password.|
+|**REQ-4**|Users that are assigned the attribute manager shall be able to create new projects, create new tasks, create new sprints, assign attributes to both tasks and sprints, create new accounts for developers on the server, and reset a developer's password.|
 |**REQ-5**|Developers shall be able to log the times when they started and stopped work on tasks, including tasks that they are not assigned.|
 |**REQ-6**|Developers shall be able to amend their task histories to rectify user or technical errors.  All task history amendments shall be logged.|
 |**REQ-7**|Developers shall be able to view a work summary of their own work that shall include information about how much time they have spent on each task.|
 |**REQ-8**|Managers shall be able to view the work summaries of all developers including the amendments made to the developer's task history.|
+|**REQ-9**|Users shall only be able to access projects that they are a part of.|
+|**REQ-10**|Managers shall be able to choose from either a T-shirt size task system, a points based task size system, or some other user defined task size system and apply these stask sizing systems on a per project basis.|
+
 
 ## Use Cases  (@paul-mchugh TODO → Get use cases tasks list, assign out)
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
@@ -105,4 +108,4 @@ Your requirements and previous sections should lead to your use cases. How will 
 
 first
 
-\- ryan
+\- Paul
