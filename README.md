@@ -21,16 +21,15 @@ Agilean offers many views of the project. The Requirements view displays all of 
   
   
 ### [RescueTime](https://www.rescuetime.com/)   
-RescueTime is desktop time-management app intended to help users analyze their daily program usage habits. Although not necessarily intended for tracking time for projects or its various components, it is especially apt at recording time spent on relevant program usage data. The application records time usage on all programs based on process image names and mouse and keystroke interaction. The desktop application has minimal UI and serves as principally a usage recorder; all statistical aggregate data is viewed on their website's dashboard.
+##### Overview
+RescueTime is desktop time-management app intended to help users analyze their daily program usage habits. Although not necessarily intended for tracking time for projects or its various components, it is especially apt at recording time spent on relevant program usage data. The desktop application has minimal UI and serves as principally a usage recorder; all statistical aggregate data is viewed on their website's dashboard.
 
-Functionalities related to YAAM:
-- Uses a desktop application to record relevant data.
-- Records time spent by using software image names and on keystroke/mouse interaction.
-- Providing a statistical analysis of time spent on interacted software (with the modification: for a specific task or project).
-    - Statistical analysis is interactive exhaustive (permits viewing raw data interactively).
-    - Statistical analysis is well formatted - makes apt use of bar/pie charts and graphs.
-    - Categorizes usage into functionality groups (e.g. software development, communication & scheduling, utilities, entertainment).
- 
+##### Time Tracking
+RescueTime uses their desktop application to record time usage on all programs based on process image names and mouse and keystroke interaction. All program usage data is sent to their remote server under the user's registered account; since data is remotely stored, one user may use RescueTime from various computers and all their data is synchronized.
+
+##### Statistical Aggregation
+RescueTime's principal selling point is its complex interactive and exhaustive statistical aggregation breakdown. Its dashboard permits viewing both derived and raw data interactively. Its breakdown features apt usage of bar charts, pie charts, and graph statistics that can be viewed for a specific day, week, month, or year. Additionally, it categorizes various softwares into functionality groups (e.g. software development, communication & scheduling, utilities, entertainment).
+
  
 ### [Timesheet](https://www.timesheet.io/)  
 >This section definitely not done yet, but wanted to get some of my research visable. I plan to make this into a more compact and presentible form.
