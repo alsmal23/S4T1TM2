@@ -173,6 +173,33 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC2  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
 |UC3  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
 |And  |so  |on..|    |    |    |    |    |    |    |     |     |     |      |        |
-
+---
 __Detailed Use Cases__
 (@lihaven TODO → make a detailed use case template)
+|UC-1            | Create Account|
+|---------------------|--------------|
+|Related Requirements:|REQ-1|
+|Initiating Actor:|Anyone|
+|Actor's Goals|Create an account on the server|
+|Participating Actors||
+|Preconditions|Actor must not already have an account on the server|
+|Postconditions|User Account information stored by the server|
+##### Flow of Events
+ 1. → User: selects create account function
+ 2. ← System: Displays a form to user
+ 3. User: Fills out Form
+ 4. → User: Submits Form
+ 5. ← System: (a) Stores account information; (b) signals completions
+##### Extensions
+5.(b) ← System: signals that account information is incomplete/not unique, returns form to user
+6. return to step 3.  
+---
+|UC-2            | Create Project|
+|---------------------|--------------|
+|Related Requirements:|REQ-1, REQ-4|
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+	
