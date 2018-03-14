@@ -167,9 +167,9 @@ __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
 
 |Req't|REQ1|REQ2|REQ3|REQ4|REQ5|REQ6|REQ7|REQ8|REQ9|REQ10|REQ11|REQ12|Max PW|Total PW|
-|-----|----|----|----|----|----|----|----|----|----|-----|-----|-----|------|--------|
+|----:|:---:|:---:|----|----|----|----|----|----|----|-----|-----|-----|------|--------|
 |PW   |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC1  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC1  |  x |    |    |    |    |    |    |    |    |     |     |     |      |        |
 |UC2  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
 |UC3  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
 |And  |so  |on..|    |    |    |    |    |    |    |     |     |     |      |        |
@@ -177,11 +177,11 @@ There are more use cases than requirements, so I turned the table from what is i
 __Detailed Use Cases__
 (@lihaven TODO → make a detailed use case template)
 |UC-1            | Create Account|
-|---------------------|--------------|
+|--------------------:|--------------|
 |Related Requirements:|REQ-1|
 |Initiating Actor:|Anyone|
 |Actor's Goals|Create an account on the server|
-|Participating Actors||
+|Participating Actors|None|
 |Preconditions|Actor must not already have an account on the server|
 |Postconditions|User Account information stored by the server|
 ##### Flow of Events
@@ -195,11 +195,135 @@ __Detailed Use Cases__
 6. return to step 3.  
 ---
 |UC-2            | Create Project|
-|---------------------|--------------|
+|--------------------:|--------------|
 |Related Requirements:|REQ-1, REQ-4|
+|Initiating Actor:|Regular User|
+|Actor's Goals|Create an Empty Project|
+|Participating Actors|None|
+|Preconditions|User must have an account|
+|Postconditions|User is manager within the new Project|
+##### Flow of Events
+##### Extensions
+---
+|UC-3            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
 |Initiating Actor:||
 |Actor's Goals||
 |Participating Actors||
 |Preconditions||
 |Postconditions||
-	
+##### Flow of Events
+##### Extensions
+---
+|UC-4            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-5            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-6            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-7            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-8            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-9            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-10            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-11            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-12            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-13            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+
+
