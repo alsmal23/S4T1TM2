@@ -172,7 +172,16 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC1  |  x |    |    |    |    |    |    |    |    |     |     |     |      |        |
 |UC2  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
 |UC3  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|And  |so  |on..|    |    |    |    |    |    |    |     |     |     |      |        |
+|UC4  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC5  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC6  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC7  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC8  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC9  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC10 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC11 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC12 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|UC13 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
 ---
 __Detailed Use Cases__
 (@lihaven TODO → make a detailed use case template)
@@ -191,9 +200,13 @@ __Detailed Use Cases__
  3. User: Fills out Form
  4. → User: Submits Form
  5. ← System: (a) Stores account information; (b) signals completions
-##### Extensions
-5.(b) ← System: signals that account information is incomplete/not unique, returns form to user
-6. return to step 3.  
+---
+##### Extensions   
+  
+
+5(b). ← System: signals that account information is incomplete/not unique, returns form to user
+6. return to step 3.
+
 ---
 |UC-2            | Create Project|
 |--------------------:|--------------|
@@ -328,3 +341,4 @@ __Detailed Use Cases__
 ##### Extensions
 
 
+.
