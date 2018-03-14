@@ -175,3 +175,4 @@ There are more use cases than requirements, so I turned the table from what is i
 |And  |so  |on..|    |    |    |    |    |    |    |     |     |     |      |        |
 
 __Detailed Use Cases__
+(@lihaven TODO → make a detailed use case template)
