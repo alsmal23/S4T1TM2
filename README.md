@@ -199,13 +199,18 @@ __Detailed Use Cases__
  2. ← System: Displays a form to user
  3. User: Fills out Form
  4. → User: Submits Form
- 5. ← System: (a) Stores account information; (b) signals completions
+ 5. ← System: 
+	 * (a) Stores account information 
+	 * (b) signals completions
 ---
 ##### Extensions   
   
 
-5(b). ← System: signals that account information is incomplete/not unique, returns form to user
-6. return to step 3.
+5(b).
+1. ← System: 
+	* (a) signals that account information is incomplete/not unique
+	* (b) returns form to user  
+2.  return to step 3.
 
 ---
 |UC-2            | Create Project|
@@ -217,7 +222,22 @@ __Detailed Use Cases__
 |Preconditions|User must have an account|
 |Postconditions|User is manager within the new Project|
 ##### Flow of Events
+1. → User: Selects Create Project
+2. ← System: Displays Form to User
+3. User: Completes Form
+4. → User: Submits Form
+5. ← System:
+	* (a) Creates Project 
+	* (b) Signals to User Project Created
+---
 ##### Extensions
+
+5(b).
+1. ← System: 
+	 * (a) signals that account information is incomplete/not unique
+	* (b) returns form to user  
+3.  Return to 3.
+
 ---
 |UC-3            | Verb Phrase|
 |--------------------:|--------------|
