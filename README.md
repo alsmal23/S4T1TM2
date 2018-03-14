@@ -166,22 +166,22 @@ __Derived Use Cases From Requirements__
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
 
-|Req't|REQ1|REQ2|REQ3|REQ4|REQ5|REQ6|REQ7|REQ8|REQ9|REQ10|REQ11|REQ12|Max PW|Total PW|
-|----:|:---:|:---:|----|----|----|----|----|----|----|-----|-----|-----|------|--------|
-|PW   |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC1  |  x |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC2  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC3  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC4  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC5  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC6  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC7  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC8  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC9  |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC10 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC11 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC12 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
-|UC13 |    |    |    |    |    |    |    |    |    |     |     |     |      |        |
+|Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9|REQ10|REQ11|REQ12|Max PW|Total PW|
+|----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
+|PW   |     |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC1  |  x  |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC2  | x   |     |     |   x |     |    |    |    |    |     |     |     |      |        |
+|UC3  |     |     |  x  |  x  |     |    |    |    |    |     |     |     |      |        |
+|UC4  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC5  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC6  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC7  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC8  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC9  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC10 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC11 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC12 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC13 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 ---
 __Detailed Use Cases__
 (@lihaven TODO → make a detailed use case template)
@@ -239,16 +239,31 @@ __Detailed Use Cases__
 3.  Return to 3.
 
 ---
-|UC-3            | Verb Phrase|
+|UC-3            | Create Sprint|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-4|
+|Initiating Actor:|Manager|
+|Actor's Goals|Create a Sprint within a Project|
+|Participating Actors|None|
+|Preconditions|A project must already exist|
+|Postconditions|A sprint is created within a project|
 ##### Flow of Events
+1. → User: selects create Sprint
+2.  System: Checks if User has permissions to create Sprint
+3. ← System: Sends form to Manager 
+4. Manger: completes required fields 
+5. →Manger: submits form
+6. System: Creates Sprint
 ##### Extensions
+3a. 
+1. System Checks if User has permissions to create sprint
+2. ←System: indicates that Sprint cannot be created
+
+6a.
+1. ←System returns incomplete or non-unique form
+2.  →User submits completed form
+
+
 ---
 |UC-4            | Verb Phrase|
 |--------------------:|--------------|
