@@ -138,7 +138,27 @@ __Actors__
 
 __Derived Use Cases From Requirements__
 
-Lindsay is reworking these.
+
+|Actor     |Actor's Goal                                                                            |Use Case Name         |
+|----------|----------------------------------------------------------------------------------------|----------------------|
+|Manager   |Will be able to create projects and have them saved on the server.                      | CreateProj(UC1)      |
+|Manager   |Will be able to create sprints and have them saved on the server.                       | CreateSprints(UC2)   |
+|Manager   |Will be able to create tasks and have them saved on the server.                         | CreateTasks(UC3)     |
+|Manager   |Will be able to create and modify task attributes and have them saved on the server.    | ModAttribs(UC4)      |
+|Programmer|Will be able to create tasks and have them saved on the server.                         | CreateTasks(UC3)     |
+|Programmer|Will be able to create and modify task attributes and have them saved on the server.    | ModAttribs(UC4)      |
+|Anyone    |Should be able to download and open the desktop client.                                 | DownloadClient(UC5)  |
+|Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.| RegAccout(UC6)  |
+
+These items are still being refined.
+|RegUser   |Should be able to open the desktop client and log into their account.|
+|RegUser   |Should be able to open the desktop client and access appropriate (per their permissions) project data.|
+|RegUser   |Should be able to use a Graphical User Interface to interact with project data through their desktop client.|
+|RegUser   |Should be able to create a new project with the permissions of a manager.|
+|Manager   |Should be able to invite additional register users to access a project with progammer like permissions.|
+|RegUser   |Should be able to see notifications about invitations to projects they have been invited to.|
+|Programmer|Should be able to modify some project data in accordance with programmer like permissions.|
+
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
