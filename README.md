@@ -152,11 +152,9 @@ __Derived Use Cases From Requirements__
 |RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
 |Manager   |Will be able to create sprints and have them saved on the server.                       |CreateSprints(UC2)    |
 |Developer |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
-|Manager   |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
+|Developer |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
 |Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
-|Programmer|Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
-|Anyone    |Should be able to download and open the desktop client.                                 |DownloadClient(UC9)   |
 |Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.		       |RegAccout(UC10)       |
 |RegUser   |Should be able to open the desktop client and log into their account.		    |OpenDsktpClient(UC11) |
 |RegUser   |Should be able to use a GUI to interact with project data through their desktop client. |UseGUI(UC12)          |
@@ -559,21 +557,15 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-24            | Edit start and stop times on task|
+|UC-24            | Verb Phrase|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1, REQ-10|
-|Initiating Actor:|Developer|
-|Actor's Goals|Edit erroneously recorded data|
-|Participating Actors|None|
-|Preconditions|a start and stop time pair already exists associated with task|
-|Postconditions|start and/or stop time will be altered|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
 ##### Flow of Events
-1. →User:Indicates a task to modify
-2. ←System:Displays task information
-3. →User: 
-	* (a) indicates which time to alter
-	* (b) sets new time
-4. ←System:Indicates that times have been logged see (UC-22,UC23)
 ##### Extensions
 ---
 
@@ -585,14 +577,8 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Participating Actors|None|
 |Preconditions|task must exist|
 |Postconditions|a new start and stop time will be added to the task|
-##### Flow of Events
-1. →User: Selects task
-2. ←System: displays task information
-3. →User: Indicates the times that worked between
-4. ←System:
-	* (a) adds start and stop times see (UC-22,UC-23)
-	* (b) indicates that times have been entered
 
+##### Flow of Events
 ##### Extensions
 ---
 |UC-26          | View Statistics|
