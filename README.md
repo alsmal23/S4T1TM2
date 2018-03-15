@@ -222,7 +222,7 @@ __Detailed Use Cases__
 
 |UC-1            | Create Account|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1|
+|Related Requirements:|REQ-1,REQ-2,REQ-3|
 |Initiating Actor:|Anyone|
 |Actor's Goals|Create an account on the server|
 |Participating Actors|None|
@@ -238,7 +238,6 @@ __Detailed Use Cases__
 	 * (b) signals completions
 ---
 ##### Extensions   
-  
 
 5(b).
 1. ← System: 
@@ -249,7 +248,7 @@ __Detailed Use Cases__
 ---
 |UC-2            | Create Project|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1, REQ-4|
+|Related Requirements:|REQ-1,REQ-2, REQ-4|
 |Initiating Actor:|Regular User|
 |Actor's Goals|Create an Empty Project|
 |Participating Actors|None|
@@ -275,7 +274,7 @@ __Detailed Use Cases__
 ---
 |UC-3            | Create Sprint|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-3,REQ-4|
+|Related Requirements:|REQ-1,REQ-7|
 |Initiating Actor:|Manager|
 |Actor's Goals|Create a Sprint within a Project|
 |Participating Actors|None|
@@ -301,7 +300,7 @@ __Detailed Use Cases__
 ---
 |UC-4            | Modify task attributes|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-2,REQ-3|
+|Related Requirements:|REQ-1,REQ-2,REQ-8|
 |Initiating Actor:|Programmer|
 |Actor's Goals|Set the size,due date, tags, of a task|
 |Participating Actors|none|
@@ -384,7 +383,7 @@ __Detailed Use Cases__
 ---
 |UC-11            | EditProject|
 |--------------------:|--------------|
-|Related Requirements:||
+|Related Requirements:|REQ-1,REQ-9|
 |Initiating Actor:|Manager|
 |Actor's Goals|To change properties global to a project such as the tags which are available to tasks.|
 |Participating Actors|None|
