@@ -406,15 +406,19 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-16            | Verb Phrase|
+We should probably get rig of UC-16 and merge it w/ UC-14
+|UC-16            | InviteNotify|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1|
+|Initiating Actor:|Manager|
+|Actor's Goals|To add the desired new programmer to their team.|
+|Participating Actors|RegUser|
+|Preconditions|Manager invite to the new prorammer.|
+|Postconditions|RegUser is notified that they have an invitation to become a programmer on the relavent project.|
 ##### Flow of Events
+1. -> Manager finishes sending invite.
+2. <- Server sends invite once the target user's client is connected to the network.
+3. -> Target user accepts invite.
 ##### Extensions
 ---
 
