@@ -127,6 +127,8 @@ The following third-party softwares will be used in the server architecture:
 |**REQ-10**| 19 |Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
 |**REQ-11**| 16  |Users shall be able to view work summaries for a specific project, sprint, task, or user.|
 
+Priority justifications: Most important is anything that was part of the original TM program and adding agile functionality, the second most important thing is the cloud server implementation because it's easy and helps teams work together better, the thrid most imporant thing is that the program beable to support multiple projects and then multiple teams, finally it's important to manager user permissions so teams don't have to worry about correcting mistakes or misunderstandings with chages made by inexperienced or un informed useres.
+
 ##### Possible Future Requirements
 |REQ-###|Description|
 |------|-----------|
