@@ -14,10 +14,10 @@ On the requirements tab managers create Epics. Epics are assigned to projects. U
 Managers then create Sprints and Releases, and assign tasks to them.  
 - Projects → Epics → User Stories → Tasks (→ Sub-tasks)  
 - Projects →  Releases → Sprints → Tasks
-- Projects →  Impedements
+- Projects →  Impediments
    
 ##### Reporting  
-Agilean offers many views of the project. The Requirements view displays all of the Epics, User Stories and Tasks. The board view displays all of the tasks in the current sprint on a swim lane board with lanes representing various levels of completion, from Backlog to Done. Agilean also offers a comprehensive reporting view, showing how many tasks are assigned to each developer, how many tasks are in each stage of completion, a burndown chart, among others. 
+Agilean offers many views of the project. The Requirements view displays all of the Epics, User Stories and Tasks. The board view displays all of the tasks in the current sprint on a swim lane board with lanes representing various levels of completion, from Backlog to Done. Agilean also offers a comprehensive reporting view, showing how many tasks are assigned to each developer, how many tasks are in each stage of completion, a burn-down chart, among others. 
   
   
 ### [RescueTime](https://www.rescuetime.com/)   
@@ -32,10 +32,8 @@ RescueTime's principal selling point is its complex interactive and exhaustive s
 
  
 ### [Timesheet](https://www.timesheet.io/)  
->This section definitely not done yet, but wanted to get some of my research visable. I plan to make this into a more compact and presentible form.
-
 #### Overview 
-Timesheet is and individual user time tracking solution with a focus on tracking contract work. Although it includes a lot of features that probabably won't want to consider for YAAM (including, but not limited to billing and expense tracking because the assumption is that YAAMs users are salaried), it is primarly a time and completed task tracking applciation. This makes it relelevant our research because it's conceptually very similar to out first TM application in class, but with a GUI and some critical features added, primarily projects, tags, and GUIs on web and mobile. 
+Timesheet is and individual user time tracking solution with a focus on tracking contract work. Although it includes a lot of features that probably won't want to consider for YAAM (including, but not limited to billing and expense tracking because the assumption is that YAAMs users are salaried), it is primarily a time and completed task tracking application. This makes it relevant our research because it's conceptually very similar to out first TM application in class, but with a GUI and some critical features added, primarily projects, tags, and GUIs on web and mobile. 
 
 The general user flow in Timesheets is for a user to create a project, maybe a tag or two, and then start tracking tasks with the timer, once tasks are stopped they will ask for tags and a description. Note the mobile app is free, but the web app is not, therefore the mobile app with timer is the most common use case.
 
@@ -68,7 +66,7 @@ Project
 
 Tasks
 Two different task views calendar or list on web app, list only on mobile app.
-* Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Milage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
+* Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Mileage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
 * Feeling Options → :D     :|     :/    :( ...This features seems kind of out of place in the app, I suppose it's a quality of job/life measure. No compiling or statistics on this field.
 * Notes section: A Large-ish text field where notes can be added after the task has been completed (either at manual creation or when the timer is stopped).
 * Expenses Fields: Date & time incurred, Amount, Description, Paid Status <yes/no>
@@ -82,15 +80,15 @@ Statistics
 
 
 ## Project Overview  
-YAAM is a client-server application with all data stored on a private server. Customers will host a YAAM server and make accounts for their team on that server. They will run a client side desktop application in order to access that server. The client will observe the developer and issue smart reminders to log work done when the developer uses IDEs for example. This will allow us to bring  Rescue Times tracking ability, and TimeSheets intentional tracking with Agilean's application domain specific reporting, and project progress tracking.   
+YAAM is a client-server application with all data stored on a cloud server as a service. Customers will be able to create their own user accounts and run a client-side desktop application in order to access that server. The client will observe the developer and issue smart reminders to log work done when the developer uses IDEs, for example. This will allow us to bring  Rescue Times tracking ability, and TimeSheets intentional tracking with Agilean's application domain specific reporting, and project progress tracking.   
   
 With automatic reminders tracking data will be more reliable. This will enable project leads to understand their teams velocity and generate more accurate predictions about future productivity. With online storage, YAAM will provide project managers with powerful options for communicating with their customers, and permissions will allow those customers to only see what information matters to them, without all of the technical details. 
 
 ## Project Architecture  
-The project architecture for our software incorporates various ideas from both our team and our product reviews. Our architecture will make use a client-server approach to maximize team collaboration and accessibility. All software implementations (client and server) will be written in Java 8, with the exception of the server's persistent data storage. The client's role is to provide the means for inputting and reviewing project data. The server's role is to serve as a database endpoint to synchronize all relevant project data to an entire development team.
+The project architecture for our software incorporates various ideas from both our team and our product reviews. Our architecture will make use a cloud-based client-server approach to maximize team collaboration and accessibility. All software implementations (client and server) will be written in Java 8, with the exception of the server's persistent data storage. The client's role is to provide the means for inputting and reviewing project data. The server's role is to serve as a database endpoint to synchronize all relevant project data to an entire development team.
 
 #### Client
-The only software client will be a JavaFX-driven GUI desktop application. Users will be able to create, edit, and interact with organizations, projects, and tasks; behind the scenes, all modification data will be sent to the server to handle and store. The desktop application will serve to organize tasks, track time spent on tasks, and provide a statistical aggregation breakdown for tasks. 
+The only software client will be a JavaFX-driven GUI desktop application. Users will be able to create, edit, and interact with projects and tasks; behind the scenes, all modification data will be sent to the server to handle and store. The desktop application will serve to organize tasks, track time spent on tasks, and provide a statistical aggregation breakdown for tasks. The client will synchronize all modified project data with the cloud server.
 
 The following third-party softwares will be used in the client architecture:
 - To provide a GUI with rich UI design:
@@ -101,7 +99,7 @@ The following third-party softwares will be used in the client architecture:
   - **[system-hook](https://github.com/kristian/system-hook)**: "Java (low-level) System Hook provides a very light-weight global keyboard and mouse listener for Java."
 
 #### Server
-The server software will serve to store and retrieve all data related to a users organizations, projects, and tasks. Clients will send appropriate user data to the server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of MySQL to store all relevant data related to users, organizations, projects, and tasks.
+The cloud server software will serve to store and retrieve all data related to users, projects, and tasks. Clients will send appropriate user data to the cloud server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of MySQL to store all relevant data related to users, projects, and tasks.
 
 The following third-party softwares will be used in the server architecture:
 - To provide a HTTP API endpoint:
