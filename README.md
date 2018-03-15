@@ -13,8 +13,8 @@ On the requirements tab managers create Epics. Epics are assigned to projects. U
 
 Managers then create Sprints and Releases, and assign tasks to them.  
 - Projects → Epics → User Stories → Tasks (→ Sub-tasks)  
-- Projects →  Releases → Sprints → Tasks
-- Projects →  Impediments
+- Projects → Releases → Sprints → Tasks
+- Projects → Impediments
    
 ##### Reporting  
 Agilean offers many views of the project. The Requirements view displays all of the Epics, User Stories and Tasks. The board view displays all of the tasks in the current sprint on a swim lane board with lanes representing various levels of completion, from Backlog to Done. Agilean also offers a comprehensive reporting view, showing how many tasks are assigned to each developer, how many tasks are in each stage of completion, a burn-down chart, among others. 
@@ -56,27 +56,27 @@ The general user flow in Timesheets is for a user to create a project, maybe a t
 </table>
 
 #### Details on Major Features and Functions
-Timer
-* Start: Starts a timer and displays it in notification bar with simple options
-* Pause: Pauses timer, tasks track paused time. Unpause brings up a simple page to save notes about the break or change the time of the break.
-* Stop: Stops the task. Brings up a simple page to save notes about the task or change any of the feilds on the task.
--
-Project
-* Project fields: Name, Employer/Client, Description, Location, Rate, Color, Archive (yes/no)
+##### Timer
+- Start: Starts a timer and displays it in notification bar with simple options
+- Pause: Pauses timer, tasks track paused time. Unpause brings up a simple page to save notes about the break or change the time of the break.
+- Stop: Stops the task. Brings up a simple page to save notes about the task or change any of the fields on the task.
 
-Tasks
+##### Project
+- Project fields: Name, Employer/Client, Description, Location, Rate, Color, Archive (yes/no)
+
+##### Tasks
 Two different task views calendar or list on web app, list only on mobile app.
-* Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Mileage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
-* Feeling Options → :D     :|     :/    :( ...This features seems kind of out of place in the app, I suppose it's a quality of job/life measure. No compiling or statistics on this field.
-* Notes section: A Large-ish text field where notes can be added after the task has been completed (either at manual creation or when the timer is stopped).
-* Expenses Fields: Date & time incurred, Amount, Description, Paid Status <yes/no>
-* Break Fields (pause): Start/Stop & Duration, Description
+- Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Mileage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
+- Feeling Options → :D     :|     :/    :( ...This features seems kind of out of place in the app, I suppose it's a quality of job/life measure. No compiling or statistics on this field.
+- Notes section: A Large-ish text field where notes can be added after the task has been completed (either at manual creation or when the timer is stopped).
+- Expenses Fields: Date & time incurred, Amount, Description, Paid Status <yes/no>
+- Break Fields (pause): Start/Stop & Duration, Description
 
-Tags
-* Tag fields: Name and color
+##### Tags
+- Tag fields: Name and color
 
-Statistics
-* Reporting Features: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Salary, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour break down text 
+##### Statistics
+- Reporting Features: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Salary, Progress (since it does not track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour break down text).
 
 
 ## Project Overview  
