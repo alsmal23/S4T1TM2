@@ -373,6 +373,49 @@ __Detailed Use Cases__
 5. Server makes changes to records.
 6. <- Client reports the sucess/failure of the changes.
 ##### Extensions
-
+|UC-13            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-14            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-15            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-16            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
 
 .
