@@ -113,7 +113,6 @@ The following third-party softwares will be used in the server architecture:
   - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
   
   
-## Requirements 
 |REQ-###|Description|
 |------|-----------|
 |**REQ-1**|The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
@@ -123,11 +122,17 @@ The following third-party softwares will be used in the server architecture:
 |**REQ-5**|Users, as a the project creator, shall be able to invite additional registered users to view (and potentially modify) a project.|
 |**REQ-6**|Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
 |**REQ-7**|Users with appropriate permissions shall be able to create a sprint or task. |
-|**REQ-8**|Users with appropriate permissions shall be able to specify attributes for sprints and tasks, such as descriptions, assignee(s), task size, status, due dates, and varying other properties.|
-|**REQ-9**|Users with the appropriate permissions shall be able to define their own attributes on a per-project basis. For example: customizable task sizes or statuses.|
+|**REQ-8**|Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
+|**REQ-9**|Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.|
 |**REQ-10**|Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
-|**REQ-11**|Users shall be able to view work summaries for a specific project, sprint, task, or user.|velopers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
+|**REQ-11**|Users shall be able to view work summaries for a specific project, sprint, task, or user.|
 
+##### Possible Future Requirements
+|REQ-###|Description|
+|------|-----------|
+|**REQ-XX1**|Users with the appropriate permissions will be able to define and attach custom tags to tasks, on a per-project basis.|
+|**REQ-XX2**|Users shall be able to track time spent on tasks by checking user software interactivity|
+|**REQ-XX3**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
 
 ## Use Cases  (@paul-mchugh TODO → Get use cases tasks list, assign out)
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
