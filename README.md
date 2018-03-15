@@ -105,25 +105,26 @@ The following third-party softwares will be used in the server architecture:
   - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
   
   
-## Requirements 
-|Req###|Description|
+|REQ-###|Description|
 |------|-----------|
-|**REQ-1**|The server application must maintain and provide a record of projects, sprints, tasks, and their associated attributes.|
-|**REQ-2**|The client application must be able to retrieve the record of sprints, tasks, and their associated attributes from the server.|
-|**REQ-3**|Users shall be able to view the project record including the sprints and their deadlines, the tasks and their associated attributes such as tags, assigned developer, description, and task size, and any other properties of the project.|
-|**REQ-4**|Users that are assigned the attribute manager shall be able to create new projects, create new tasks, create new sprints, assign attributes to both tasks and sprints, create new accounts for developers on the server, assign a developer to a project, and reset a developer's password.|
-|**REQ-5**|Developers shall be able to log the times when they started and stopped work on tasks, including tasks that they are not assigned.|
-|**REQ-6**|Developers shall be able to amend their task histories to rectify user or technical errors.  All task history amendments shall be logged.|
-|**REQ-7**|Users shall be able to view a work summaries for a specific project, task, or user.|
-|**REQ-8**|Managers shall be able to choose from either a T-shirt size task system, a points based task size system, or some other user defined task size system and apply these stask sizing systems on a per project basis.|
-|**REG-9**|Users shall be able to create an independent organization with various projects (similar to GitHub organizations)|
-|**REG-10**|A permission system shall be able to control user read and write access to projects|
+|**REQ-1|The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
+|**REQ-2|The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.|
+|**REQ-3|Users shall be able to register an account on the cloud server.|
+|**REQ-4|Users shall be able to create a new project.|
+|**REQ-5|Users, as a the project creator, shall be able to invite additional registered users to view (and potentially modify) a project.|
+|**REQ-6|Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
+|**REQ-7|Users with appropriate permissions shall be able to create a sprint or task. |
+|**REQ-8|Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
+|**REQ-9|Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.|
+|**REQ-10|Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
+|**REQ-11|Users shall be able to view work summaries for a specific project, sprint, task, or user.|
 
-##### Potential Future Requirements
-|Req###|Description|
+##### Possible Future Requirements
+|REQ-###|Description|
 |------|-----------|
-|**REQ-XX1**|Managers shall be able to create a custom set of tags which may be assigned to tasks and make them available on a per project basis.|
-|**REQ-XX2**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
+|**REQ-XX1**|Users with the appropriate permissions will be able to define and attach custom tags to tasks, on a per-project basis.|
+|**REQ-XX2**|Users shall be able to track time spent on tasks by checking user software interactivity|
+|**REQ-XX3**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
 
 ## Use Cases 
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
