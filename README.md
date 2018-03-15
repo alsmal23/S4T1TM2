@@ -188,12 +188,12 @@ __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
 
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9|REQ10|REQ11|REQ12|Max PW|Total PW|
-|----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
-|PW   |     |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC1  |  x  |     |     |     |     |    |      |     |     |     |     |     |      |        |
+|----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|-------|
+|PW   |     |     |     |     |     |     |     |     |     |     |     |     |   |    |
+|UC1  |  x  |     |     |     |     |    |      |     |     |     |     |     |   |    |
 |UC2  | x   |     |     |   x |     |    |    |    |    |     |     |     |      |        |
 |UC3  |     |     |  x  |  x  |     |    |    |    |    |     |     |     |      |        |
-|UC4  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC4  | x   |  x  |  x  |     |     |    |    |    |    |     |     |     |      |        |
 |UC5  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC6  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC7  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
@@ -203,23 +203,24 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC11 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC12 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC13 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC14  |    |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC15  |    |     |     |    |     |    |    |    |    |     |     |     |      |        |
-|UC16  |     |     |    |    |     |    |    |    |    |     |     |     |      |        |
-|UC17  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC18  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC19  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC20  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC21  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|Uc22  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC14 |    |      |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC15 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC16 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC17 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC18 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC19 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC20 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC21 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|Uc22 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC23 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC24 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC25|     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC25 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC26 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC27 |     |  x  |     |     |     |    |    |    |    |     |  x  |     |      |        |
 ---
 __Detailed Use Cases__
 (@lihaven TODO → make a detailed use case template)
+
 |UC-1            | Create Account|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1|
@@ -299,16 +300,22 @@ __Detailed Use Cases__
 
 
 ---
-|UC-4            | Verb Phrase|
+|UC-4            | Modify task attributes|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-2,REQ-3|
+|Initiating Actor:|Programmer|
+|Actor's Goals|Set the size,due date, tags, of a task|
+|Participating Actors|none|
+|Preconditions|a task must exist|
+|Postconditions|task attributes will be updated|
 ##### Flow of Events
-##### Extensions
+1. →User: selects a task
+2. ←System: displays task detailed view
+3. →User: 
+	* (a) selects attribute to change
+	* (b) selects new value for attribute
+4. System: updates value of task attribute
+
 ---
 |UC-5            | Verb Phrase|
 |--------------------:|--------------|
