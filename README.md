@@ -138,21 +138,7 @@ __Actors__
 
 __Derived Use Cases From Requirements__
 
-|Actor     |Actor's Goal                                                                            |Use Case Name         |
-|----------|----------------------------------------------------------------------------------------|----------------------|
-|Anyone    |Create account                                                                          |CreateAccount(UC1)    |
-|RegUser   |Create project (any RegUser can make a project and be a manager within that space)      |CreateProject(UC2)    |
-|Manager   |Create sprint                                                                           |CreateSprint(UC3)     |
-|Programmer|Create task                                                                             |CreateTask(UC4)     |
-|Manager   |Create task                                                                             |CreateTask(UC4)     |
-|Programmer|View project data from server (users, projects, sprints, tasks, etc.)                   |ViewProjData(UC5)     |
-|Manager   |Request project data (users, projects, sprints, tasks, etc.)                            |ViewProjData(UC5)     |
-|Manager   |Add new users to a project and assign permissions to users on a project                 |ManagePermissions(UC9)|
-|Programmer|Update and add task information                                                         |EditAddTask (UC10)    |
-|Manager   |Update and add task information                                                         |EditAddTask (UC10)    |
-|Manager   |Update and add project information                                                      |EditAddProj (UC11)    |
-|Manager   |Update and add sprint information                                                       |EditSprint (UC12)  |
-|And...    |Sooooo many more to come                                                                |..                    |
+Lindsay is reworking these.
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
