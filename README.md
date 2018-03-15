@@ -355,6 +355,7 @@ __Detailed Use Cases__
 4. -> Manager enters desired changes and presses submit.
 5. Server makes changes to records.
 6. <- Client reports the sucess/failure of the changes.
+
 ##### Extensions
 ---
 |UC-12            | EditSprint|
@@ -384,15 +385,20 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-14            | Verb Phrase|
+|UC-14            | InviteToProj|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-5|
+|Initiating Actor:|Manager|
+|Actor's Goals|To add a new programmer to their project|
+|Participating Actors|RegUser|
+|Preconditions|The desired used is not part of the project in question.|
+|Postconditions|The desired User will be able to join the relevant project.|
 ##### Flow of Events
+1. -> Manager selects the invite user action for their project.
+2. Server checks that the user is a manager and has appropriate permisions.
+3. <- Client displays the invite user menu.
+4. -> Manager enters the username of the relavent user.
+5. <- Server sends confirmation message
 ##### Extensions
 ---
 |UC-15            | Verb Phrase|
@@ -407,9 +413,10 @@ __Detailed Use Cases__
 ##### Extensions
 ---
 We should probably get rig of UC-16 and merge it w/ UC-14
+
 |UC-16            | InviteNotify|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1|
+|Related Requirements:|REQ-1,REQ-5|
 |Initiating Actor:|Manager|
 |Actor's Goals|To add the desired new programmer to their team.|
 |Participating Actors|RegUser|
