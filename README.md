@@ -171,7 +171,7 @@ __Derived Use Cases From Requirements__
 |Manager   |Will be able to customize tags as project parameters.				    |DefineTags(UC20)      |
 |Manager   |Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
 |Programmer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
-|Manager   |Start work on a task.								    |SetTaskTags(UC21)     |
+|Manager   |Start work on a task.								    |StartTask(UC22)     |
 |Manager   |Stop work on a task.								    |StopTask(UC23)        |
 |Manager   |Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
 |Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
@@ -190,10 +190,10 @@ There are more use cases than requirements, so I turned the table from what is i
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9|REQ10|REQ11|REQ12|Max PW|Total PW|
 |----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|-------|
 |PW   |     |     |     |     |     |     |     |     |     |     |     |     |   |    |
-|UC1  |  x  |     |     |     |     |    |      |     |     |     |     |     |   |    |
-|UC2  | x   |     |     |   x |     |    |    |    |    |     |     |     |      |        |
-|UC3  |     |     |  x  |  x  |     |    |    |    |    |     |     |     |      |        |
-|UC4  | x   |  x  |  x  |     |     |    |    |    |    |     |     |     |      |        |
+|UC1  |  x  |     |     |     |     |     |     |     |     |     |     |     |   |    |
+|UC2  | x   |     |     |   x |     |     |    |    |    |     |     |     |      |        |
+|UC3  |     |     |  x  |  x  |     |     |    |    |    |     |     |     |      |        |
+|UC4  | x   |  x  |  x  |     |     |     |    |    |    |     |     |     |      |        |
 |UC5  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC6  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC7  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
@@ -211,11 +211,11 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC19 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC20 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC21 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|Uc22 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|Uc22 | x   |     |     |     |  x  |    |    |    |    |     |     |     |      |        |
 |UC23 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC24 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC25 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC26 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC26 |     |  x  |     |     |     |    |    |    |    |     |  x  |     |      |        |
 |UC27 |     |  x  |     |     |     |    |    |    |    |     |  x  |     |      |        |
 ---
 __Detailed Use Cases__
@@ -531,16 +531,22 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-22            | Verb Phrase|
+|UC-22            | Start Work on a Task|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-5, REQ-1, |
+|Initiating Actor:|Programmer|
+|Actor's Goals|Log the time the actor began working on a task|
+|Participating Actors|none|
+|Preconditions|A Task must exist|
+|Postconditions|start time is logged and saved|
 ##### Flow of Events
+1. →User:selects the task that they want to begin 
+2. ←System:Presents options for task
+3. →User: selects start work
+4. System logs start time
 ##### Extensions
+(4b). 
+	1.←System: indicates to user that task is already started
 ---
 |UC-23            | Verb Phrase|
 |--------------------:|--------------|
@@ -575,21 +581,23 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-26          | |
+|UC-26          | View Statistics|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-11, REQ-2|
+|Initiating Actor:|Programmer/Manager|
+|Actor's Goals|View Detailed Statistics about Tasks, projects|
+|Participating Actors|None|
+|Preconditions|Actor must have appropriate permissions to access given tasks and projects|
+|Postconditions|Detailed statistics are returned to the User|
 ##### Flow of Events
-##### Extensions
+1. →User: selects statistics
+2. ←System: Displays Statistics for all projects and tasks User has permissions to view (which could be none).
+
 ---
 |UC-27            | Filter Statistics|
 |--------------------:|--------------|
 |Related Requirements:|REQ-11,REQ-2|
-|Initiating Actor:|Programmer|
+|Initiating Actor:|Programmer/Manager|
 |Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
