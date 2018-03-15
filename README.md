@@ -154,8 +154,8 @@ __Derived Use Cases From Requirements__
 |Manager   |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
 |Manager   |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
 |Manager   |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
-|Manager   |Will be able to create a sprint with a date.                                            |SprintDueDates(UC6)   |
-|Manager   |Will be able to create a sprint with no due date.                                       |SprintNoDueDates(UC7) |
+|Manager   |Will be able to create a sprint.                                                        |SprintDueDates(UC6)   |
+|Manager   |Will be able to optionally define a sprint due dat                                      |SprintNoDueDates(UC7) |
 |Manager   |Will be able to give a sprint a name                                                    |SprintNames(UC8)      |
 |Programmer|Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
 |Programmer|Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
