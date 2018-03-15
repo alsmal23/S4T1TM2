@@ -389,12 +389,12 @@ __Detailed Use Cases__
 |Preconditions|The selected project exists.|
 |Postconditions|The selected project has the properties assigned by the manager.|
 ##### Flow of Events
-1. -> Manager selects edit project properties.
+1. → Manager selects edit project properties.
 2. Server validates the user is a manager.
-3. <- Client displays edit project menu.
-4. -> Manager enters desired changes and presses submit.
+3. ← Client displays edit project menu.
+4. → Manager enters desired changes and presses submit.
 5. Server makes changes to records.
-6. <- Client reports the sucess/failure of the changes.
+6. ← Client reports the sucess/failure of the changes.
 
 ##### Extensions
 ---
@@ -407,12 +407,12 @@ __Detailed Use Cases__
 |Preconditions|Selected sprint exists.  A project exists|
 |Postconditions|Selected sprint is assigned the attributes specified by the manager.|
 ##### Flow of Events
-1. -> Manager selects the edit button on a sprint.
+1. → Manager selects the edit button on a sprint.
 2. Server validates the user has the appropriate permissions.
-3. <- Client displays the edit sprint options menu.
-4. -> Manager enters desired changes and selects submit.
+3. ← Client displays the edit sprint options menu.
+4. → Manager enters desired changes and selects submit.
 5. Server makes changes to records.
-6. <- Client reports the sucess/failure of the changes.
+6. ← Client reports the sucess/failure of the changes.
 ##### Extensions
 ---
 This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
@@ -437,11 +437,11 @@ This is not a Use Case this is a property of how the permissions system operates
 |Preconditions|The desired used is not part of the project in question.|
 |Postconditions|The desired User will be able to join the relevant project.|
 ##### Flow of Events
-1. -> Manager selects the invite user action for their project.
+1. → Manager selects the invite user action for their project.
 2. Server checks that the user is a manager and has appropriate permisions.
-3. <- Client displays the invite user menu.
-4. -> Manager enters the username of the relavent user.
-5. <- Server sends confirmation message
+3. ← Client displays the invite user menu.
+4. → Manager enters the username of the relavent user.
+5. ← Server sends confirmation message
 ##### Extensions
 ---
 This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
@@ -468,9 +468,9 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Preconditions|Manager invite to the new prorammer.|
 |Postconditions|RegUser is notified that they have an invitation to become a programmer on the relavent project.|
 ##### Flow of Events
-1. -> Manager finishes sending invite.
-2. <- Server sends invite once the target user's client is connected to the network.
-3. -> Target user accepts invite.
+1. → Manager finishes sending invite.
+2. ← Server sends invite once the target user's client is connected to the network.
+3. → Target user accepts invite.
 ##### Extensions
 ---
 |UC-17            | Verb Phrase|
@@ -569,7 +569,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 ---
 
-|UC-25            | Verb Phrase|
+|UC-25            | Add task times|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-10|
 |Initiating Actor:|Developer|
@@ -577,9 +577,14 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Participating Actors|None|
 |Preconditions|task must exist|
 |Postconditions|a new start and stop time will be added to the task|
-
 ##### Flow of Events
-##### Extensions
+1. →User: indicates task to edit
+2. ←System: displays detailed information about task
+3. →User: User indicates times to add 
+4. ←System: 
+	* (a) adds times to task see (UC-22,UC-23)
+	* (b) indicates to user that times are logged.
+
 ---
 |UC-26          | View Statistics|
 |--------------------:|--------------|
