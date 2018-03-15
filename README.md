@@ -562,20 +562,26 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-24            | Verb Phrase|
+|UC-24            | Edit start and stop times on task|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1, REQ-10|
+|Initiating Actor:|Developer|
+|Actor's Goals|Edit erroneously recorded data|
+|Participating Actors|None|
+|Preconditions|a start and stop time pair already exists associated with task|
+|Postconditions|start and/or stop time will be altered|
 ##### Flow of Events
+1. →User:Indicates a task to modify
+2. ←System:Displays task information
+3. →User: 
+	* (a) indicates which time to alter
+	* (b) sets new time
+4. ←System:Indicates that times have been logged see (UC-22,UC23)
 ##### Extensions
 ---
 |UC-25            | Add task times|
 |--------------------:|--------------|
-|Related Requirements:|REQ-10|
+|Related Requirements:|REQ-1,REQ-10|
 |Initiating Actor:|Developer|
 |Actor's Goals|Enter data for work that was not recorded due to a user error.|
 |Participating Actors|None|
@@ -586,7 +592,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 2. ←System: displays task information
 3. →User: Indicates the times that worked between
 4. ←System:
-	* (a) adds start and stop times see UC-22,UC-23
+	* (a) adds start and stop times see (UC-22,UC-23)
 	* (b) indicates that times have been entered
 ##### Extensions
 ---
