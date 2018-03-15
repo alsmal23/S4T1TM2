@@ -113,19 +113,19 @@ The following third-party softwares will be used in the server architecture:
   
 ## Project Requirements
   
-|REQ-###|Description|
-|------|-----------|
-|**REQ-1**|The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
-|**REQ-2**|The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.|
-|**REQ-3**|Users shall be able to register an account on the cloud server.|
-|**REQ-4**|Users shall be able to create a new project.|
-|**REQ-5**|Users, as a the project creator, shall be able to invite additional registered users to view (and potentially modify) a project.|
-|**REQ-6**|Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
-|**REQ-7**|Users with appropriate permissions shall be able to create a sprint or task. |
-|**REQ-8**|Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
-|**REQ-9**|Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.|
-|**REQ-10**|Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
-|**REQ-11**|Users shall be able to view work summaries for a specific project, sprint, task, or user.|
+|REQ-###|Priority|Description|
+|------|---|-----------|
+|**REQ-1**| 20 |The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
+|**REQ-2**| 14 |The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.|
+|**REQ-3**| 13 |Users shall be able to register an account on the cloud server.|
+|**REQ-4**| 15 |Users shall be able to create a new project.|
+|**REQ-5**| 10 |Users, as a the project creator, shall be able to invite additional registered users to view (and potentially modify) a project.|
+|**REQ-6**| 9 |Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
+|**REQ-7**| 17 |Users with appropriate permissions shall be able to create a sprint or task. |
+|**REQ-8**| 7 |Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
+|**REQ-9**| 6 |Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.|
+|**REQ-10**| 19 |Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
+|**REQ-11**| 16  |Users shall be able to view work summaries for a specific project, sprint, task, or user.|
 
 ##### Possible Future Requirements
 |REQ-###|Description|
@@ -156,11 +156,9 @@ __Derived Use Cases From Requirements__
 |Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
 |Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.		       |RegAccout(UC10)       |
-|RegUser   |Should be able to open the desktop client and log into their account.		    |OpenDsktpClient(UC11) |
+|RegUser   |Users should be able to log into their account on the client application.               |OpenDsktpClient(UC11) |
 |RegUser   |Should be able to use a GUI to interact with project data through their desktop client. |UseGUI(UC12)          |
-|RegUser   |Should have the permissions of a manager on a new project they create.                  |PermsNewProj(UC13)    |
 |Manager   |Should be able to invite additional register users to access a project                  |InviteToProj(UC14)    |
-|RegUser   |When invited to a new project they should have progammer like permissions by default.   |DefaultProjPerms(UC15)|
 |RegUser   |Should be able to see notifications about invitations to projects.                      |InviteNotify(UC16)    |
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
 |Manager   |Will be able to customize task sizes as project parameters.				    |DefineSizes(UC18)     |
@@ -544,7 +542,6 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 (4b). 
 	1.←System: indicates to user that task is already started
-	
 ---
 |UC-23            | Verb Phrase|
 |--------------------:|--------------|
