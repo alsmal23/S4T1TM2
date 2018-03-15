@@ -111,6 +111,8 @@ The following third-party softwares will be used in the server architecture:
   - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
   
   
+## Project Requirements
+  
 |REQ-###|Description|
 |------|-----------|
 |**REQ-1**|The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
