@@ -151,7 +151,7 @@ __Derived Use Cases From Requirements__
 |Programmer|Update and add task information                                                         |EditAddTask (UC10)    |
 |Manager   |Update and add task information                                                         |EditAddTask (UC10)    |
 |Manager   |Update and add project information                                                      |EditAddProj (UC11)    |
-|Manager   |Update and add sprint information                                                       |EditAddSprint (UC12)  |
+|Manager   |Update and add sprint information                                                       |EditSprint (UC12)  |
 |And...    |Sooooo many more to come                                                                |..                    |
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
@@ -343,26 +343,21 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-12            | Verb Phrase|
+|UC-12            | EditSprint|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1, REQ-7|
+|Initiating Actor:|Manager|
+|Actor's Goals|To change the attributes of a sprint such as its name or target completion date.|
+|Participating Actors|None|
+|Preconditions|Selected sprint exists.  A project exists|
+|Postconditions|Selected sprint is assigned the attributes specified by the manager.|
 ##### Flow of Events
-##### Extensions
----
-|UC-13            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
+1. -> Manager selects the edit button on a sprint.
+2. Server validates the user has the appropriate permissions.
+3. <- Client displays the edit sprint options menu.
+4. -> Manager enters desired changes and selects submit.
+5. Server makes changes to records.
+6. <- Client reports the sucess/failure of the changes.
 ##### Extensions
 
 
