@@ -151,24 +151,24 @@ __Derived Use Cases From Requirements__
 |Manager   |Should be able to invite additional register users to access a project                  |InviteToProj(UC14)    |
 |RegUser   |Should be able to see notifications about invitations to projects.                      |InviteNotify(UC16)    |
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
-|Manager   |Will be able to customize task sizes as project parameters.				    |DefineSizes(UC18)     |
-|Manager   |Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
-|Programmer|Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
-|Manager   |Will be able to customize tags as project parameters.				    |DefineTags(UC20)      |
-|Manager   |Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
-|Programmer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
-|Manager   |Start work on a task.								    |StartTask(UC22)       |
-|Manager   |Stop work on a task.								    |StopTask(UC23)        |
-|Manager   |Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
+|Manager   |Will be able to customize task sizes as project parameters.		     		            |DefineSizes(UC18)     |
+|Manager   |Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
+|Programmer|Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
+|Manager   |Will be able to customize tags as project parameters.			                	    |DefineTags(UC20)      |
+|Manager   |Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
+|Programmer|Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
+|Manager   |Start work on a task.								                                    |StartTask(UC22)       |
+|Manager   |Stop work on a task.								                                    |StopTask(UC23)        |
+|Manager   |Edit start and stop times on a task.						                            |EditTaskTimes(UC24)   |
 |Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
-|Programmer|Start work on a task.								    |StartTask(UC22)       |
-|Programmer|Stop work on a task.								    |StopTask(UC23)        |
-|Programmer|Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
+|Programmer|Start work on a task.								                                    |StartTask(UC22)       |
+|Programmer|Stop work on a task.								                                    |StopTask(UC23)        |
+|Programmer|Edit start and stop times on a task.					 	                            |EditTaskTimes(UC24)   |
 |Programmer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
-|Manager   |View statistical summaries page.							    |ViewStats(UC26)       |
-|Manager   |Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
-|Programmer|View statistical summaries page.							    |ViewStats(UC26)       |
-|Programmer|Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
+|Manager   |View statistical summaries page.							                            |ViewStats(UC26)       |
+|Manager   |Manage view using filters with various project, sprint, and task attributes.	        |FilterStats(UC27)     |
+|Programmer|View statistical summaries page.						                        	    |ViewStats(UC26)       |
+|Programmer|Manage view using filters with various project, sprint, and task attributes.	        |FilterStats(UC27)     |
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
@@ -180,7 +180,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC2  | x   |     |     |   x |     |     |     |     |     |     |     |      |        |
 |UC3  |   x |     |  x  |  x  |     |     |     |     |     |     |     |      |        |
 |UC4  | x   |  x  |  x  |     |     |     |     |     |     |     |     |      |        |
-|UC5  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC5  |  x  |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
 |UC6  |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC7  |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC8  |     |     |     |     |     |     |     |     |     |     |     |      |        |
@@ -302,15 +302,21 @@ __Detailed Use Cases__
 4. System: updates value of task attribute
 
 ---
-|UC-5            | Verb Phrase|
+|UC-5            | Move Task to sprint/backlog|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-2,REQ-8|
+|Initiating Actor:|Developer|
+|Actor's Goals|To move a task either off of the backlog and into a sprint, or vice-versa|
+|Participating Actors|None|
+|Preconditions|Tasks must already exist, a sprint must already exist, user must have adequate permissions|
+|Postconditions|a sprint will have a given task assosciated with it|
 ##### Flow of Events
+1. ->User: Selects sprints
+2. <-System:displays sprints, and backlog
+3. ->User: selects sprint and destination (backlog/sprint).
+4. <-System:
+	* (a) Moves task into indicated sprint
+	* (b) Indicates to user that sprint has been moved.
 ##### Extensions
 ---
 |UC-6            | Verb Phrase|
