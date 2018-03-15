@@ -130,12 +130,10 @@ The following third-party softwares will be used in the server architecture:
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
 
 __Actors__
-Anyone - Genearlly meaning anyone or thing acting as a human person
-RegUser - Genearlly meaning anyone who has registered and has a valid user account
-Programmer - Generally meaning the user with the lowest permissions for a project
-Manager - Generally meanting the user with a high level of permissions for a project
-Server - The data warehouse manager
-Client - The customer service associate
+- Anyone - Anyone or thing acting as a human person
+- RegUser - Anyone who has registered and has a valid user account
+- Programmer - A user with the lowest/most-basic permissions for a project
+- Manager - A user with the highest/most- permissions for a project
 
 __Derived Use Cases From Requirements__
 
@@ -144,19 +142,15 @@ __Derived Use Cases From Requirements__
 |Anyone    |Create account                                                                          |CreateAccount(UC1)    |
 |RegUser   |Create project (any RegUser can make a project and be a manager within that space)      |CreateProject(UC2)    |
 |Manager   |Create sprint                                                                           |CreateSprint(UC3)     |
-|Programmer|Create task                                                                             |CreateSprint(UC4)     |
-|Manager   |Create task                                                                             |CreateSprint(UC4)     |
+|Programmer|Create task                                                                             |CreateTask(UC4)     |
+|Manager   |Create task                                                                             |CreateTask(UC4)     |
 |Programmer|View project data from server (users, projects, sprints, tasks, etc.)                   |ViewProjData(UC5)     |
 |Manager   |Request project data (users, projects, sprints, tasks, etc.)                            |ViewProjData(UC5)     |
-|Server    |Send requested project data to client                                                   |SendData (UC6)        |
-|Client    |Display project, sprint, and task data                                                  |DisplayProjData (UC7) |
-|Client    |Display statistical data                                                                |DisplayStatsData (UC8)|
 |Manager   |Add new users to a project and assign permissions to users on a project                 |ManagePermissions(UC9)|
 |Programmer|Update and add task information                                                         |EditAddTask (UC10)    |
 |Manager   |Update and add task information                                                         |EditAddTask (UC10)    |
 |Manager   |Update and add project information                                                      |EditAddProj (UC11)    |
 |Manager   |Update and add sprint information                                                       |EditAddSprint (UC12)  |
-|Server    |Store application data (users, projects, sprints, tasks, etc.).                         |StoreData (UC13)      |
 |And...    |Sooooo many more to come                                                                |..                    |
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
