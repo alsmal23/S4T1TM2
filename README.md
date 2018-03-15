@@ -199,7 +199,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC21 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |Uc22 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC23 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
-|UC24 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC24 | x   |     |     |     |     |     |     |     |     |  x  |     |      |        |
 |UC25 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC26 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
 |UC27 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
@@ -567,14 +567,21 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ---
 |UC-24            | Verb Phrase|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
+|Related Requirements:|REQ-1,REQ-10|
+|Initiating Actor:|Developer|
+|Actor's Goals|Edit start and stop time entries for a task to correct erroneous data|
+|Participating Actors|None|
+|Preconditions|task must already exist with times logged |
+|Postconditions|Selected Time entries will be updated|
+1. →User: indicates task to edit
+2. ←System: displays detailed information about task
+3. →User: User indicates times to change
+4. ←System: 
+	* (a) updates times 
+	* (b) indicates to user that times are logged.
 ##### Extensions
+(4b).
+	1. <-System: indicates to user that times cannot be saved due to overlap.See UC-22,UC-23.
 ---
 
 |UC-25            | Add task times|
