@@ -190,7 +190,6 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC12 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC13 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC14 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC15 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC16 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC17 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC18 |     |     |     |     |     |     |     |     |     |     |     |      |        |
@@ -429,6 +428,7 @@ This is not a Use Case this is a property of how the permissions system operates
 |Postconditions||
 ##### Flow of Events
 ##### Extensions
+
 ---
 |UC-14            | InviteToProj|
 |--------------------:|--------------|
@@ -445,21 +445,8 @@ This is not a Use Case this is a property of how the permissions system operates
 4. → Manager enters the username of the relavent user.
 5. ← Server sends confirmation message
 ##### Extensions
----
-This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
 
-|UC-15            | DefaultProjPerms|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
 ---
-We should probably get rig of UC-16 and merge it w/ UC-14
 
 |UC-16            | InviteNotify|
 |--------------------:|--------------|
@@ -468,12 +455,13 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Actor's Goals|To add the desired new Developer to their team.|
 |Participating Actors|RegUser|
 |Preconditions|Manager invite to the new prorammer.|
-|Postconditions|RegUser is notified that they have an invitation to become a Developer on the relavent project.|
+|Postconditions|RegUser is notified that they have an invitation to become a Developer on the relavent project. New Developers Permissions set to Default|
 ##### Flow of Events
 1. → Manager finishes sending invite.
 2. ← Server sends invite once the target user's client is connected to the network.
 3. → Target user accepts invite.
 ##### Extensions
+
 ---
 |UC-17            | Verb Phrase|
 |--------------------:|--------------|
@@ -485,6 +473,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Postconditions||
 ##### Flow of Events
 ##### Extensions
+
 ---
 |UC-18            | Verb Phrase|
 |--------------------:|--------------|
@@ -496,6 +485,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Postconditions||
 ##### Flow of Events
 ##### Extensions
+
 ---
 |UC-19            | Verb Phrase|
 |--------------------:|--------------|
@@ -507,6 +497,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Postconditions||
 ##### Flow of Events
 ##### Extensions
+
 ---
 |UC-20            | Verb Phrase|
 |--------------------:|--------------|
@@ -518,6 +509,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |Postconditions||
 ##### Flow of Events
 ##### Extensions
+
 ---
 |UC-21            | Set Task Tags|
 |--------------------:|--------------|
@@ -537,6 +529,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 	* (a) assosciates tag with task
 	* (b) indicates to user that task is now tagged
 ##### Extensions
+
 ---
 |UC-22            | Start Work on a Task|
 |--------------------:|--------------|
@@ -572,6 +565,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 (4b). 
 	1.←System: indicates to user that task is already stopped
+	
 ---
 |UC-24            | Verb Phrase|
 |--------------------:|--------------|
@@ -590,6 +584,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 (4b).
 	1. <-System: indicates to user that times cannot be saved due to overlap.See UC-22,UC-23.
+	
 ---
 
 |UC-25            | Add task times|
