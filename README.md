@@ -332,15 +332,21 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-11            | Verb Phrase|
+|UC-11            | EditProject|
 |--------------------:|--------------|
 |Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Initiating Actor:|Manager|
+|Actor's Goals|To change properties global to a project such as the tags which are available to tasks.|
+|Participating Actors|None|
+|Preconditions|The selected project exists.|
+|Postconditions|The selected project has the properties assigned by the manager.|
 ##### Flow of Events
+1. -> Manager selects edit project properties.
+2. Server validates the user is a manager.
+3. <- Client displays edit project menu.
+4. -> Manager enters desired changes and presses submit.
+5. Server makes changes to records.
+6. <- Client reports the sucess/failure of the changes.
 ##### Extensions
 ---
 |UC-12            | EditSprint|
