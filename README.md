@@ -145,7 +145,7 @@ __Derived Use Cases From Requirements__
 |Developer |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
 |Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
-|Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.		       |RegAccout(UC10)       |
+|Anyone    |Is able register a new account through the desktop client with minimal Personal information.|RegAccout(UC10)   |
 |RegUser   |Will be able to log into their account on the client application.                       |OpenDsktpClient(UC11) |
 |RegUser   |Users will be able to view the state of projects they are a part of.                    |ViewProject(UC12)     |
 |Manager   |Should be able to invite additional register users to access a project                  |InviteToProj(UC14)    |
@@ -157,7 +157,7 @@ __Derived Use Cases From Requirements__
 |Manager   |Will be able to customize tags as project parameters.				    |DefineTags(UC20)      |
 |Manager   |Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
 |Programmer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
-|Manager   |Start work on a task.								    |StartTask(UC22)     |
+|Manager   |Start work on a task.								    |StartTask(UC22)       |
 |Manager   |Stop work on a task.								    |StopTask(UC23)        |
 |Manager   |Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
 |Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
