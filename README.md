@@ -122,13 +122,16 @@ The following third-party softwares will be used in the server architecture:
 |**REQ-4**|Users that are assigned the attribute manager shall be able to create new projects, create new tasks, create new sprints, assign attributes to both tasks and sprints, create new accounts for developers on the server, assign a developer to a project, and reset a developer's password.|
 |**REQ-5**|Developers shall be able to log the times when they started and stopped work on tasks, including tasks that they are not assigned.|
 |**REQ-6**|Developers shall be able to amend their task histories to rectify user or technical errors.  All task history amendments shall be logged.|
-|**REQ-7**|Developers shall be able to view a work summary of their own work that shall include information about how much time they have spent on each task.|
-|**REQ-8**|Managers shall be able to view the work summaries of all developers including the amendments made to the developer's task history.|
-|**REQ-9**|Users shall only be able to access projects that they are a part of.|
-|**REQ-10**|Managers shall be able to choose from either a T-shirt size task system, a points based task size system, or some other user defined task size system and apply these stask sizing systems on a per project basis.|
-|**REQ-11**|Managers shall be able to create a custom set of tags which may be assigned to tasks and make them available on a per project basis.|
-|**REQ-12**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
+|**REQ-7**|Users shall be able to view a work summaries for a specific project, task, or user.|
+|**REQ-8**|Managers shall be able to choose from either a T-shirt size task system, a points based task size system, or some other user defined task size system and apply these stask sizing systems on a per project basis.|
+|**REG-9**|Users shall be able to create an independent organization with various projects (similar to GitHub organizations)|
+|**REG-10**|A permission system shall be able to control user read and write access to projects|
 
+##### Potential Future Requirements
+|Req###|Description|
+|------|-----------|
+|**REQ-XX1**|Managers shall be able to create a custom set of tags which may be assigned to tasks and make them available on a per project basis.|
+|**REQ-XX2**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
 
 ## Use Cases  (@paul-mchugh TODO → Get use cases tasks list, assign out)
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
