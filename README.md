@@ -56,20 +56,15 @@ The general first time user flow in Timesheets is for a user to create a project
 </table>
 
 #### Details on Major Features and Functions
-__Timer__
-A time with start, stop and pause functionality allows a user to track their tasks in real time on their mobile phone (not available on web). If paused, once the task has been resumed the user can log some details about the break. Once a task has been stopped a user can log details about a task, including description of the task, change projects, start/stop times, etc.
+__Timer:__ A time with start, stop and pause functionality allows a user to track their tasks in real time on their mobile phone (not available on web). If paused, once the task has been resumed the user can log some details about the break. Once a task has been stopped a user can log details about a task, including description of the task, change projects, start/stop times, etc.
 
-__Tasks__
-There are two different task views available. The first is a summary list of tasks including task names, and minimal information on start/stop times, break times, tags, billing information, and description. The second is a calendar view (with week and month views) that allows more visibility into. Tasks also include information about expenses, billing, and happiness with the task performed which are not relevant to our research.
+__Tasks:__ There are two different task views available. The first is a summary list of tasks including task names, and minimal information on start/stop times, break times, tags, billing information, and description. The second is a calendar view (with week and month views) that allows more visibility into. Tasks also include information about expenses, billing, and happiness with the task performed which are not relevant to our research.
 
-__Tags__
-Tasks can be tagged with custom tags, colored with an RGB color value system, teams are able to use these to indicate whatever they need and are used as a filter for statistics reporting. In addition, the properties of each tag includes a statistical review of what projects the tag was used on.
+__Tags:__ Tasks can be tagged with custom tags, colored with an RGB color value system, teams are able to use these to indicate whatever they need and are used as a filter for statistics reporting. In addition, the properties of each tag includes a statistical review of what projects the tag was used on.
 
-__Statistics__
-The statistics reporting is a major feature of timesheets as it allows users to see how much overall time they are spending and where that time is going. Some of the more relevant features are: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour breakdown in text).
+__Statistics:__ The statistics reporting is a major feature of timesheets as it allows users to see how much overall time they are spending and where that time is going. Some of the more relevant features are: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour breakdown in text).
 
-__Contracting__ 
-There are numerous features for contracting work that are not relevant to our project that aren't detailed here, but include: tracking if a task is billable and if it has been paid, hourly rates, overtime, and invoices.
+__Contracting:__ There are numerous features for contracting work that are not relevant to our project that aren't detailed here, but include: tracking if a task is billable and if it has been paid, hourly rates, overtime, and invoices.
 down text).
 
 ## Project Overview  
@@ -120,7 +115,7 @@ The following third-party softwares will be used in the server architecture:
 |**REQ-10**| 19 |Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
 |**REQ-11**| 16  |Users shall be able to view work summaries for a specific project, sprint, task, or user.|
 
-Priority justifications: Most important is anything that was part of the original TM program and adding agile functionality, the second most important thing is the cloud server implementation because it's easy and helps teams work together better, the thrid most imporant thing is that the program beable to support multiple projects and then multiple teams, finally it's important to manager user permissions so teams don't have to worry about correcting mistakes or misunderstandings with chages made by inexperienced or un informed useres.
+__Priority justifications:__ Most important is anything that was part of the original TM program and adding agile functionality, the second most important thing is the cloud server implementation because it's easy and helps teams work together better, the third most important thing is that the program be able to support multiple projects and then multiple teams, finally it's important to manager user permissions so teams don't have to worry about correcting mistakes or misunderstandings with changes made by inexperienced or uninformed users. 
 
 ##### Possible Future Requirements
 |REQ-###|Description|
