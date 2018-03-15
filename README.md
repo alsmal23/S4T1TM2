@@ -374,7 +374,10 @@ __Detailed Use Cases__
 5. Server makes changes to records.
 6. <- Client reports the sucess/failure of the changes.
 ##### Extensions
-|UC-13            | Verb Phrase|
+---
+This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
+
+|UC-13            | PermsNewProj|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -401,7 +404,9 @@ __Detailed Use Cases__
 5. <- Server sends confirmation message
 ##### Extensions
 ---
-|UC-15            | Verb Phrase|
+This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
+
+|UC-15            | DefaultProjPerms|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
