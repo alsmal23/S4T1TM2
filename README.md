@@ -192,7 +192,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |PW   |     |     |     |     |     |     |     |     |     |     |     |     |   |    |
 |UC1  |  x  |     |     |     |     |     |     |     |     |     |     |     |   |    |
 |UC2  | x   |     |     |   x |     |     |    |    |    |     |     |     |      |        |
-|UC3  |     |     |  x  |  x  |     |     |    |    |    |     |     |     |      |        |
+|UC3  |   x  |     |  x  |  x  |     |     |    |    |    |     |     |     |      |        |
 |UC4  | x   |  x  |  x  |     |     |     |    |    |    |     |     |     |      |        |
 |UC5  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC6  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
@@ -276,7 +276,7 @@ __Detailed Use Cases__
 ---
 |UC-3            | Create Sprint|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-4|
+|Related Requirements:|REQ-1,REQ-3,REQ-4|
 |Initiating Actor:|Manager|
 |Actor's Goals|Create a Sprint within a Project|
 |Participating Actors|None|
