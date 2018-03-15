@@ -198,7 +198,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC20 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC21 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |Uc22 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
-|UC23 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC23 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC24 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC25 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC26 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
@@ -317,7 +317,7 @@ __Detailed Use Cases__
 4. <-System:
 	* (a) Moves task into indicated sprint
 	* (b) Indicates to user that sprint has been moved.
-##### Extensions
+
 ---
 |UC-6            | Edit Sprint Attributes|
 |--------------------:|--------------|
@@ -336,7 +336,7 @@ __Detailed Use Cases__
 4. <-System: 
 	* (a) records new value(s).
 	* (b) indicates to user that change is complete.
-##### Extensions
+
 ---
 |UC-7            | Verb Phrase|
 |--------------------:|--------------|
@@ -533,7 +533,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |UC-22            | Start Work on a Task|
 |--------------------:|--------------|
 |Related Requirements:|REQ-5, REQ-1, |
-|Initiating Actor:|Programmer|
+|Initiating Actor:|Developer|
 |Actor's Goals|Log the time the actor began working on a task|
 |Participating Actors|none|
 |Preconditions|A Task must exist|
@@ -546,17 +546,24 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 (4b). 
 	1.←System: indicates to user that task is already started
+	
 ---
-|UC-23            | Verb Phrase|
+|UC-23            | Stop Work on a Task|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1, REQ-5|
+|Initiating Actor:|Developer|
+|Actor's Goals|Log the time user stopped working on a task|
+|Participating Actors|None|
+|Preconditions|Task must have already been started by user(UC-22)|
+|Postconditions|Stop time logged by system|
 ##### Flow of Events
+1. →User:selects the task that they want to stop 
+2. ←System:Presents options for task
+3. →User: selects stop work
+4. System logs stop time
 ##### Extensions
+(4b). 
+	1.←System: indicates to user that task is already stopped
 ---
 |UC-24            | Verb Phrase|
 |--------------------:|--------------|
