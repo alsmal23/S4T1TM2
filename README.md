@@ -184,22 +184,36 @@ __End of work for Wed, March 14. Represents REQ-1 through REQ-5__
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
 
-|Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
-|----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
-|PW   |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC1  |  x  |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC2  | x   |     |     |   x |     |     |     |     |     |     |     |      |        |
-|UC3  |     |     |  x  |  x  |     |     |     |     |     |     |     |      |        |
-|UC4  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC5  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC6  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC7  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC8  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC9  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC10 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC11 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC12 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC13 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9|REQ10|REQ11|REQ12|Max PW|Total PW|
+|----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
+|PW   |     |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC1  |  x  |     |     |     |     |    |      |     |     |     |     |     |      |        |
+|UC2  | x   |     |     |   x |     |    |    |    |    |     |     |     |      |        |
+|UC3  |     |     |  x  |  x  |     |    |    |    |    |     |     |     |      |        |
+|UC4  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC5  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC6  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC7  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC8  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC9  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC10 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC11 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC12 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC13 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC14  |    |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC15  |    |     |     |    |     |    |    |    |    |     |     |     |      |        |
+|UC16  |     |     |    |    |     |    |    |    |    |     |     |     |      |        |
+|UC17  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC18  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC19  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC20  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC21  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|Uc22  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC23 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC24 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC25|     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC26 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|UC27 |     |  x  |     |     |     |    |    |    |    |     |  x  |     |      |        |     |        |
 ---
 __Detailed Use Cases__
 
@@ -453,4 +467,125 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 ---
 
-.
+.|UC-17            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-18            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-19            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-20            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-21            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-22            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-23            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-24            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-25            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-26          | |
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-27            | Filter Statistics|
+|--------------------:|--------------|
+|Related Requirements:|REQ-11,REQ-2|
+|Initiating Actor:|Programmer|
+|Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
+|Participating Actors|None|
+|Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
+|Postconditions|View will be updated and limited to the given parameters|
+##### Flow of Events
+1. →User: Selects a filter(filter out project etc, include project etc.)
+2. System calculates statistics based on filters
+3. ←System: Displays filtered Statistics
