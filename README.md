@@ -145,23 +145,44 @@ __Derived Use Cases From Requirements__
 
 |Actor     |Actor's Goal                                                                            |Use Case Name         |
 |----------|----------------------------------------------------------------------------------------|----------------------|
-|Anyone    |Create account                                                                          |CreateAccount(UC1)    |
-|RegUser   |Create project (any RegUser can make a project and be a manager within that space)      |CreateProject(UC2)    |
-|Manager   |Create sprint                                                                           |CreateSprint(UC3)     |
-|Programmer|Create task                                                                             |CreateTask(UC4)     |
-|Manager   |Create task                                                                             |CreateTask(UC4)     |
-|Programmer|View project data from server (users, projects, sprints, tasks, etc.)                   |ViewProjData(UC5)     |
-|Manager   |Request project data (users, projects, sprints, tasks, etc.)                            |ViewProjData(UC5)     |
-|Server    |Send requested project data to client                                                   |SendData (UC6)        |
-|Client    |Display project, sprint, and task data                                                  |DisplayProjData (UC7) |
-|Client    |Display statistical data                                                                |DisplayStatsData (UC8)|
-|Manager   |Add new users to a project and assign permissions to users on a project                 |ManagePermissions(UC9)|
-|Programmer|Update and add task information                                                         |EditAddTask (UC10)    |
-|Manager   |Update and add task information                                                         |EditAddTask (UC10)    |
-|Manager   |Update and add project information                                                      |EditAddProj (UC11)    |
-|Manager   |Update and add sprint information                                                       |EditAddSprint (UC12)  |
-|Server    |Store application data (users, projects, sprints, tasks, etc.).                         |StoreData (UC13)      |
-|And...    |Sooooo many more to come                                                                |..                    |
+|RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
+|Manager   |Will be able to create sprints and have them saved on the server.                       |CreateSprints(UC2)    |
+|Manager   |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
+|Manager   |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
+|Manager   |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
+|Manager   |Will be able to create a sprint with a date.                                            |SprintDueDates(UC6)   |
+|Manager   |Will be able to create a sprint with no due date.                                       |SprintNoDueDates(UC7) |
+|Manager   |Will be able to give a sprint a name                                                    |SprintNames(UC8)      |
+|Programmer|Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
+|Programmer|Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
+|Programmer|Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
+|Anyone    |Should be able to download and open the desktop client.                                 |DownloadClient(UC9)   |
+|Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.		       |RegAccout(UC10)       |
+|RegUser   |Should be able to open the desktop client and log into their account.		    |OpenDsktpClient(UC11) |
+|RegUser   |Should be able to use a GUI to interact with project data through their desktop client. |UseGUI(UC12)          |
+|RegUser   |Should have the permissions of a manager on a new project they create.                  |PermsNewProj(UC13)    |
+|Manager   |Should be able to invite additional register users to access a project                  |InviteToProj(UC14)    |
+|RegUser   |When invited to a new project they should have progammer like permissions by default.   |DefaultProjPerms(UC15)|
+|RegUser   |Should be able to see notifications about invitations to projects.                      |InviteNotify(UC16)    |
+|Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
+|Manager   |Will be able to customize task sizes as project parameters.				    |DefineSizes(UC18)     |
+|Manager   |Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
+|Programmer|Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
+|Manager   |Will be able to customize tags as project parameters.				    |DefineTags(UC20)      |
+|Manager   |Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
+|Programmer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
+|Manager   |Start work on a task.								    |SetTaskTags(UC21)     |
+|Manager   |Stop work on a task.								    |StopTask(UC23)        |
+|Manager   |Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
+|Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
+|Programmer|Start work on a task.								    |StartTask(UC22)       |
+|Programmer|Stop work on a task.								    |StopTask(UC23)        |
+|Programmer|Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
+|Programmer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
+|Manager   |View statistical summaries page.							    |ViewStats(UC26)       |
+|Manager   |Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
+|Programmer|View statistical summaries page.							    |ViewStats(UC26)       |
+|Programmer|Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
