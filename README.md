@@ -217,12 +217,9 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC25|     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC26 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC27 |     |  x  |     |     |     |    |    |    |    |     |  x  |     |      |        |
-
-
 ---
 __Detailed Use Cases__
 (@lihaven TODO → make a detailed use case template)
-
 |UC-1            | Create Account|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1|
@@ -302,7 +299,7 @@ __Detailed Use Cases__
 
 
 ---
-|UC-4            | Create Task|
+|UC-4            | Verb Phrase|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -379,7 +376,44 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-11            | Verb Phrase|
+|UC-11            | EditProject|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:|Manager|
+|Actor's Goals|To change properties global to a project such as the tags which are available to tasks.|
+|Participating Actors|None|
+|Preconditions|The selected project exists.|
+|Postconditions|The selected project has the properties assigned by the manager.|
+##### Flow of Events
+1. -> Manager selects edit project properties.
+2. Server validates the user is a manager.
+3. <- Client displays edit project menu.
+4. -> Manager enters desired changes and presses submit.
+5. Server makes changes to records.
+6. <- Client reports the sucess/failure of the changes.
+
+##### Extensions
+---
+|UC-12            | EditSprint|
+|--------------------:|--------------|
+|Related Requirements:|REQ-1, REQ-7|
+|Initiating Actor:|Manager|
+|Actor's Goals|To change the attributes of a sprint such as its name or target completion date.|
+|Participating Actors|None|
+|Preconditions|Selected sprint exists.  A project exists|
+|Postconditions|Selected sprint is assigned the attributes specified by the manager.|
+##### Flow of Events
+1. -> Manager selects the edit button on a sprint.
+2. Server validates the user has the appropriate permissions.
+3. <- Client displays the edit sprint options menu.
+4. -> Manager enters desired changes and selects submit.
+5. Server makes changes to records.
+6. <- Client reports the sucess/failure of the changes.
+##### Extensions
+---
+This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
+
+|UC-13            | PermsNewProj|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -390,7 +424,25 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-12            | Verb Phrase|
+|UC-14            | InviteToProj|
+|--------------------:|--------------|
+|Related Requirements:|REQ-1,REQ-5|
+|Initiating Actor:|Manager|
+|Actor's Goals|To add a new programmer to their project|
+|Participating Actors|RegUser|
+|Preconditions|The desired used is not part of the project in question.|
+|Postconditions|The desired User will be able to join the relevant project.|
+##### Flow of Events
+1. -> Manager selects the invite user action for their project.
+2. Server checks that the user is a manager and has appropriate permisions.
+3. <- Client displays the invite user menu.
+4. -> Manager enters the username of the relavent user.
+5. <- Server sends confirmation message
+##### Extensions
+---
+This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
+
+|UC-15            | DefaultProjPerms|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -401,180 +453,23 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-13            | Verb Phrase|
+We should probably get rig of UC-16 and merge it w/ UC-14
+
+|UC-16            | InviteNotify|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-5|
+|Initiating Actor:|Manager|
+|Actor's Goals|To add the desired new programmer to their team.|
+|Participating Actors|RegUser|
+|Preconditions|Manager invite to the new prorammer.|
+|Postconditions|RegUser is notified that they have an invitation to become a programmer on the relavent project.|
 ##### Flow of Events
-##### Extensions
----
-|UC-14            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-15           | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-16            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
+1. -> Manager finishes sending invite.
+2. <- Server sends invite once the target user's client is connected to the network.
+3. -> Target user accepts invite.
 ##### Extensions
 ---
 |UC-17            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-18            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-19            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-20            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-21            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-22            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-23            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-24            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-25            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-26          | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-27            | Filter Statistics|
-|--------------------:|--------------|
-|Related Requirements:|REQ-11,REQ-2|
-|Initiating Actor:|Programmer|
-|Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
-|Participating Actors|None|
-|Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
-|Postconditions|View will be updated and limited to the given parameters|
-##### Flow of Events
-1. →User: Selects a filter(filter out project etc, include project etc.)
-2. System calculates statistics based on filters
-3. ←System: Displays filtered Statistics
-##### Extensions
-
-
-
-<<<<<<< HEAD
-.
-=======
-.|UC-17            | Verb Phrase|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -696,4 +591,5 @@ __Detailed Use Cases__
 1. →User: Selects a filter(filter out project etc, include project etc.)
 2. System calculates statistics based on filters
 3. ←System: Displays filtered Statistics
->>>>>>> correctUC
+
+
