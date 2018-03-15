@@ -32,12 +32,11 @@ RescueTime's principal selling point is its complex interactive and exhaustive s
 
  
 ### [Timesheet](https://www.timesheet.io/)  
->This section definitely not done yet, but wanted to get some of my research visable. I plan to make this into a more compact and presentible form.
 
 #### Overview 
 Timesheet is and individual user time tracking solution with a focus on tracking contract work. Although it includes a lot of features that probabably won't want to consider for YAAM (including, but not limited to billing and expense tracking because the assumption is that YAAMs users are salaried), it is primarly a time and completed task tracking applciation. This makes it relelevant our research because it's conceptually very similar to out first TM application in class, but with a GUI and some critical features added, primarily projects, tags, and GUIs on web and mobile. 
 
-The general user flow in Timesheets is for a user to create a project, maybe a tag or two, and then start tracking tasks with the timer, once tasks are stopped they will ask for tags and a description. Note the mobile app is free, but the web app is not, therefore the mobile app with timer is the most common use case.
+The general first time user flow in Timesheets is for a user to create a project, maybe a tag or two, and then start tracking tasks with the timer, once tasks are stopped they will ask for tags and a description. Note that the mobile app is free, but the web app is not, therefore the mobile app with timer is the most common use case.
 
 #### Structures flow
 <table>
@@ -59,26 +58,19 @@ The general user flow in Timesheets is for a user to create a project, maybe a t
 
 #### Details on Major Features and Functions
 Timer
-* Start: Starts a timer and displays it in notification bar with simple options
-* Pause: Pauses timer, tasks track paused time. Unpause brings up a simple page to save notes about the break or change the time of the break.
-* Stop: Stops the task. Brings up a simple page to save notes about the task or change any of the feilds on the task.
--
-Project
-* Project fields: Name, Employer/Client, Description, Location, Rate, Color, Archive (yes/no)
+A time with start, stop and pause functionatliy allows a user to track their tasks in real time on their mobile phone (not available on web). If paused, once the task has been resumed the user can log some details about the break. Once a task has been stopped a user can log details about a task, including description of the task, change projects, start/stop times, etc.
 
 Tasks
-Two different task views calendar or list on web app, list only on mobile app.
-* Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Milage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
-* Feeling Options → :D     :|     :/    :( ...This features seems kind of out of place in the app, I suppose it's a quality of job/life measure. No compiling or statistics on this field.
-* Notes section: A Large-ish text field where notes can be added after the task has been completed (either at manual creation or when the timer is stopped).
-* Expenses Fields: Date & time incurred, Amount, Description, Paid Status <yes/no>
-* Break Fields (pause): Start/Stop & Duration, Description
+There are two different task views avaiable. The first is a summary list of tasks including task names, and minimal information on start/stop times, break times, tags, billing information, and description. The second is a calendar view (with week and month views) that allows more visability into. Tasks also include information about expenses, billing, and happiness with the task performed which are not relevant to our research.  
 
 Tags
-* Tag fields: Name and color
+Tasks can be tagged with custom tags, colored with an RBG color value system, teams are able to use these to indicate whatever they need and are used as a filter for statistics reporting. In addition, the properties of each tag includes a statitical review of what projects the tag was used on.
 
 Statistics
-* Reporting Features: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Salary, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour break down text 
+The statistics reporting is a major feature of timesheets as it allows users to see how much overall time they are spending and where that time is going. Some of the more relevant features are: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time,  Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour breakdown in text). 
+
+Contracting
+There are numerous features for contracting work that are not relevant to our project that aren't detailed here, but inlucde: tracking if a task is billable and if it has been paid, hourly rates, overtime, and invoices.
 
 
 ## Project Overview  
