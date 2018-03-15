@@ -176,12 +176,12 @@ There are more use cases than requirements, so I turned the table from what is i
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
 |----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
 |PW   | 20  | 14  | 13  | 15  | 10  |  9  | 17  |  7  |  6  | 19  | 16  | ---- | ------ |
-|UC1  |  x  |     |     |     |     |     |     |     |     |     |     |      |        | 
-|UC2  | x   |     |     |   x |     |     |     |     |     |     |     |      |        |
-|UC3  |   x |     |  x  |  x  |     |     |     |     |     |     |     |      |        |
+|UC1  | x   |     |     |     |     |     |     |     |     |     |     |      |        | 
+|UC2  | x   |     |     |  x  |     |     |     |     |     |     |     |      |        |
+|UC3  | x   |     |  x  |  x  |     |     |     |     |     |     |     |      |        |
 |UC4  | x   |  x  |  x  |     |     |     |     |     |     |     |     |      |        |
-|UC5  |  x  |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
-|UC6  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC5  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
+|UC6  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
 |UC7  |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC8  |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC9  |     |     |     |     |     |     |     |     |     |     |     |      |        |
@@ -319,15 +319,23 @@ __Detailed Use Cases__
 	* (b) Indicates to user that sprint has been moved.
 ##### Extensions
 ---
-|UC-6            | Verb Phrase|
+|UC-6            | Edit Sprint Attributes|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-2, REQ-8|
+|Initiating Actor:|Manager|
+|Actor's Goals|change the attributes (due date,name, etc.) of a sprint|
+|Participating Actors|None|
+|Preconditions|A sprint must already exist, user must have sufficient permissions|
+|Postconditions|System will record changes to sprints attributes|
 ##### Flow of Events
+1. ->User: Selects sprint to change
+2. <-System:displays sprint and associated data
+3. ->User:
+	* (a) selects information to alter
+	* (b) enters new value
+4. <-System: 
+	* (a) records new value(s).
+	* (b) indicates to user that change is complete.
 ##### Extensions
 ---
 |UC-7            | Verb Phrase|
