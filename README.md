@@ -165,22 +165,22 @@ __End of work for Wed, March 14. Represents REQ-1 through REQ-5__
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
 
-|Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9|REQ10|REQ11|REQ12|Max PW|Total PW|
-|----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
-|PW   |     |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC1  |  x  |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC2  | x   |     |     |   x |     |    |    |    |    |     |     |     |      |        |
-|UC3  |     |     |  x  |  x  |     |    |    |    |    |     |     |     |      |        |
-|UC4  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC5  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC6  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC7  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC8  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC9  |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC10 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC11 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC12 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
-|UC13 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
+|Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
+|----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
+|PW   |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC1  |  x  |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC2  | x   |     |     |   x |     |     |     |     |     |     |     |      |        |
+|UC3  |     |     |  x  |  x  |     |     |     |     |     |     |     |      |        |
+|UC4  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC5  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC6  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC7  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC8  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC9  |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC10 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC11 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC12 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC13 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 ---
 __Detailed Use Cases__
 
