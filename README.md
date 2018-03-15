@@ -151,7 +151,7 @@ __Derived Use Cases From Requirements__
 |----------|----------------------------------------------------------------------------------------|----------------------|
 |RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
 |Manager   |Will be able to create sprints and have them saved on the server.                       |CreateSprints(UC2)    |
-|Manager   |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
+|Developers|Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
 |Manager   |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
 |Manager   |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Will be able to create a sprint.                                                        |SprintDueDates(UC6)   |
