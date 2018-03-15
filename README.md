@@ -546,6 +546,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 (4b). 
 	1.←System: indicates to user that task is already started
+	
 ---
 |UC-23            | Verb Phrase|
 |--------------------:|--------------|
@@ -575,9 +576,9 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 4. ←System:Indicates that times have been logged see (UC-22,UC23)
 ##### Extensions
 ---
+
 |UC-25            | Verb Phrase|
 |--------------------:|--------------|
-
 |Related Requirements:|REQ-1,REQ-10|
 |Initiating Actor:|Developer|
 |Actor's Goals|Enter data for work that was not recorded due to a user error.|
