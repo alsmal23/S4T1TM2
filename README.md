@@ -3,7 +3,7 @@
 ## Introduction
   The agile development process naturally tends to be both sporadic and volatile during the iterative design and implementation process. Project organization and group communication play critical roles in attempting to streamline the development process. The effective goal of the YAAM project is to create a task management software that can bridge the gap between development and organization for small development teams. The software is intended to allow managers and developers alike to organize project tasks and seamlessly track the time spent on completing them. Furthermore, the software will aggregate project task data into a complex statistical summary report for supervisors.
   
-## Product Reviews  (@lihaven TODO → Review, make consistent formatting?)
+## Product Reviews 
 ### [Agilean](https://agilean.in/) 
 Agilean is an online SaaS agile development team management system. Agilean comes in two flavors. The Kanban flavor and the scrum flavor. This changes how task progress is managed and viewed. Kanban supports a more continuous work flow, while scrum is more of a sprint style work flow.  We chose to review the Scrum flavor as that seemed to more closely correspond to sprints in Agile Development.  
 
@@ -105,7 +105,7 @@ The following third-party softwares will be used in the server architecture:
   - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
   
   
-## Requirements (@ryan-cr, @lihaven TODO → Review)
+## Requirements 
 |Req###|Description|
 |------|-----------|
 |**REQ-1**|The server application must maintain and provide a record of projects, sprints, tasks, and their associated attributes.|
@@ -125,7 +125,7 @@ The following third-party softwares will be used in the server architecture:
 |**REQ-XX1**|Managers shall be able to create a custom set of tags which may be assigned to tasks and make them available on a per project basis.|
 |**REQ-XX2**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
 
-## Use Cases  (@paul-mchugh TODO → Get use cases tasks list, assign out)
+## Use Cases 
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
 
 __Actors__
@@ -179,7 +179,6 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC13 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 ---
 __Detailed Use Cases__
-(@lihaven TODO → make a detailed use case template)
 
 |UC-1            | Create Account|
 |--------------------:|--------------|
