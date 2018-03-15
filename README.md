@@ -140,7 +140,7 @@ Your requirements and previous sections should lead to your use cases. How will 
 __Actors__
 Anyone - Genearlly meaning anyone or thing acting as a human person
 RegUser - Genearlly meaning anyone who has registered and has a valid user account
-developer - Generally meaning the user with the lowest permissions for a project
+Programmer - Generally meaning the user with the lowest permissions for a project
 Manager - Generally meanting the user with a high level of permissions for a project
 Server - The data warehouse manager
 Client - The customer service associate
@@ -151,15 +151,11 @@ __Derived Use Cases From Requirements__
 |----------|----------------------------------------------------------------------------------------|----------------------|
 |RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
 |Manager   |Will be able to create sprints and have them saved on the server.                       |CreateSprints(UC2)    |
-|Developers|Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
+|Developer |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
 |Manager   |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
-|Manager   |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
-|Manager   |Will be able to create a sprint.                                                        |SprintDueDates(UC6)   |
-|Manager   |Will be able to optionally define a sprint due dat                                      |SprintNoDueDates(UC7) |
-|Manager   |Will be able to give a sprint a name                                                    |SprintNames(UC8)      |
-|developer|Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
-|developer|Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
-|developer|Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
+|Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
+|Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
+|Programmer|Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
 |Anyone    |Should be able to download and open the desktop client.                                 |DownloadClient(UC9)   |
 |Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.		       |RegAccout(UC10)       |
 |RegUser   |Should be able to open the desktop client and log into their account.		    |OpenDsktpClient(UC11) |
@@ -171,22 +167,22 @@ __Derived Use Cases From Requirements__
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
 |Manager   |Will be able to customize task sizes as project parameters.				    |DefineSizes(UC18)     |
 |Manager   |Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
-|developer|Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
+|Programmer|Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
 |Manager   |Will be able to customize tags as project parameters.				    |DefineTags(UC20)      |
 |Manager   |Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
-|developer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
+|Programmer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
 |Manager   |Start work on a task.								    |StartTask(UC22)     |
 |Manager   |Stop work on a task.								    |StopTask(UC23)        |
 |Manager   |Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
 |Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
-|developer|Start work on a task.								    |StartTask(UC22)       |
-|developer|Stop work on a task.								    |StopTask(UC23)        |
-|developer|Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
-|developer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
+|Programmer|Start work on a task.								    |StartTask(UC22)       |
+|Programmer|Stop work on a task.								    |StopTask(UC23)        |
+|Programmer|Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
+|Programmer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
 |Manager   |View statistical summaries page.							    |ViewStats(UC26)       |
 |Manager   |Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
-|developer|View statistical summaries page.							    |ViewStats(UC26)       |
-|developer|Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
+|Programmer|View statistical summaries page.							    |ViewStats(UC26)       |
+|Programmer|Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
@@ -306,7 +302,7 @@ __Detailed Use Cases__
 |UC-4            | Modify task attributes|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2,REQ-8|
-|Initiating Actor:|developer|
+|Initiating Actor:|Programmer|
 |Actor's Goals|Set the size,due date, tags, of a task|
 |Participating Actors|none|
 |Preconditions|a task must exist|
@@ -438,7 +434,7 @@ This is not a Use Case this is a property of how the permissions system operates
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-5|
 |Initiating Actor:|Manager|
-|Actor's Goals|To add a new developer to their project|
+|Actor's Goals|To add a new programmer to their project|
 |Participating Actors|RegUser|
 |Preconditions|The desired used is not part of the project in question.|
 |Postconditions|The desired User will be able to join the relevant project.|
@@ -469,10 +465,10 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-5|
 |Initiating Actor:|Manager|
-|Actor's Goals|To add the desired new developer to their team.|
+|Actor's Goals|To add the desired new programmer to their team.|
 |Participating Actors|RegUser|
-|Preconditions|Manager invite to the new developer.|
-|Postconditions|RegUser is notified that they have an invitation to become a developer on the relavent project.|
+|Preconditions|Manager invite to the new prorammer.|
+|Postconditions|RegUser is notified that they have an invitation to become a programmer on the relavent project.|
 ##### Flow of Events
 1. -> Manager finishes sending invite.
 2. <- Server sends invite once the target user's client is connected to the network.
@@ -537,7 +533,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |UC-22            | Start Work on a Task|
 |--------------------:|--------------|
 |Related Requirements:|REQ-5, REQ-1, |
-|Initiating Actor:|developer|
+|Initiating Actor:|Programmer|
 |Actor's Goals|Log the time the actor began working on a task|
 |Participating Actors|none|
 |Preconditions|A Task must exist|
@@ -573,27 +569,21 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-25            | Add task times|
+|UC-25            | Verb Phrase|
 |--------------------:|--------------|
-|Related Requirements:|REQ-10|
-|Initiating Actor:|Developer|
-|Actor's Goals|Enter data for work that was not recorded due to a user error.|
-|Participating Actors|None|
-|Preconditions|task must exist|
-|Postconditions|a new start and stop time will be added to the task|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
 ##### Flow of Events
-1. →User: Selects task
-2. ←System: displays task information
-3. →User: Indicates the times that worked between
-4. ←System:
-	* (a) adds start and stop times see UC-22,UC-23
-	* (b) indicates that times have been entered
 ##### Extensions
 ---
 |UC-26          | View Statistics|
 |--------------------:|--------------|
 |Related Requirements:|REQ-11, REQ-2|
-|Initiating Actor:|developer/Manager|
+|Initiating Actor:|Programmer/Manager|
 |Actor's Goals|View Detailed Statistics about Tasks, projects|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to access given tasks and projects|
@@ -606,7 +596,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |UC-27            | Filter Statistics|
 |--------------------:|--------------|
 |Related Requirements:|REQ-11,REQ-2|
-|Initiating Actor:|developer/Manager|
+|Initiating Actor:|Programmer/Manager|
 |Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
