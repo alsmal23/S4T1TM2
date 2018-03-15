@@ -196,6 +196,8 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC25|     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC26 |     |     |     |     |     |    |    |    |    |     |     |     |      |        |
 |UC27 |     |  x  |     |     |     |    |    |    |    |     |  x  |     |      |        |
+
+
 ---
 __Detailed Use Cases__
 (@lihaven TODO → make a detailed use case template)
@@ -548,4 +550,129 @@ __Detailed Use Cases__
 
 
 
+<<<<<<< HEAD
 .
+=======
+.|UC-17            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-18            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-19            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-20            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-21            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-22            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-23            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-24            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-25            | Verb Phrase|
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-26          | |
+|--------------------:|--------------|
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
+##### Flow of Events
+##### Extensions
+---
+|UC-27            | Filter Statistics|
+|--------------------:|--------------|
+|Related Requirements:|REQ-11,REQ-2|
+|Initiating Actor:|Programmer|
+|Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
+|Participating Actors|None|
+|Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
+|Postconditions|View will be updated and limited to the given parameters|
+##### Flow of Events
+1. →User: Selects a filter(filter out project etc, include project etc.)
+2. System calculates statistics based on filters
+3. ←System: Displays filtered Statistics
+>>>>>>> correctUC
