@@ -156,11 +156,9 @@ __Derived Use Cases From Requirements__
 |Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
 |Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.		       |RegAccout(UC10)       |
-|RegUser   |Should be able to open the desktop client and log into their account.		    |OpenDsktpClient(UC11) |
+|RegUser   |Users should be able to log into their account on the client application.               |OpenDsktpClient(UC11) |
 |RegUser   |Should be able to use a GUI to interact with project data through their desktop client. |UseGUI(UC12)          |
-|RegUser   |Should have the permissions of a manager on a new project they create.                  |PermsNewProj(UC13)    |
 |Manager   |Should be able to invite additional register users to access a project                  |InviteToProj(UC14)    |
-|RegUser   |When invited to a new project they should have progammer like permissions by default.   |DefaultProjPerms(UC15)|
 |RegUser   |Should be able to see notifications about invitations to projects.                      |InviteNotify(UC16)    |
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
 |Manager   |Will be able to customize task sizes as project parameters.				    |DefineSizes(UC18)     |
@@ -544,7 +542,6 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Extensions
 (4b). 
 	1.←System: indicates to user that task is already started
-	
 ---
 |UC-23            | Verb Phrase|
 |--------------------:|--------------|
@@ -568,16 +565,14 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Flow of Events
 ##### Extensions
 ---
-
 |UC-25            | Verb Phrase|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-10|
-|Initiating Actor:|Developer|
-|Actor's Goals|Enter data for work that was not recorded due to a user error.|
-|Participating Actors|None|
-|Preconditions|task must exist|
-|Postconditions|a new start and stop time will be added to the task|
-
+|Related Requirements:||
+|Initiating Actor:||
+|Actor's Goals||
+|Participating Actors||
+|Preconditions||
+|Postconditions||
 ##### Flow of Events
 ##### Extensions
 ---
