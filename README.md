@@ -13,11 +13,11 @@ On the requirements tab managers create Epics. Epics are assigned to projects. U
 
 Managers then create Sprints and Releases, and assign tasks to them.  
 - Projects → Epics → User Stories → Tasks (→ Sub-tasks)  
-- Projects →  Releases → Sprints → Tasks
-- Projects →  Impedements
+- Projects → Releases → Sprints → Tasks
+- Projects → Impediments
    
 ##### Reporting  
-Agilean offers many views of the project. The Requirements view displays all of the Epics, User Stories and Tasks. The board view displays all of the tasks in the current sprint on a swim lane board with lanes representing various levels of completion, from Backlog to Done. Agilean also offers a comprehensive reporting view, showing how many tasks are assigned to each developer, how many tasks are in each stage of completion, a burndown chart, among others. 
+Agilean offers many views of the project. The Requirements view displays all of the Epics, User Stories and Tasks. The board view displays all of the tasks in the current sprint on a swim lane board with lanes representing various levels of completion, from Backlog to Done. Agilean also offers a comprehensive reporting view, showing how many tasks are assigned to each developer, how many tasks are in each stage of completion, a burn-down chart, among others. 
   
   
 ### [RescueTime](https://www.rescuetime.com/)   
@@ -32,10 +32,8 @@ RescueTime's principal selling point is its complex interactive and exhaustive s
 
  
 ### [Timesheet](https://www.timesheet.io/)  
->This section definitely not done yet, but wanted to get some of my research visable. I plan to make this into a more compact and presentible form.
-
 #### Overview 
-Timesheet is and individual user time tracking solution with a focus on tracking contract work. Although it includes a lot of features that probabably won't want to consider for YAAM (including, but not limited to billing and expense tracking because the assumption is that YAAMs users are salaried), it is primarly a time and completed task tracking applciation. This makes it relelevant our research because it's conceptually very similar to out first TM application in class, but with a GUI and some critical features added, primarily projects, tags, and GUIs on web and mobile. 
+Timesheet is and individual user time tracking solution with a focus on tracking contract work. Although it includes a lot of features that probably won't want to consider for YAAM (including, but not limited to billing and expense tracking because the assumption is that YAAMs users are salaried), it is primarily a time and completed task tracking application. This makes it relevant our research because it's conceptually very similar to out first TM application in class, but with a GUI and some critical features added, primarily projects, tags, and GUIs on web and mobile. 
 
 The general user flow in Timesheets is for a user to create a project, maybe a tag or two, and then start tracking tasks with the timer, once tasks are stopped they will ask for tags and a description. Note the mobile app is free, but the web app is not, therefore the mobile app with timer is the most common use case.
 
@@ -58,39 +56,39 @@ The general user flow in Timesheets is for a user to create a project, maybe a t
 </table>
 
 #### Details on Major Features and Functions
-Timer
-* Start: Starts a timer and displays it in notification bar with simple options
-* Pause: Pauses timer, tasks track paused time. Unpause brings up a simple page to save notes about the break or change the time of the break.
-* Stop: Stops the task. Brings up a simple page to save notes about the task or change any of the feilds on the task.
--
-Project
-* Project fields: Name, Employer/Client, Description, Location, Rate, Color, Archive (yes/no)
+##### Timer
+- Start: Starts a timer and displays it in notification bar with simple options
+- Pause: Pauses timer, tasks track paused time. Unpause brings up a simple page to save notes about the break or change the time of the break.
+- Stop: Stops the task. Brings up a simple page to save notes about the task or change any of the fields on the task.
 
-Tasks
+##### Project
+- Project fields: Name, Employer/Client, Description, Location, Rate, Color, Archive (yes/no)
+
+##### Tasks
 Two different task views calendar or list on web app, list only on mobile app.
-* Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Milage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
-* Feeling Options → :D     :|     :/    :( ...This features seems kind of out of place in the app, I suppose it's a quality of job/life measure. No compiling or statistics on this field.
-* Notes section: A Large-ish text field where notes can be added after the task has been completed (either at manual creation or when the timer is stopped).
-* Expenses Fields: Date & time incurred, Amount, Description, Paid Status <yes/no>
-* Break Fields (pause): Start/Stop & Duration, Description
+- Task Data: Project, Start Date & Time, End Date & Time, Tags (many), Task Type (Task, Mileage, Call [predefined, not editable]), Billable (yes/no), Paid (yes/no)
+- Feeling Options → :D     :|     :/    :( ...This features seems kind of out of place in the app, I suppose it's a quality of job/life measure. No compiling or statistics on this field.
+- Notes section: A Large-ish text field where notes can be added after the task has been completed (either at manual creation or when the timer is stopped).
+- Expenses Fields: Date & time incurred, Amount, Description, Paid Status <yes/no>
+- Break Fields (pause): Start/Stop & Duration, Description
 
-Tags
-* Tag fields: Name and color
+##### Tags
+- Tag fields: Name and color
 
-Statistics
-* Reporting Features: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Salary, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour break down text 
+##### Statistics
+- Reporting Features: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Salary, Progress (since it does not track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour break down text).
 
 
 ## Project Overview  
-YAAM is a client-server application with all data stored on a private server. Customers will host a YAAM server and make accounts for their team on that server. They will run a client side desktop application in order to access that server. The client will observe the developer and issue smart reminders to log work done when the developer uses IDEs for example. This will allow us to bring  Rescue Times tracking ability, and TimeSheets intentional tracking with Agilean's application domain specific reporting, and project progress tracking.   
+YAAM is a client-server application with all data stored on a cloud server as a service. Customers will be able to create their own user accounts and run a client-side desktop application in order to access that server. The client will observe the developer and issue smart reminders to log work done when the developer uses IDEs, for example. This will allow us to bring  Rescue Times tracking ability, and TimeSheets intentional tracking with Agilean's application domain specific reporting, and project progress tracking.   
   
 With automatic reminders tracking data will be more reliable. This will enable project leads to understand their teams velocity and generate more accurate predictions about future productivity. With online storage, YAAM will provide project managers with powerful options for communicating with their customers, and permissions will allow those customers to only see what information matters to them, without all of the technical details. 
 
 ## Project Architecture  
-The project architecture for our software incorporates various ideas from both our team and our product reviews. Our architecture will make use a client-server approach to maximize team collaboration and accessibility. All software implementations (client and server) will be written in Java 8, with the exception of the server's persistent data storage. The client's role is to provide the means for inputting and reviewing project data. The server's role is to serve as a database endpoint to synchronize all relevant project data to an entire development team.
+The project architecture for our software incorporates various ideas from both our team and our product reviews. Our architecture will make use a cloud-based client-server approach to maximize team collaboration and accessibility. All software implementations (client and server) will be written in Java 8, with the exception of the server's persistent data storage. The client's role is to provide the means for inputting and reviewing project data. The server's role is to serve as a database endpoint to synchronize all relevant project data to an entire development team.
 
 #### Client
-The only software client will be a JavaFX-driven GUI desktop application. Users will be able to create, edit, and interact with organizations, projects, and tasks; behind the scenes, all modification data will be sent to the server to handle and store. The desktop application will serve to organize tasks, track time spent on tasks, and provide a statistical aggregation breakdown for tasks. 
+The only software client will be a JavaFX-driven GUI desktop application. Users will be able to create, edit, and interact with projects and tasks; behind the scenes, all modification data will be sent to the server to handle and store. The desktop application will serve to organize tasks, track time spent on tasks, and provide a statistical aggregation breakdown for tasks. The client will synchronize all modified project data with the cloud server.
 
 The following third-party softwares will be used in the client architecture:
 - To provide a GUI with rich UI design:
@@ -101,7 +99,7 @@ The following third-party softwares will be used in the client architecture:
   - **[system-hook](https://github.com/kristian/system-hook)**: "Java (low-level) System Hook provides a very light-weight global keyboard and mouse listener for Java."
 
 #### Server
-The server software will serve to store and retrieve all data related to a users organizations, projects, and tasks. Clients will send appropriate user data to the server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of MySQL to store all relevant data related to users, organizations, projects, and tasks.
+The cloud server software will serve to store and retrieve all data related to users, projects, and tasks. Clients will send appropriate user data to the cloud server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of MySQL to store all relevant data related to users, projects, and tasks.
 
 The following third-party softwares will be used in the server architecture:
 - To provide a HTTP API endpoint:
@@ -112,6 +110,8 @@ The following third-party softwares will be used in the server architecture:
   - **[MySQL](https://www.mysql.com/)**: MySQL is a open source, relational SQL database management system. 
   - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
   
+  
+## Project Requirements
   
 |REQ-###|Description|
 |------|-----------|
@@ -140,7 +140,7 @@ Your requirements and previous sections should lead to your use cases. How will 
 __Actors__
 Anyone - Genearlly meaning anyone or thing acting as a human person
 RegUser - Genearlly meaning anyone who has registered and has a valid user account
-developer - Generally meaning the user with the lowest permissions for a project
+Programmer - Generally meaning the user with the lowest permissions for a project
 Manager - Generally meanting the user with a high level of permissions for a project
 Server - The data warehouse manager
 Client - The customer service associate
@@ -151,15 +151,11 @@ __Derived Use Cases From Requirements__
 |----------|----------------------------------------------------------------------------------------|----------------------|
 |RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
 |Manager   |Will be able to create sprints and have them saved on the server.                       |CreateSprints(UC2)    |
-|Developers|Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
+|Developer |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
 |Manager   |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
-|Manager   |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
-|Manager   |Will be able to create a sprint.                                                        |SprintDueDates(UC6)   |
-|Manager   |Will be able to optionally define a sprint due dat                                      |SprintNoDueDates(UC7) |
-|Manager   |Will be able to give a sprint a name                                                    |SprintNames(UC8)      |
-|developer|Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
-|developer|Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
-|developer|Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
+|Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
+|Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
+|Programmer|Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
 |Anyone    |Should be able to download and open the desktop client.                                 |DownloadClient(UC9)   |
 |Anyone    |Should be able to register a new account through the __[desktop client/website, not sure what the registration flow should be]__ with an email and password __[or what required info is needed]__.		       |RegAccout(UC10)       |
 |RegUser   |Should be able to open the desktop client and log into their account.		    |OpenDsktpClient(UC11) |
@@ -171,22 +167,22 @@ __Derived Use Cases From Requirements__
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
 |Manager   |Will be able to customize task sizes as project parameters.				    |DefineSizes(UC18)     |
 |Manager   |Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
-|developer|Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
+|Programmer|Will be able to set a task size from one of the task size project parameters.	    |SetTaskSize(UC19)     |
 |Manager   |Will be able to customize tags as project parameters.				    |DefineTags(UC20)      |
 |Manager   |Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
-|developer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
+|Programmer|Will be able to set a task tags from one of the tag project parameters.		    |SetTaskTags(UC21)     |
 |Manager   |Start work on a task.								    |StartTask(UC22)     |
 |Manager   |Stop work on a task.								    |StopTask(UC23)        |
 |Manager   |Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
 |Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
-|developer|Start work on a task.								    |StartTask(UC22)       |
-|developer|Stop work on a task.								    |StopTask(UC23)        |
-|developer|Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
-|developer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
+|Programmer|Start work on a task.								    |StartTask(UC22)       |
+|Programmer|Stop work on a task.								    |StopTask(UC23)        |
+|Programmer|Edit start and stop times on a task.						    |EditTaskTimes(UC24)   |
+|Programmer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
 |Manager   |View statistical summaries page.							    |ViewStats(UC26)       |
 |Manager   |Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
-|developer|View statistical summaries page.							    |ViewStats(UC26)       |
-|developer|Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
+|Programmer|View statistical summaries page.							    |ViewStats(UC26)       |
+|Programmer|Manage view using filters with various project, sprint, and task attributes.	    |FilterStats(UC27)     |
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
@@ -306,7 +302,7 @@ __Detailed Use Cases__
 |UC-4            | Modify task attributes|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2,REQ-8|
-|Initiating Actor:|developer|
+|Initiating Actor:|Programmer|
 |Actor's Goals|Set the size,due date, tags, of a task|
 |Participating Actors|none|
 |Preconditions|a task must exist|
@@ -438,7 +434,7 @@ This is not a Use Case this is a property of how the permissions system operates
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-5|
 |Initiating Actor:|Manager|
-|Actor's Goals|To add a new developer to their project|
+|Actor's Goals|To add a new programmer to their project|
 |Participating Actors|RegUser|
 |Preconditions|The desired used is not part of the project in question.|
 |Postconditions|The desired User will be able to join the relevant project.|
@@ -469,10 +465,10 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-5|
 |Initiating Actor:|Manager|
-|Actor's Goals|To add the desired new developer to their team.|
+|Actor's Goals|To add the desired new programmer to their team.|
 |Participating Actors|RegUser|
-|Preconditions|Manager invite to the new developer.|
-|Postconditions|RegUser is notified that they have an invitation to become a developer on the relavent project.|
+|Preconditions|Manager invite to the new prorammer.|
+|Postconditions|RegUser is notified that they have an invitation to become a programmer on the relavent project.|
 ##### Flow of Events
 1. -> Manager finishes sending invite.
 2. <- Server sends invite once the target user's client is connected to the network.
@@ -537,7 +533,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |UC-22            | Start Work on a Task|
 |--------------------:|--------------|
 |Related Requirements:|REQ-5, REQ-1, |
-|Initiating Actor:|developer|
+|Initiating Actor:|Programmer|
 |Actor's Goals|Log the time the actor began working on a task|
 |Participating Actors|none|
 |Preconditions|A Task must exist|
@@ -579,8 +575,9 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 4. ←System:Indicates that times have been logged see (UC-22,UC23)
 ##### Extensions
 ---
-|UC-25            | Add task times|
+|UC-25            | Verb Phrase|
 |--------------------:|--------------|
+
 |Related Requirements:|REQ-1,REQ-10|
 |Initiating Actor:|Developer|
 |Actor's Goals|Enter data for work that was not recorded due to a user error.|
@@ -594,12 +591,13 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 4. ←System:
 	* (a) adds start and stop times see (UC-22,UC-23)
 	* (b) indicates that times have been entered
+
 ##### Extensions
 ---
 |UC-26          | View Statistics|
 |--------------------:|--------------|
 |Related Requirements:|REQ-11, REQ-2|
-|Initiating Actor:|developer/Manager|
+|Initiating Actor:|Programmer/Manager|
 |Actor's Goals|View Detailed Statistics about Tasks, projects|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to access given tasks and projects|
@@ -612,7 +610,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |UC-27            | Filter Statistics|
 |--------------------:|--------------|
 |Related Requirements:|REQ-11,REQ-2|
-|Initiating Actor:|developer/Manager|
+|Initiating Actor:|Programmer/Manager|
 |Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
