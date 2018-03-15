@@ -175,7 +175,7 @@ There are more use cases than requirements, so I turned the table from what is i
 
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
 |----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
-|PW   |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|PW   | 20  | 14  | 13  | 15  | 10  |  9  | 17  |  7  |  6  | 19  | 16  | ---- | ------ |
 |UC1  |  x  |     |     |     |     |     |     |     |     |     |     |      |        | 
 |UC2  | x   |     |     |   x |     |     |     |     |     |     |     |      |        |
 |UC3  |   x |     |  x  |  x  |     |     |     |     |     |     |     |      |        |
