@@ -130,7 +130,7 @@ Your requirements and previous sections should lead to your use cases. How will 
 __Actors__
 Anyone - Genearlly meaning anyone or thing acting as a human person
 RegUser - Genearlly meaning anyone who has registered and has a valid user account
-Programmer - Generally meaning the user with the lowest permissions for a project
+Developer - Generally meaning the user with the lowest permissions for a project
 Manager - Generally meanting the user with a high level of permissions for a project
 Server - The data warehouse manager
 Client - The customer service associate
@@ -153,22 +153,22 @@ __Derived Use Cases From Requirements__
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
 |Manager   |Will be able to customize task sizes as project parameters.		     		            |DefineSizes(UC18)     |
 |Manager   |Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
-|Programmer|Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
+|Developer|Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
 |Manager   |Will be able to customize tags as project parameters.			                	    |DefineTags(UC20)      |
 |Manager   |Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
-|Programmer|Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
+|Developer|Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
 |Manager   |Start work on a task.								                                    |StartTask(UC22)       |
 |Manager   |Stop work on a task.								                                    |StopTask(UC23)        |
 |Manager   |Edit start and stop times on a task.						                            |EditTaskTimes(UC24)   |
 |Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
-|Programmer|Start work on a task.								                                    |StartTask(UC22)       |
-|Programmer|Stop work on a task.								                                    |StopTask(UC23)        |
-|Programmer|Edit start and stop times on a task.					 	                            |EditTaskTimes(UC24)   |
-|Programmer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
+|Developer|Start work on a task.								                                    |StartTask(UC22)       |
+|Developer|Stop work on a task.								                                        |StopTask(UC23)        |
+|Developer|Edit start and stop times on a task.					 	                                |EditTaskTimes(UC24)   |
+|Developer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
 |Manager   |View statistical summaries page.							                            |ViewStats(UC26)       |
 |Manager   |Manage view using filters with various project, sprint, and task attributes.	        |FilterStats(UC27)     |
-|Programmer|View statistical summaries page.						                        	    |ViewStats(UC26)       |
-|Programmer|Manage view using filters with various project, sprint, and task attributes.	        |FilterStats(UC27)     |
+|Developer|View statistical summaries page.						                             	    |ViewStats(UC26)       |
+|Developer|Manage view using filters with various project, sprint, and task attributes.	            |FilterStats(UC27)     |
 
 __Accountability Matrix__ (Assuming this means Tracability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
@@ -196,7 +196,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC18 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC19 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC20 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC21 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC21 | x   |     |     |     |     |     |     |  x  |     |     |     |      |        |
 |Uc22 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC23 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC24 | x   |     |     |     |     |     |     |     |     |  x  |     |      |        |
@@ -288,7 +288,7 @@ __Detailed Use Cases__
 |UC-4            | Modify task attributes|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2,REQ-8|
-|Initiating Actor:|Programmer|
+|Initiating Actor:|Developer|
 |Actor's Goals|Set the size,due date, tags, of a task|
 |Participating Actors|none|
 |Preconditions|a task must exist|
@@ -434,7 +434,7 @@ This is not a Use Case this is a property of how the permissions system operates
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-5|
 |Initiating Actor:|Manager|
-|Actor's Goals|To add a new programmer to their project|
+|Actor's Goals|To add a new Developer to their project|
 |Participating Actors|RegUser|
 |Preconditions|The desired used is not part of the project in question.|
 |Postconditions|The desired User will be able to join the relevant project.|
@@ -465,10 +465,10 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-5|
 |Initiating Actor:|Manager|
-|Actor's Goals|To add the desired new programmer to their team.|
+|Actor's Goals|To add the desired new Developer to their team.|
 |Participating Actors|RegUser|
 |Preconditions|Manager invite to the new prorammer.|
-|Postconditions|RegUser is notified that they have an invitation to become a programmer on the relavent project.|
+|Postconditions|RegUser is notified that they have an invitation to become a Developer on the relavent project.|
 ##### Flow of Events
 1. → Manager finishes sending invite.
 2. ← Server sends invite once the target user's client is connected to the network.
@@ -519,15 +519,23 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-21            | Verb Phrase|
+|UC-21            | Set Task Tags|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-8|
+|Initiating Actor:|Manager,Developer|
+|Actor's Goals|Associate a given tag with a given task|
+|Participating Actors|None|
+|Preconditions|Tag must already exist, task must already exist|
+|Postconditions|System records that tag is associated with task|
 ##### Flow of Events
+1. ->User: selects task to tag
+2. <-System: Presents Options for Task
+3. ->User:Selects add tag
+4. <-System: Presents available tags
+5. ->User: Selects desired tag
+6. <-System:
+	* (a) assosciates tag with task
+	* (b) indicates to user that task is now tagged
 ##### Extensions
 ---
 |UC-22            | Start Work on a Task|
@@ -604,7 +612,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |UC-26          | View Statistics|
 |--------------------:|--------------|
 |Related Requirements:|REQ-11, REQ-2|
-|Initiating Actor:|Programmer/Manager|
+|Initiating Actor:|Developer/Manager|
 |Actor's Goals|View Detailed Statistics about Tasks, projects|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to access given tasks and projects|
@@ -617,7 +625,7 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 |UC-27            | Filter Statistics|
 |--------------------:|--------------|
 |Related Requirements:|REQ-11,REQ-2|
-|Initiating Actor:|Programmer/Manager|
+|Initiating Actor:|Developer/Manager|
 |Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
