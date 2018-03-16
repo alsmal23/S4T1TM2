@@ -147,7 +147,7 @@ __Derived Use Cases From Requirements__
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
 |Anyone    |Is able register a new account through the desktop client with minimal Personal information.|RegAccout(UC10)   |
 |RegUser   |Will be able to log into their account on the client application.                       |OpenDsktpClient(UC11) |
-|RegUser   |Users will be able to view the state of projects they are a part of.                    |ViewProject(UC12)     |
+|Developer |Users will be able to view the state of projects they are a part of.                    |ViewProject(UC12)     |
 |Manager   |Should be able to invite additional register users to access a project                  |InviteToProj(UC14)    |
 |RegUser   |Should be able to see notifications about invitations to projects.                      |InviteNotify(UC16)    |
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
@@ -370,21 +370,17 @@ __Detailed Use Cases__
 2. return to step 2
 
 ---
-|UC-12            | EditSprint|
+|UC-12               | ViewProject|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1, REQ-7|
-|Initiating Actor:|Manager|
-|Actor's Goals|To change the attributes of a sprint such as its name or target completion date.|
-|Participating Actors|None|
-|Preconditions|Selected sprint exists.  A project exists|
-|Postconditions|Selected sprint is assigned the attributes specified by the manager.|
+|Initiating Actor    :|Developer|
+|Actor's Goals        |To see an overview of the project they are working on including the Tasks, Sprints and Backlog that constitute it.|
+|Participating Actors |None|
+|Preconditions        |The user is logged in and has access to the project.|
+|Postconditions       |None|
 ##### Flow of Events
-1. → Manager selects the edit button on a sprint.
-2. Server validates the user has the appropriate permissions.
-3. ← Client displays the edit sprint options menu.
-4. → Manager enters desired changes and selects submit.
-5. Server makes changes to records.
-6. ← Client reports the success/failure of the changes.
+1. → User selects the project
+2. ← System displays a summary of all the Backlog, Sprints, and Tasks that are part of the project.
 
 
 ---
