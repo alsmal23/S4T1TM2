@@ -178,12 +178,12 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC7  |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC8  |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC9  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC10 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC11 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC12 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC10 | x   |  x  |  x  |     |     |     |     |     |     |     |     |      |        |
+|UC11 | x   |     |     |     |     |     |     |     |  x  |     |     |      |        |
+|UC12 | x   |     |     |     |     |     | x   |     |     |     |     |      |        |
 |UC13 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC14 |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC16 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC14 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
+|UC16 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC17 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC18 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC19 |     |     |     |     |     |     |     |     |     |     |     |      |        |
@@ -458,7 +458,7 @@ __Detailed Use Cases__
 ##### Extensions
 
 ---
-|UC-17            | Verb Phrase|
+|UC-17            | Manage Project Users|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -470,7 +470,7 @@ __Detailed Use Cases__
 ##### Extensions
 
 ---
-|UC-18            | Verb Phrase|
+|UC-18            | Define Sizes|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -482,7 +482,7 @@ __Detailed Use Cases__
 ##### Extensions
 
 ---
-|UC-19            | Verb Phrase|
+|UC-19            | Set Task Size
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
@@ -494,7 +494,7 @@ __Detailed Use Cases__
 ##### Extensions
 
 ---
-|UC-20            | Verb Phrase|
+|UC-20            | Define Tags|
 |--------------------:|--------------|
 |Related Requirements:||
 |Initiating Actor:||
