@@ -152,21 +152,13 @@ __Derived Use Cases From Requirements__
 |RegUser   |Should be able to see notifications about invitations to projects.                      |InviteNotify(UC16)    |
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
 |Manager   |Will be able to customize task sizes as project parameters.		     		            |DefineSizes(UC18)     |
-|Manager   |Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
 |Developer|Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
 |Manager   |Will be able to customize tags as project parameters.			                	    |DefineTags(UC20)      |
-|Manager   |Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
 |Developer|Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
-|Manager   |Start work on a task.								                                    |StartTask(UC22)       |
-|Manager   |Stop work on a task.								                                    |StopTask(UC23)        |
-|Manager   |Edit start and stop times on a task.						                            |EditTaskTimes(UC24)   |
-|Manager   |Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
 |Developer|Start work on a task.								                                    |StartTask(UC22)       |
 |Developer|Stop work on a task.								                                        |StopTask(UC23)        |
 |Developer|Edit start and stop times on a task.					 	                                |EditTaskTimes(UC24)   |
 |Developer|Add start and stop time on a task in the even they forgot to log the task entirely.	    |AddTaskTimes(UC25)    |
-|Manager   |View statistical summaries page.							                            |ViewStats(UC26)       |
-|Manager   |Manage view using filters with various project, sprint, and task attributes.	        |FilterStats(UC27)     |
 |Developer|View statistical summaries page.						                             	    |ViewStats(UC26)       |
 |Developer|Manage view using filters with various project, sprint, and task attributes.	            |FilterStats(UC27)     |
 
