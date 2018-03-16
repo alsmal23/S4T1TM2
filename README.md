@@ -168,10 +168,10 @@ There are more use cases than requirements, so I turned the table from what is i
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
 |----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
 |PW   | 20  | 14  | 13  | 15  | 10  |  9  | 17  |  7  |  6  | 19  | 16  | ---- | ------ |
-|UC1  | x   |     |     |     |     |     |     |     |     |     |     |      |        | 
-|UC2  | x   |     |     |  x  |     |     |     |     |     |     |     |      |        |
-|UC3  | x   |     |  x  |  x  |     |     |     |     |     |     |     |      |        |
-|UC4  | x   |  x  |  x  |     |     |     |     |     |     |     |     |      |        |
+|UC1  | x   | x   |     |  x  |     |     |     |     |     |     |     |      |        | 
+|UC2  | x   |     |     |     |     |     | x   |     |     |     |     |      |        |
+|UC3  | x   |     |     |     |     |     | x   |     |     |     |     |      |        |
+|UC4  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
 |UC5  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
 |UC6  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
 |UC7  |     |     |     |     |     |     |     |     |     |     |     |      |        |
@@ -196,35 +196,8 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC27 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
 ---
 __Detailed Use Cases__
-(@lihaven TODO → make a detailed use case template)
 
-|UC-1            | Create Account|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-2,REQ-3|
-|Initiating Actor:|Anyone|
-|Actor's Goals|Create an account on the server|
-|Participating Actors|None|
-|Preconditions|Actor must not already have an account on the server|
-|Postconditions|User Account information stored by the server|
-##### Flow of Events
- 1. → User: selects create account function
- 2. ← System: Displays a form to user
- 3. User: Fills out Form
- 4. → User: Submits Form
- 5. ← System: 
-	 * (a) Stores account information 
-	 * (b) signals completions
----
-##### Extensions   
-
-5(b).
-1. ← System: 
-	* (a) signals that account information is incomplete/not unique
-	* (b) returns form to user  
-2.  return to step 3.
-
----
-|UC-2            | Create Project|
+|UC-1            | Create Project|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2, REQ-4|
 |Initiating Actor:|Regular User|
@@ -250,7 +223,7 @@ __Detailed Use Cases__
 3.  Return to 3.
 
 ---
-|UC-3            | Create Sprint|
+|UC-2            | Create Sprint|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-7|
 |Initiating Actor:|Manager|
@@ -273,6 +246,33 @@ __Detailed Use Cases__
 6a.
 1. ←System returns incomplete or non-unique form
 2.  →User submits completed form
+
+|UC-3            | Create Task|
+|--------------------:|--------------|
+|Related Requirements:|REQ-1,REQ-7,|
+|Initiating Actor:|Anyone|
+|Actor's Goals|Create task within a project|
+|Participating Actors|None|
+|Preconditions|Actor have sufficient permissions within the project, project must exist already|
+|Postconditions|Task is created on server and assosciated with project|
+##### Flow of Events
+ 1. → User: selects create task function
+ 2. ← System: Displays a form to user
+ 3. User: Fills out Form
+ 4. → User: Submits Form
+ 5. ← System: 
+	 * (a) system stores task information
+	 * (b) signals completions
+---
+##### Extensions   
+
+5(b).
+1. ← System: 
+	* (a) signals that account information is incomplete/not unique
+	* (b) returns form to user  
+2.  return to step 3.
+
+---
 
 
 ---
@@ -362,16 +362,31 @@ __Detailed Use Cases__
 ##### Flow of Events
 ##### Extensions
 ---
-|UC-10            | Verb Phrase|
+|UC-10            | Register Account|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-2,REQ-3|
+|Initiating Actor:|Anyone|
+|Actor's Goals|Create an account on the server|
+|Participating Actors|None|
+|Preconditions|Actor must not already have an account on the server|
+|Postconditions|User Account information stored by the server, User is given Manager permissions in new Project|
 ##### Flow of Events
-##### Extensions
+ 1. → User: selects create account function
+ 2. ← System: Displays a form to user
+ 3. User: Fills out Form
+ 4. → User: Submits Form
+ 5. ← System: 
+	 * (a) Stores account information 
+	 * (b) signals completions
+---
+##### Extensions   
+
+5(b).
+1. ← System: 
+	* (a) signals that account information is incomplete/not unique
+	* (b) returns form to user  
+2.  return to step 3.
+
 ---
 |UC-11            | EditProject|
 |--------------------:|--------------|
@@ -406,19 +421,6 @@ __Detailed Use Cases__
 4. → Manager enters desired changes and selects submit.
 5. Server makes changes to records.
 6. ← Client reports the sucess/failure of the changes.
-##### Extensions
----
-This is not a Use Case this is a property of how the permissions system operates. Better as requirement. Consider removal.
-
-|UC-13            | PermsNewProj|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
 ##### Extensions
 
 ---
