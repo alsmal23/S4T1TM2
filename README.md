@@ -35,7 +35,7 @@ RescueTime's principal selling point is its complex interactive and exhaustive s
 #### Overview 
 Timesheet is and individual user time tracking solution with a focus on tracking contract work. Although it includes a lot of features that probably won't want to consider for YAAM (including, but not limited to billing and expense tracking because the assumption is that YAAMs users are salaried), it is primarily a time and completed task tracking application. This makes it relevant our research because it's conceptually very similar to out first TM application in class, but with a GUI and some critical features added, primarily projects, tags, and GUIs on web and mobile.
 
-The general first time user flow in Timesheets is for a user to create a project, maybe a tag or two, and then start tracking tasks with the timer, once tasks are stopped they will ask for tags and a description. Note that the mobile app is free, but the web app is not, therefore the mobile app with timer is the most common use case.
+The general first time user flow in Timesheet is for a user to create a project, maybe a tag or two, and then start tracking tasks with the timer, once tasks are stopped they will ask for tags and a description. Note that the mobile app is free, but the web app is not, therefore the mobile app with timer is the most common use case.
 
 #### Structures flow
 <table>
@@ -62,7 +62,7 @@ __Tasks:__ There are two different task views available. The first is a summary 
 
 __Tags:__ Tasks can be tagged with custom tags, colored with an RGB color value system, teams are able to use these to indicate whatever they need and are used as a filter for statistics reporting. In addition, the properties of each tag includes a statistical review of what projects the tag was used on.
 
-__Statistics:__ The statistics reporting is a major feature of timesheets as it allows users to see how much overall time they are spending and where that time is going. Some of the more relevant features are: Date selections (several quick access pre-defined periods, as well as custom periods), Time Spent, Break Time, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour breakdown in text).
+__Statistics:__ The statistics reporting is a major feature of Timesheet as it allows users to see how much overall time they are spending and where that time is going. Some of the more relevant features are: Date selections (several quick access predefined periods, as well as custom periods), Time Spent, Break Time, Progress (since it doesn't track goals, this is more like a sum of time spent day to day), Average Daily Working Hours, Time Spent Per Tag (a pie chart and hour break down text list), Projects (a pie chart and hour breakdown in text).
 
 __Contracting:__ There are numerous features for contracting work that are not relevant to our project that aren't detailed here, but include: tracking if a task is billable and if it has been paid, hourly rates, overtime, and invoices.
 down text).
@@ -124,14 +124,14 @@ __Priority justifications:__ Most important is anything that was part of the ori
 |**REQ-XX2**|Users shall be able to track time spent on tasks by checking user software interactivity|
 |**REQ-XX3**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
 
-## Use Cases  (@paul-mchugh TODO → Get use cases tasks list, assign out)
+
 Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
 
 __Actors__
-Anyone - Genearlly meaning anyone or thing acting as a human person
-RegUser - Genearlly meaning anyone who has registered and has a valid user account
+Anyone - Generally meaning anyone or thing acting as a human person
+RegUser - Generally meaning anyone who has registered and has a valid user account
 Developer - Generally meaning the user with the lowest permissions for a project
-Manager - Generally meanting the user with a high level of permissions for a project
+Manager - Generally meaning the user with a high level of permissions for a project
 Server - The data warehouse manager
 Client - The customer service associate
 
@@ -160,7 +160,7 @@ __Derived Use Cases From Requirements__
 |Developer|View statistical summaries page.						                             	    |ViewStats(UC26)       |
 |Developer|Manage view using filters with various project, sprint, and task attributes.	            |FilterStats(UC27)     |
 
-__Accountability Matrix__ (Assuming this means Tracability Matrix?)
+__Accountability Matrix__ (Assuming this means Traceability Matrix?)
 There are more use cases than requirements, so I turned the table from what is in the  
 
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
@@ -251,7 +251,7 @@ __Detailed Use Cases__
 |Actor's Goals|Create task within a project|
 |Participating Actors|None|
 |Preconditions|Actor have sufficient permissions within the project, project must exist already|
-|Postconditions|Task is created on server and assosciated with project|
+|Postconditions|Task is created on server and associated with project|
 ##### Flow of Events
  1. → User: selects create task function
  2. ← System: Displays a form to user
@@ -294,12 +294,12 @@ __Detailed Use Cases__
 |Actor's Goals|To move a task either off of the backlog and into a sprint, or vice-versa|
 |Participating Actors|None|
 |Preconditions|Tasks must already exist, a sprint must already exist, user must have adequate permissions|
-|Postconditions|a sprint will have a given task assosciated with it|
+|Postconditions|a sprint will have a given task associated with it|
 ##### Flow of Events
-1. ->User: Selects sprints
-2. <-System:displays sprints, and backlog
-3. ->User: selects sprint and destination (backlog/sprint).
-4. <-System:
+1. →User: Selects sprints
+2. ←System:displays sprints, and backlog
+3. →User: selects sprint and destination (backlog/sprint).
+4. ←System:
 	* (a) Moves task into indicated sprint
 	* (b) Indicates to user that sprint has been moved.
 
@@ -313,12 +313,12 @@ __Detailed Use Cases__
 |Preconditions|A sprint must already exist, user must have sufficient permissions|
 |Postconditions|System will record changes to sprints attributes|
 ##### Flow of Events
-1. ->User: Selects sprint to change
-2. <-System:displays sprint and associated data
-3. ->User:
+1. →User: Selects sprint to change
+2. ←System:displays sprint and associated data
+3. →User:
 	* (a) selects information to alter
 	* (b) enters new value
-4. <-System: 
+4. ←System: 
 	* (a) records new value(s).
 	* (b) indicates to user that change is complete.
 
@@ -396,7 +396,7 @@ __Detailed Use Cases__
 3. ← Client displays edit project menu.
 4. → Manager enters desired changes and presses submit.
 5. Server makes changes to records.
-6. ← Client reports the sucess/failure of the changes.
+6. ← Client reports the success/failure of the changes.
 
 
 ---
@@ -414,7 +414,7 @@ __Detailed Use Cases__
 3. ← Client displays the edit sprint options menu.
 4. → Manager enters desired changes and selects submit.
 5. Server makes changes to records.
-6. ← Client reports the sucess/failure of the changes.
+6. ← Client reports the success/failure of the changes.
 
 
 ---
@@ -428,9 +428,9 @@ __Detailed Use Cases__
 |Postconditions|The desired User will be able to join the relevant project.|
 ##### Flow of Events
 1. → Manager selects the invite user action for their project.
-2. Server checks that the user is a manager and has appropriate permisions.
+2. Server checks that the user is a manager and has appropriate permissions.
 3. ← Client displays the invite user menu.
-4. → Manager enters the username of the relavent user.
+4. → Manager enters the user name of the relevant user.
 5. ← Server sends confirmation message
 
 
@@ -442,8 +442,8 @@ __Detailed Use Cases__
 |Initiating Actor:|Manager|
 |Actor's Goals|To add the desired new Developer to their team.|
 |Participating Actors|RegUser|
-|Preconditions|Manager invite to the new prorammer.|
-|Postconditions|RegUser is notified that they have an invitation to become a Developer on the relavent project. New Developers Permissions set to Default|
+|Preconditions|Manager invite to the new programmer.|
+|Postconditions|RegUser is notified that they have an invitation to become a Developer on the relevant project. New Developers Permissions set to Default|
 ##### Flow of Events
 1. → Manager finishes sending invite.
 2. ← Server sends invite once the target user's client is connected to the network.
@@ -460,12 +460,12 @@ __Detailed Use Cases__
 |Preconditions|Project must exist, with Users|
 |Postconditions|Developers permissions on the Project changed|
 ##### Flow of Events
-1. -> Manager: Selects Manage Developers on Project
-2. <- System: presents a list of users on the project.
-3. -> Manager: selects user they wish to edit
-4. <- System: presents available options to manager
-5. -> Manager: selects permission they'd like to change and new value
-6. <- System:
+1. → Manager: Selects Manage Developers on Project
+2. ← System: presents a list of users on the project.
+3. → Manager: selects user they wish to edit
+4. ← System: presents available options to manager
+5. → Manager: selects permission they'd like to change and new value
+6. ← System:
 	* (a) updates permissions for user
 	* (b) indicates to Manager that changes have been logged
 
@@ -477,16 +477,16 @@ __Detailed Use Cases__
 |Actor's Goals|Define a size system for a project|
 |Participating Actors|None|
 |Preconditions|Project must already exist, user must have sufficient permissions|
-|Postconditions|size system defined and assosciated with project|
+|Postconditions|size system defined and associated with project|
 ##### Flow of Events
-1. ->User: selects project
-2. <-System: displays project 
-3. ->User: selects add tag
-4. <- system: Displays form
-5. ->User: 
-	*(a) fills out form (indicating size names and assosciating integers with them)
+1. →User: selects project
+2. ←System: displays project 
+3. →User: selects add tag
+4. ← system: Displays form
+5. →User: 
+	*(a) fills out form (indicating size names and associating integers with them)
 	*(b) submits form
-6. <- System:
+6. ← System:
 	*(a) creates size within project
 	*(b) indicates to user that size created
 ##### Extensions
@@ -503,16 +503,16 @@ __Detailed Use Cases__
 |Actor's Goals|create a new tag, for a project|
 |Participating Actors|None|
 |Preconditions|Project must already exist, user must have sufficient permissions|
-|Postconditions|new tag is defined and assosciated with project|
+|Postconditions|new tag is defined and associated with project|
 ##### Flow of Events
-1. ->User: selects project
-2. <-System: displays project 
-3. ->User: selects add tag
-4. <- system: Displays form
-5. ->User: 
+1. →User: selects project
+2. ←System: displays project 
+3. →User: selects add tag
+4. ← system: Displays form
+5. →User: 
 	*(a) fills out form
 	*(b) submits form
-6. <- System:
+6. ← System:
 	*(a) creates tag within project
 	*(b) indicates to user that tag created
 ##### Extensions
@@ -532,13 +532,13 @@ __Detailed Use Cases__
 |Preconditions|Tag must already exist, task must already exist|
 |Postconditions|System records that tag is associated with task|
 ##### Flow of Events
-1. ->User: selects task to tag
-2. <-System: Presents Options for Task
-3. ->User:Selects add tag
-4. <-System: Presents available tags
-5. ->User: Selects desired tag
-6. <-System:
-	* (a) assosciates tag with task
+1. →User: selects task to tag
+2. ←System: Presents Options for Task
+3. →User:Selects add tag
+4. ←System: Presents available tags
+5. →User: Selects desired tag
+6. ←System:
+	* (a) associates tag with task
 	* (b) indicates to user that task is now tagged
 ##### Extensions
 
@@ -595,7 +595,7 @@ __Detailed Use Cases__
 	* (b) indicates to user that times are logged.
 ##### Extensions
 (4b).
-	1. <-System: indicates to user that times cannot be saved due to overlap.See UC-22,UC-23.
+	1. ←System: indicates to user that times cannot be saved due to overlap.See UC-22,UC-23.
 	
 ---
 
@@ -633,7 +633,7 @@ __Detailed Use Cases__
 |--------------------:|--------------|
 |Related Requirements:|REQ-11,REQ-2|
 |Initiating Actor:|Developer/Manager|
-|Actor's Goals|Change which tasks/projects/sprints are included in statisctics|
+|Actor's Goals|Change which tasks/projects/sprints are included in statistics|
 |Participating Actors|None|
 |Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
 |Postconditions|View will be updated and limited to the given parameters|
