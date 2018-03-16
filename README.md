@@ -145,6 +145,7 @@ __Derived Use Cases From Requirements__
 |Developer |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
 |Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
+|Developer |Will be able to edit the the attributes of existing tasks.                              |EditTasks(UC7)        |
 |Anyone    |Is able register a new account through the desktop client with minimal Personal information.|RegAccout(UC10)   |
 |RegUser   |Will be able to log into their account on the client application.                       |OpenDsktpClient(UC11) |
 |RegUser   |Users will be able to view the state of projects they are a part of.                    |ViewProject(UC12)     |
