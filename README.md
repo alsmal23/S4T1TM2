@@ -270,9 +270,6 @@ __Detailed Use Cases__
 2.  return to step 3.
 
 ---
-
-
----
 |UC-4            | ModTaskAttrib|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2,REQ-8|
@@ -582,7 +579,7 @@ __Detailed Use Cases__
 	1.←System: indicates to user that task is already stopped
 	
 ---
-|UC-24            | Verb Phrase|
+|UC-24            | EditTaskTimes|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-10|
 |Initiating Actor:|Developer|
