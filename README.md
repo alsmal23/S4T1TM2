@@ -3,7 +3,7 @@
 ## Introduction
   The agile development process naturally tends to be both sporadic and volatile during the iterative design and implementation process. Project organization and group communication play critical roles in attempting to streamline the development process. The effective goal of the YAAM project is to create a task management software that can bridge the gap between development and organization for small development teams. The software is intended to allow managers and developers alike to organize project tasks and seamlessly track the time spent on completing them. Furthermore, the software will aggregate project task data into a complex statistical summary report for supervisors.
   
-## Product Reviews  (@lihaven TODO → Review, make consistent formatting?)
+## Product Reviews  
 ### [Agilean](https://agilean.in/) 
 Agilean is an online SaaS agile development team management system. Agilean comes in two flavors. The Kanban flavor and the scrum flavor. This changes how task progress is managed and viewed. Kanban supports a more continuous work flow, while scrum is more of a sprint style work flow.  We chose to review the Scrum flavor as that seemed to more closely correspond to sprints in Agile Development.  
 
@@ -160,7 +160,7 @@ __Derived Use Cases From Requirements__
 |Developer|View statistical summaries page.						                             	    |ViewStats(UC26)       |
 |Developer|Manage view using filters with various project, sprint, and task attributes.	            |FilterStats(UC27)     |
 
-__Accountability Matrix__ (Assuming this means Traceability Matrix?)
+__Traceablility Matrix__ 
 There are more use cases than requirements, so I turned the table from what is in the  
 
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
