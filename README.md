@@ -129,6 +129,8 @@ __Priority justifications:__ Most important is anything that was part of the ori
 |**REQ-XX3**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
 
 
+## Use Cases
+
 __Actors__
 
 Anyone - Generally meaning anyone or thing acting as a human person
