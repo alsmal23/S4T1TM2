@@ -107,7 +107,7 @@ The following third-party softwares will be used in the server architecture:
 |**REQ-2**| 14 |The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.|
 |**REQ-3**| 13 |Users shall be able to register an account on the cloud server.|
 |**REQ-4**| 15 |Users shall be able to create a new project.|
-|**REQ-5**| 10 |Users, as a the project creator, shall be able to invite additional registered users to view (and potentially modify) a project.|
+|**REQ-5**| 10 |Users, as a the project creator, shall be able to invite or remove additional registered users to view (and potentially modify) a project.|
 |**REQ-6**| 9 |Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
 |**REQ-7**| 17 |Users with appropriate permissions shall be able to create a sprint or task. |
 |**REQ-8**| 7 |Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
@@ -181,7 +181,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC13 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC14 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC16 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
-|UC17 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC17 | x   |     |     |     |  x  |  x  |     |     |     |     |     |      |        |
 |UC18 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC19 |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC20 |     |     |     |     |     |     |     |     |     |     |     |      |        |
@@ -189,7 +189,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |Uc22 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC23 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC24 | x   |     |     |     |     |     |     |     |     |  x  |     |      |        |
-|UC25 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC25 | x   |     |     |     |     |     |     |     |     |  x  |     |      |        |
 |UC26 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
 |UC27 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
 ---
@@ -402,7 +402,7 @@ __Detailed Use Cases__
 5. Server makes changes to records.
 6. ← Client reports the sucess/failure of the changes.
 
-##### Extensions
+
 ---
 |UC-12            | EditSprint|
 |--------------------:|--------------|
@@ -419,7 +419,7 @@ __Detailed Use Cases__
 4. → Manager enters desired changes and selects submit.
 5. Server makes changes to records.
 6. ← Client reports the sucess/failure of the changes.
-##### Extensions
+
 
 ---
 |UC-14            | InviteToProj|
@@ -436,7 +436,7 @@ __Detailed Use Cases__
 3. ← Client displays the invite user menu.
 4. → Manager enters the username of the relavent user.
 5. ← Server sends confirmation message
-##### Extensions
+
 
 ---
 
@@ -452,19 +452,26 @@ __Detailed Use Cases__
 1. → Manager finishes sending invite.
 2. ← Server sends invite once the target user's client is connected to the network.
 3. → Target user accepts invite.
-##### Extensions
+
 
 ---
 |UC-17            | Manage Project Users|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1, REQ-5, REQ-6 |
+|Initiating Actor:|Manager|
+|Actor's Goals|Set permissions for developers on the users projects|
+|Participating Actors|None|
+|Preconditions|Project must exist, with Users|
+|Postconditions|Developers permissions on the Project changed|
 ##### Flow of Events
-##### Extensions
+1. -> Manager: Selects Manage Developers on Project
+2. <- System: presents a list of users on the project.
+3. -> Manager: selects user they wish to edit
+4. <- System: presents available options to manager
+5. -> Manager: selects permission they'd like to change and new value
+6. <- System:
+	*(a) updates permissions for user
+	*(b) indicates to Manager that changes have been logged
 
 ---
 |UC-18            | Define Sizes|
