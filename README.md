@@ -168,7 +168,8 @@ __Derived Use Cases From Requirements__
 |Developer|View statistical summaries page.						                             	    |ViewStats(UC26)       |
 |Developer|Manage view using filters with various project, sprint, and task attributes.	            |FilterStats(UC27)     |
 
-__Traceablility Matrix__ 
+__Traceablility Matrix__
+
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
 |----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
 |PW   | 20  | 14  | 13  | 15  | 10  |  9  | 17  |  7  |  6  | 19  | 16  | ---- | ------ |
