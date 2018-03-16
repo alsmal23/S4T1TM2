@@ -142,7 +142,7 @@ __Derived Use Cases From Requirements__
 |RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
 |Manager   |Will be able to create sprints and have them saved on the server.                       |CreateSprints(UC2)    |
 |Developer |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
-|Developer |Will be able to create and modify task attributes and have them saved on the server.    |ModAttribs(UC4)       |
+|Developer |Will be able to create and modify task attributes and have them saved on the server.    |EditTasks(UC4)       |
 |Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
 |Anyone    |Is able register a new account through the desktop client with minimal Personal information.|RegAccout(UC10)   |
@@ -276,7 +276,7 @@ __Detailed Use Cases__
 
 
 ---
-|UC-4            | Modify task attributes|
+|UC-4            | EditTask|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2,REQ-8|
 |Initiating Actor:|Developer|
