@@ -1,4 +1,9 @@
 # Yet Another Agile Manager (YAAM)  
+## Contributors
+- [John P](https://github.com/JohnPCsus)
+- [Lindsay Haven](https://github.com/lihaven)
+- [Paul McHugh](https://github.com/paul-mchugh)
+- [Ryan R](https://github.com/ryan-cr)
   
 ## Introduction
   The agile development process naturally tends to be both sporadic and volatile during the iterative design and implementation process. Project organization and group communication play critical roles in attempting to streamline the development process. The effective goal of the YAAM project is to create a task management software that can bridge the gap between development and organization for small development teams. The software is intended to allow managers and developers alike to organize project tasks and seamlessly track the time spent on completing them. Furthermore, the software will aggregate project task data into a complex statistical summary report for supervisors.
@@ -100,7 +105,6 @@ The following third-party softwares will be used in the server architecture:
   
   
 ## Project Requirements
-  
 |REQ-###   |Priority|Description|
 |----------|----|-----------|
 |**REQ-1** | 20 |The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
