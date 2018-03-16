@@ -142,7 +142,7 @@ __Derived Use Cases From Requirements__
 |RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
 |Manager   |Will be able to create sprints and have them saved on the server.                       |CreateSprints(UC2)    |
 |Developer |Will be able to create tasks and have them saved on the server.                         |CreateTasks(UC3)      |
-|Developer |Will be able to create and modify task attributes and have them saved on the server.    |EditTasks(UC4)       |
+|Developer |Will be able to create and modify task attributes and have them saved on the server.    |ModTaskAttrib(UC4)    |
 |Developer |Will be able to move a task from one sprint (or backlog) to another.                    |MoveTasks(UC5)        |
 |Manager   |Managers will be able to edit a sprints attributes such as its due date and name.       |EditSprints(UC6)      |
 |Anyone    |Is able register a new account through the desktop client with minimal Personal information.|RegAccout(UC10)   |
@@ -152,9 +152,7 @@ __Derived Use Cases From Requirements__
 |RegUser   |Should be able to see notifications about invitations to projects.                      |InviteNotify(UC16)    |
 |Manager   |Should be able to manager permissions and access of other users on a project.           |MngProjUsers(UC17)    |
 |Manager   |Will be able to customize task sizes as project parameters.		     		            |DefineSizes(UC18)     |
-|Developer|Will be able to set a task size from one of the task size project parameters.	        |SetTaskSize(UC19)     |
 |Manager   |Will be able to customize tags as project parameters.			                	    |DefineTags(UC20)      |
-|Developer|Will be able to set a task tags from one of the tag project parameters.		            |SetTaskTags(UC21)     |
 |Developer|Start work on a task.								                                    |StartTask(UC22)       |
 |Developer|Stop work on a task.								                                        |StopTask(UC23)        |
 |Developer|Edit start and stop times on a task.					 	                                |EditTaskTimes(UC24)   |
@@ -276,7 +274,7 @@ __Detailed Use Cases__
 
 
 ---
-|UC-4            | EditTask|
+|UC-4            | ModTaskAttrib|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2,REQ-8|
 |Initiating Actor:|Developer|
