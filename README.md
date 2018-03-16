@@ -101,19 +101,19 @@ The following third-party softwares will be used in the server architecture:
   
 ## Project Requirements
   
-|REQ-###|Priority|Description|
-|------|---|-----------|
-|**REQ-1**| 20 |The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
-|**REQ-2**| 14 |The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.|
-|**REQ-3**| 13 |Users shall be able to register an account on the cloud server.|
-|**REQ-4**| 15 |Users shall be able to create a new project.|
-|**REQ-5**| 10 |Users, as a the project creator, shall be able to invite or remove additional registered users to view (and potentially modify) a project.|
-|**REQ-6**| 9 |Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
-|**REQ-7**| 17 |Users with appropriate permissions shall be able to create a sprint or task. |
-|**REQ-8**| 7 |Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
-|**REQ-9**| 6 |Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.|
+|REQ-###   |Priority|Description|
+|----------|----|-----------|
+|**REQ-1** | 20 |The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
+|**REQ-2** | 14 |The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.|
+|**REQ-3** | 13 |Users shall be able to register an account on the cloud server.|
+|**REQ-4** | 15 |Users shall be able to create a new project.|
+|**REQ-5** | 10 |Users, as a the project creator, shall be able to invite or remove additional registered users to view (and potentially modify) a project.|
+|**REQ-6** | 9  |Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
+|**REQ-7** | 17 |Users with appropriate permissions shall be able to create a sprint or task. |
+|**REQ-8** | 7  |Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
+|**REQ-9** | 6  |Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.|
 |**REQ-10**| 19 |Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
-|**REQ-11**| 16  |Users shall be able to view work summaries for a specific project, sprint, task, or user.|
+|**REQ-11**| 16 |Users shall be able to view work summaries for a specific project, sprint, task, or user.|
 
 __Priority justifications:__ Most important is anything that was part of the original TM program and adding agile functionality, the second most important thing is the cloud server implementation because it's easy and helps teams work together better, the third most important thing is that the program be able to support multiple projects and then multiple teams, finally it's important to manager user permissions so teams don't have to worry about correcting mistakes or misunderstandings with changes made by inexperienced or uninformed users. 
 
@@ -323,39 +323,6 @@ __Detailed Use Cases__
 	* (b) indicates to user that change is complete.
 
 ---
-|UC-7            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-8            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
-|UC-9            | Verb Phrase|
-|--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
-##### Flow of Events
-##### Extensions
----
 |UC-10            | Register Account|
 |--------------------:|--------------|
 |Related Requirements:|REQ-1,REQ-2,REQ-3|
@@ -382,22 +349,25 @@ __Detailed Use Cases__
 2.  return to step 3.
 
 ---
-|UC-11            | EditProject|
+|UC-11                | OpenDsktpClient|
 |--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-9|
-|Initiating Actor:|Manager|
-|Actor's Goals|To change properties global to a project such as the tags which are available to tasks.|
-|Participating Actors|None|
-|Preconditions|The selected project exists.|
-|Postconditions|The selected project has the properties assigned by the manager.|
+|Related Requirements:|REQ-2|
+|Initiating Actor    :|RegUser|
+|Actor's Goals        |To open and log into their client|
+|Participating Actors |None|
+|Preconditions        |The user is registered.|
+|Postconditions       |The user is logged into their client.|
 ##### Flow of Events
-1. → Manager selects edit project properties.
-2. Server validates the user is a manager.
-3. ← Client displays edit project menu.
-4. → Manager enters desired changes and presses submit.
-5. Server makes changes to records.
-6. ← Client reports the success/failure of the changes.
+1. -> User launches client application
+2. <- System prompts User to log in
+3. -> User enters Username and Password
+4. <- System validates username and password, logs the user in, and stores a login token on User's computer
 
+##### Extensions
+
+4a.
+1. <- System reject username/password pair as invalid
+2. return to step 2
 
 ---
 |UC-12            | EditSprint|
