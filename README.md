@@ -182,7 +182,7 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC14 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC16 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
 |UC17 | x   |     |     |     |  x  |  x  |     |     |     |     |     |      |        |
-|UC18 |     |     |     |     |     |     |     |     |     |     |     |      |        |
+|UC18 | x   |     |     |     |     |     |     |     |  x  |     |     |      |        |
 |UC20 | x   |     |     |     |     |     |     |     |  x  |     |     |      |        |
 |UC21 | x   |     |     |     |     |     |     |  x  |     |     |     |      |        |
 |Uc22 | x   |     |     |     |  x  |     |     |     |     |     |     |      |        |
@@ -469,22 +469,35 @@ __Detailed Use Cases__
 4. <- System: presents available options to manager
 5. -> Manager: selects permission they'd like to change and new value
 6. <- System:
-	*(a) updates permissions for user
-	*(b) indicates to Manager that changes have been logged
+	* (a) updates permissions for user
+	* (b) indicates to Manager that changes have been logged
 
 ---
-|UC-18            | Define Sizes|
+|UC-18            |Define Sizes|
 |--------------------:|--------------|
-|Related Requirements:||
-|Initiating Actor:||
-|Actor's Goals||
-|Participating Actors||
-|Preconditions||
-|Postconditions||
+|Related Requirements:|REQ-1,REQ-9|
+|Initiating Actor:|Manager|
+|Actor's Goals|Define a size system for a project|
+|Participating Actors|None|
+|Preconditions|Project must already exist, user must have sufficient permissions|
+|Postconditions|size system defined and assosciated with project|
 ##### Flow of Events
+1. ->User: selects project
+2. <-System: displays project 
+3. ->User: selects add tag
+4. <- system: Displays form
+5. ->User: 
+	*(a) fills out form (indicating size names and assosciating integers with them)
+	*(b) submits form
+6. <- System:
+	*(a) creates size within project
+	*(b) indicates to user that size created
 ##### Extensions
-
----
+6(b).
+	1.<-System:
+		* (a) indicates that form is incomplete
+		* (b) system returns form
+	2.return to step 5
 
 |UC-20            | Define Tags|
 |--------------------:|--------------|
@@ -508,8 +521,8 @@ __Detailed Use Cases__
 ##### Extensions
 6(b).
 	1.<-System:
-		*(a) indicates that form is incomplete/non-unique
-		*(b) system returns form
+		* (a) indicates that form is incomplete/non-unique
+		* (b) system returns form
 	2.return to step 5
 
 ---
