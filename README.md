@@ -129,14 +129,18 @@ __Priority justifications:__ Most important is anything that was part of the ori
 |**REQ-XX3**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
 
 
-Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
-
 __Actors__
+
 Anyone - Generally meaning anyone or thing acting as a human person
+
 RegUser - Generally meaning anyone who has registered and has a valid user account
+
 Developer - Generally meaning the user with the lowest permissions for a project
+
 Manager - Generally meaning the user with a high level of permissions for a project
+
 Server - The data warehouse manager
+
 Client - The customer service associate
 
 __Derived Use Cases From Requirements__
@@ -165,8 +169,6 @@ __Derived Use Cases From Requirements__
 |Developer|Manage view using filters with various project, sprint, and task attributes.	            |FilterStats(UC27)     |
 
 __Traceablility Matrix__ 
-There are more use cases than requirements, so I turned the table from what is in the  
-
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
 |----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
 |PW   | 20  | 14  | 13  | 15  | 10  |  9  | 17  |  7  |  6  | 19  | 16  | ---- | ------ |
