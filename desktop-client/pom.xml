@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>edu.csus.csc131</groupId>
+        <groupId>edu.csus</groupId>
         <artifactId>yaam</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
