@@ -1,14 +1,14 @@
 package edu.csus.yaam.client;
 
+import edu.csus.yaam.client.gui.YaamDemo;
 import javafx.application.Application;
-import javafx.stage.Stage;
 
 /**
  * @author Ryan R
- * @date 3/8/2018
+ * @date 3/27/2018
  */
-public class YaamClientLauncher extends Application {
-    @Override
-    public void start(Stage primaryStage) {
+public class YaamClientLauncher {
+    public static void main(String[] args) {
+        Application.launch(YaamDemo.class);
     }
 }

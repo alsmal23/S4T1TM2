@@ -16,6 +16,7 @@
         <url>https://github.com/CSUS-CSC-131-Spring2018</url>
     </organization>
 
+    
     <developers>
         <developer>
             <id>JohnPCsus</id>
@@ -42,6 +43,7 @@
 
     <modules>
         <module>desktop-client</module>
+        <module>client-api</module>
         <module>server-api</module>
     </modules>
 

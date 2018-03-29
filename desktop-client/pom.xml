@@ -3,13 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <artifactId>yaam</artifactId>
         <groupId>edu.csus.csc131</groupId>
+        <artifactId>yaam</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>edu.csus.csc131.yaam</groupId>
+    <groupId>edu.csus.yaam</groupId>
     <artifactId>desktop-client</artifactId>
 
     <repositories>
@@ -41,6 +42,12 @@
             <groupId>lc.kra.system</groupId>
             <artifactId>system-hook</artifactId>
             <version>3.2</version>
+        </dependency>
+        <!-- JavaFX: Font Awesome Integration -->
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx</artifactId>
+            <version>8.9</version>
         </dependency>
     </dependencies>
 
@@ -75,7 +82,7 @@
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                             <manifestEntries>
-                                <Main-Class>edu.csus.yaam.client.YaamClientLauncher</Main-Class>
+                                <Main-Class>edu.csus.yaam.test.YaamClientLauncher</Main-Class>
                             </manifestEntries>
                         </transformer>
                     </transformers>
