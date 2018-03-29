@@ -7,11 +7,20 @@
     <parent>
         <groupId>edu.csus</groupId>
         <artifactId>yaam</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>0.1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>edu.csus.yaam</groupId>
     <artifactId>client-api</artifactId>
+
+    <dependencies>
+        <!-- JSON: Parser and Serializer -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
