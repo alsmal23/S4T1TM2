@@ -100,7 +100,7 @@ The following third-party softwares will be used in the client architecture:
   - **[system-hook](https://github.com/kristian/system-hook)**: "Java (low-level) System Hook provides a very light-weight global keyboard and mouse listener for Java."
 
 #### Server
-The cloud server software will serve to store and retrieve all data related to users, projects, and tasks. Clients will send appropriate user data to the cloud server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of MySQL to store all relevant data related to users, projects, and tasks.
+The cloud server software will serve to store and retrieve all data related to users, projects, and tasks. Clients will send appropriate user data to the cloud server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of SQLite to store all relevant data related to users, projects, and tasks.
 
 The following third-party softwares will be used in the server architecture:
 - To provide a HTTP API endpoint:
@@ -108,8 +108,9 @@ The following third-party softwares will be used in the server architecture:
     - **[Spark](http://sparkjava.com/)**: "A micro framework for creating web applications in Kotlin and Java 8 with minimal effort." Spark (which runs on Jetty) will be used to mitigate the overhead of programmatically creating a Jetty server for the HTTP API.
   - **[JSON](https://github.com/stleary/JSON-java)**: "JSON is a light-weight, language independent, data interchange format." JSON will be used for data payloads for receiving and sending data to clients.
 - To persistently store data:
-  - **[MySQL](https://www.mysql.com/)**: MySQL is a open source, relational SQL database management system. 
-  - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
+  - **[SQLite](https://www.sqlite.org/index.html)**: A embedded relational database system 
+  - ~~**[MySQL](https://www.mysql.com/)**: MySQL is a open source, relational SQL database management system.~~
+  - ~~**[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"~~
   
   
 ## Project Requirements
