@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="YAAM" status="INFO">
+    <Loggers>
+        <Root level="TRACE">
+            <AppenderRef ref="Console" level="TRACE"/>
+            <AppenderRef ref="LoggingFile" level="DEBUG"/>
+        </Root>
+    </Loggers>
+
+    <Appenders>
+        <!-- Console -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}/%t] %m%n%throwable</Pattern>
+            </PatternLayout>
+        </Console>
+        <!-- Rolling log files -->
+        <RollingFile name="LoggingFile"
+                     fileName="logs/yaam.active.log"
+                     filePattern="logs/yaam.%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p [%logger/%t] %m%n%throwable</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+</Configuration>
