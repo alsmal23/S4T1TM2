@@ -1,6 +1,6 @@
 package edu.csus.yaam.client;
 
-import edu.csus.yaam.client.gui.YaamDemo;
+import edu.csus.yaam.client.legacy.YaamDemo;
 import javafx.application.Application;
 
 /**

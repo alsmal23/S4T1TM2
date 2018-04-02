@@ -1,11 +1,11 @@
-package edu.csus.yaam.client.gui.sidebar;
+package edu.csus.yaam.client.legacy.sidebar;
 
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeView;
 import com.sun.javafx.binding.DoubleConstant;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import edu.csus.yaam.client.gui.nav.NavAction;
-import edu.csus.yaam.client.gui.nav.ProjectScene;
+import edu.csus.yaam.client.legacy.nav.NavAction;
+import edu.csus.yaam.client.legacy.nav.ProjectScene;
 import edu.csus.yaam.test.TreeViewDemo;
 import edu.csus.yaam.test.TreeViewDemo.FilterableTreeItem;
 import javafx.beans.binding.Bindings;
