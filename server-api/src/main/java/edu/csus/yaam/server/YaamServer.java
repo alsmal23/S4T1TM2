@@ -66,25 +66,26 @@ public class YaamServer {
             System.exit(-1);
         });
 
-
         // default Spark hooks
         Spark.exception(Exception.class, (exception, request, response) -> {
             log.error("Exception on request: " + request.uri(), exception);
             response.status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.body("");
         });
+
+
+        // register websockets
+        Spark.webSocket("/websocket/echo", EchoWebSocket.class);
+
+
+        // apply route mappings
+
         // discourage snooping
+        Spark.notFound("/dsf");
         Spark.notFound((request, response) -> {
             response.status(HttpServletResponse.SC_FORBIDDEN);
             return "";
         });
-
-        
-        // register websockets
-        Spark.webSocket("/websocket/echo", new EchoWebSocket());
-
-
-        // apply route mappings
 
         // add a authentication filter before every request, excluding /auth
         Spark.before(new AuthenticationFilter());
@@ -106,7 +107,6 @@ public class YaamServer {
                 log.error("Error registering endpoint", throwable);
             }
         }
-
 
 
         // Ensure Spark is launched, in the event endpoint registration is commented out

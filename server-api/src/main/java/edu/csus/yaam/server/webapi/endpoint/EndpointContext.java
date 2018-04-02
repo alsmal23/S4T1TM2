@@ -13,7 +13,7 @@ public class EndpointContext {
         this.arguments = arguments;
     }
 
-    public <T> T getRouteArgument(String variableName) {
+    public <T> T routeArgument(String variableName) {
         return (T) arguments.get(variableName);
     }
 }

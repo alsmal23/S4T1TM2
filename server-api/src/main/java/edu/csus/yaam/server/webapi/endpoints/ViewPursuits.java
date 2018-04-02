@@ -16,7 +16,7 @@ import spark.Response;
 public class ViewPursuits implements Endpoint {
     @Override
     public void handle(Request request, Response response, EndpointContext context) {
-       UUID project = context.getRouteArgument("project");
+       UUID project = context.routeArgument("project");
 
        response.body(project.toString());
     }
