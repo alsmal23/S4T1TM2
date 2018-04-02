@@ -1,9 +1,6 @@
 package edu.csus.yaam.server;
 
 
-import edu.csus.yaam.server.db.SQLiteDatabase;
-import edu.csus.yaam.server.webapi.WebServerAPI;
-import edu.csus.yaam.server.websocket.WebSocketServer;
 import java.io.File;
 import java.io.PrintWriter;
 import lombok.extern.log4j.Log4j2;
@@ -73,37 +70,20 @@ public class YaamServerLauncher {
             return;
         }
 
-        // load SQLite database
-
-        SQLiteDatabase databaseSQL = new SQLiteDatabase(config.sqliteFile);
-        execute(databaseSQL::connect, "Failed to connect to SQLite database");
-        execute(databaseSQL::initialize, "Failed to execute schema initialization statements");
-
-
-        // construct WebAPI server
-        log.info("Launching Spark WebAPI...");
-        WebServerAPI apiServer = new WebServerAPI(config);
-        execute(apiServer::launch, "Failed to launch embedded Spark WebAPI");
-        log.info("Spark WebAPI launched");
-
-        // construct WebSocket server
-        log.info("Launching web socket server...");
-        WebSocketServer webSocketServer = new WebSocketServer(config);
-        execute(webSocketServer::launch, "Failed to launch WebSocketServer");
-        log.info("Web socket server launched");
-
+        // launch YAAM server endpoints
+        YaamServer yaamServer = new YaamServer(config);
+        try {
+            yaamServer.launch();
+            log.info("Loaded configuration");
+        } catch (Throwable throwable) {
+            log.fatal("Failed to load configuration", throwable);
+            System.exit(-1);
+            return;
+        }
 
         System.out.println();
         log.info("YAAM Server running");
     }
 
 
-    private static void execute(Runnable runnable, String fatalMessage) {
-        try {
-            runnable.run();
-        } catch (Throwable throwable) {
-            log.fatal(fatalMessage, throwable);
-            System.exit(-1);
-        }
-    }
 }
