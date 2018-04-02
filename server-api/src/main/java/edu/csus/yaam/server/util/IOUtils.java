@@ -6,8 +6,7 @@ import java.nio.file.Paths;
 import lombok.SneakyThrows;
 
 /**
- * @author Ryan R
- * @date 4/1/2018
+ * https://stackoverflow.com/a/26421518
  */
 public class IOUtils {
     @SneakyThrows

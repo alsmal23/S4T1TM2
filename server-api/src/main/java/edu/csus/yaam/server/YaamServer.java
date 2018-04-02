@@ -32,9 +32,11 @@ public class YaamServer {
     }
 
     public void launch() {
+        log.info("Connecting to SQL database");
         // load SQLite database
         executeFatal(database::connect, "Failed to connect to SQLite database");
         executeFatal(database::initialize, "Failed to execute schema initialization statements");
+        log.info("Connected to SQL database");
 
         // construct WebAPI server
         log.info("Launching Spark WebAPI...");
