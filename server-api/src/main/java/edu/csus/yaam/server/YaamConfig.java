@@ -22,14 +22,6 @@ public class YaamConfig {
 
     public final WebAPIConfig webApi;
 
-    @RequiredArgsConstructor
-    public static class WebSocketConfig {
-        public final String host;
-        public final int port;
-    }
-
-    public final WebSocketConfig webSocket;
-
     public final File sqliteFile;
 
     public static YaamConfig load(Namespace namespace) {
@@ -50,18 +42,12 @@ public class YaamConfig {
 
         ConfigurationSection connectionSection = config.getConfigurationSection("connection");
         ConfigurationSection webAPISection = connectionSection.getConfigurationSection("webAPI");
-        ConfigurationSection webSocketSection = connectionSection.getConfigurationSection("webSocket");
 
         // TODO: Validate configuration
         return new YaamConfig(
                 new WebAPIConfig(
                         webAPISection.getString("host"),
                         webAPISection.getInt("port")
-                ),
-
-                new WebSocketConfig(
-                        webSocketSection.getString("host"),
-                        webSocketSection.getInt("port")
                 ),
                 new File(config.getString("sqliteDatabase"))
         );
