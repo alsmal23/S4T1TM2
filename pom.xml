@@ -62,11 +62,5 @@
             <version>LATEST</version>
             <scope>provided</scope>
         </dependency>
-        <!-- Sentry: Error Capturing -->
-        <dependency>
-            <groupId>io.sentry</groupId>
-            <artifactId>sentry</artifactId>
-            <version>1.7.0</version>
-        </dependency>
     </dependencies>
 </project>
