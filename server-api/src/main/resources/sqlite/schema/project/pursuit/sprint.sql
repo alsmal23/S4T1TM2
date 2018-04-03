@@ -7,5 +7,5 @@ CREATE TABLE IF NOT EXISTS `Sprint` (
 
   PRIMARY KEY(`pursuit_uuid`),
   FOREIGN KEY(`pursuit_uuid`) REFERENCES `Pursuit`(`uuid`),
-  FOREIGN KEY(`size`) REFERENCES `SizeAttribute`(`uuid`),
+  FOREIGN KEY(`size`) REFERENCES `SizeAttribute`(`uuid`)
 );

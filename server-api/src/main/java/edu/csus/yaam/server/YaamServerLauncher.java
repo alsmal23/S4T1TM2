@@ -1,13 +1,11 @@
 package edu.csus.yaam.server;
 
 
-import edu.csus.yaam.server.webapi.WebServerAPI;
-import edu.csus.yaam.server.websocket.WebSocketServer;
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import lombok.extern.log4j.Log4j2;
 import net.sourceforge.argparse4j.ArgumentParsers;
+import net.sourceforge.argparse4j.impl.action.StoreTrueArgumentAction;
 import net.sourceforge.argparse4j.inf.ArgumentGroup;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.ArgumentParserException;
@@ -29,6 +27,7 @@ public class YaamServerLauncher {
                 .defaultHelp(true)
                 .description("YAAM WebServer");
 
+
         // add additional parameters
         ArgumentGroup optionalArguments = parser.addArgumentGroup("Optional Arguments");
         // allow specifying a configuration file by a filepath
@@ -40,52 +39,51 @@ public class YaamServerLauncher {
                 .setDefault(new File("yaam-config.yml"))
                 .help("Specifies a configuration file by filepath");
         // use no external configuration file, use bundled config
-        optionalArguments.addArgument("--noConfig")
+        optionalArguments.addArgument("--noconf")
+                .action(new StoreTrueArgumentAction())
                 .dest("noConfig")
                 .type(boolean.class)
                 .help("Uses default bundled config");
 
 
         // parse arguments
-        Namespace namespace = new Namespace(new HashMap<>());
+        Namespace namespace;
         try {
-            parser.parseArgs(args, namespace.getAttrs());
+            namespace = parser.parseArgs(args);
         } catch (ArgumentParserException exception) {
             System.err.println("error: " + exception.getMessage());
             System.err.println();
             parser.printHelp(new PrintWriter(System.err, true));
             System.exit(-1);
+            return;
         }
 
 
         // load YAAM server configuration and settings into memory
-        YaamConfig config = YaamConfig.load(namespace);
-        log.info("Loaded configuration");
-
-
-        // construct WebAPI
-        log.info("Launching web api...");
+        YaamConfig config;
         try {
-            WebServerAPI apiServer = new WebServerAPI(config);
-            apiServer.launch();
+            config = YaamConfig.load(namespace);
+            log.info("Loaded configuration");
         } catch (Throwable throwable) {
-            log.fatal("Failed to launch WebServerAPI", throwable);
+            log.fatal("Failed to load configuration", throwable);
             System.exit(-1);
+            return;
         }
-        log.info("Web API launched");
 
-        // construct WebSocket
-        log.info("Launching web socket server...");
+        // launch YAAM server endpoints
+        YaamServer yaamServer = new YaamServer(config);
         try {
-            WebSocketServer webSocketServer = new WebSocketServer(config);
-            webSocketServer.launch();
+            yaamServer.launch();
+            log.info("Loaded configuration");
         } catch (Throwable throwable) {
-            log.fatal("Failed to launch WebSocketServer", throwable);
+            log.fatal("Failed to load configuration", throwable);
             System.exit(-1);
+            return;
         }
-        log.info("Web socket server launched");
 
-
-        log.info("Server running");
+        System.out.println();
+        log.info("YAAM server running");
     }
+
+
 }

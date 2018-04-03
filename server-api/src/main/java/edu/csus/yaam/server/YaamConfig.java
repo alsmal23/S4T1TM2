@@ -1,6 +1,8 @@
 package edu.csus.yaam.server;
 
-import java.net.InetAddress;
+import com.timvisee.yamlwrapper.ConfigurationSection;
+import com.timvisee.yamlwrapper.YamlConfiguration;
+import java.io.File;
 import lombok.RequiredArgsConstructor;
 import net.sourceforge.argparse4j.inf.Namespace;
 
@@ -14,22 +16,40 @@ import net.sourceforge.argparse4j.inf.Namespace;
 public class YaamConfig {
     @RequiredArgsConstructor
     public static class WebAPIConfig {
-        public final InetAddress host;
+        public final String host;
         public final int port;
     }
 
     public final WebAPIConfig webApi;
 
-    @RequiredArgsConstructor
-    public static class WebSocketConfig {
-        public final InetAddress host;
-        public final int port;
-    }
-
-    public final WebSocketConfig WebSocketConfig;
-
+    public final File sqliteFile;
 
     public static YaamConfig load(Namespace namespace) {
-        throw new UnsupportedOperationException();
+        YamlConfiguration config = new YamlConfiguration();
+
+        // load YAML configuration
+        boolean noConfig = namespace.getBoolean("noConfig");
+        File file = namespace.get("configFile");
+        try {
+            if (noConfig) {
+                config.load(YaamConfig.class.getResourceAsStream("/yaam/defaultConfig.yml"));
+            } else {
+                config.load(namespace.<File>get("configFile"));
+            }
+        } catch (Throwable throwable) {
+            throw new RuntimeException("failed to load configuration from file" + (!noConfig ? ": " + file.getAbsolutePath() : ""));
+        }
+
+        ConfigurationSection connectionSection = config.getConfigurationSection("connection");
+        ConfigurationSection webAPISection = connectionSection.getConfigurationSection("webAPI");
+
+        // TODO: Validate configuration
+        return new YaamConfig(
+                new WebAPIConfig(
+                        webAPISection.getString("host"),
+                        webAPISection.getInt("port")
+                ),
+                new File(config.getString("sqliteDatabase"))
+        );
     }
 }

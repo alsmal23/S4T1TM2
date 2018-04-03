@@ -1,0 +1,6 @@
+sqliteDatabase: "yaam.db"
+
+connection:
+  webAPI:
+    host: localhost
+    port: 80

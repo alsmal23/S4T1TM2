@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `TagAttribute` (
   `color` INT, -- Stored as a RGB int
 
   PRIMARY KEY(`uuid`),
-  FOREIGN KEY(`project`) REFERENCES `Project`(`uuid`)
+  FOREIGN KEY(`project_uuid`) REFERENCES `Project`(`uuid`)
 );
 
 CREATE INDEX IX_TagAttribute_project_uuid ON `TagAttribute`(`project_uuid`);

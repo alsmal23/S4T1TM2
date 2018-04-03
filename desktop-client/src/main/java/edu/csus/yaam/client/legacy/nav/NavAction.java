@@ -1,4 +1,4 @@
-package edu.csus.yaam.client.gui.nav;
+package edu.csus.yaam.client.legacy.nav;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import java.lang.annotation.ElementType;

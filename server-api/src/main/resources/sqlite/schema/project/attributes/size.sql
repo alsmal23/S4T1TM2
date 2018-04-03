@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `SizeAttribute` (
   `value` INT NOT NULL CHECK(0 <= `value`),
 
   PRIMARY KEY(`uuid`),
-  FOREIGN KEY(`project`) REFERENCES `Project`(`uuid`)
+  FOREIGN KEY(`project_uuid`) REFERENCES `Project`(`uuid`)
 );
 
 CREATE INDEX IX_SizeAttribute_project_uuid ON `SizeAttribute`(`project_uuid`);

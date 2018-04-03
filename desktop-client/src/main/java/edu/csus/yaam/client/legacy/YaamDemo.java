@@ -1,14 +1,14 @@
-package edu.csus.yaam.client.gui;
+package edu.csus.yaam.client.legacy;
 
 import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXTreeViewPath;
 import com.sun.javafx.binding.DoubleConstant;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import edu.csus.yaam.client.gui.action.LogOut;
-import edu.csus.yaam.client.gui.action.SettingsScene;
-import edu.csus.yaam.client.gui.nav.NavScene;
-import edu.csus.yaam.client.gui.sidebar.DashboardScene;
-import edu.csus.yaam.client.gui.sidebar.ProjectsScene;
+import edu.csus.yaam.client.legacy.action.LogOut;
+import edu.csus.yaam.client.legacy.action.SettingsScene;
+import edu.csus.yaam.client.legacy.nav.NavScene;
+import edu.csus.yaam.client.legacy.sidebar.DashboardScene;
+import edu.csus.yaam.client.legacy.sidebar.ProjectsScene;
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;

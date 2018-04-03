@@ -5,14 +5,11 @@
 userVersion: 1
 
 ##
-# Some SQLite tables declare a foreign key in their 'CREATE TABLE' query, which requires the foreign key to exist while
-# creating the new table. The following list defines the execution order of SQL scripts to create a fresh new SQLite
-# database. Effectively, the scripts are topologically sorted based on their foreign key dependencies.
+# Apparently, these do not need to be executed in topological order based on their foreign key dependencies
 ##
-scripts:
+statements:
 # User
 - "user.sql"
-
 # Project
 - "project/project.sql"
 - "project/permission.sql"
@@ -25,4 +22,4 @@ scripts:
 - "project/pursuit/task/taskWorkEntry.sql"
 ## Custom defined project attributes
 - "project/attributes/size.sql"
-- "project/attributes/tags.sql"
+- "project/attributes/tag.sql"
