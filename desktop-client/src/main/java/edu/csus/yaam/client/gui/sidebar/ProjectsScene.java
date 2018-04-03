@@ -25,14 +25,14 @@ public class ProjectsScene implements ProjectScene {
         Pane scene = new StackPane();
         scene.setOpaqueInsets(new Insets(10));
 
-        Pane taskNav = new Pane();
+        Pane taskNav = new Pane(); //tasks
         taskNav.prefHeightProperty().bind(scene.heightProperty());
         taskNav.prefWidthProperty().bind(DoubleConstant.valueOf(150));
 //        taskNav.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
         scene.getChildren().add(taskNav);
 
 
-        TextField filterField = new JFXTextField();
+        TextField filterField = new JFXTextField(); //search
         filterField.layoutXProperty().bind(DoubleConstant.valueOf(0));
         filterField.layoutYProperty().bind(DoubleConstant.valueOf(0));
         filterField.prefWidthProperty().bind(DoubleConstant.valueOf(200));
