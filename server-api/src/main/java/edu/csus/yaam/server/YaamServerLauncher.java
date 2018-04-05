@@ -84,6 +84,4 @@ public class YaamServerLauncher {
         System.out.println();
         log.info("YAAM server running");
     }
-
-
 }

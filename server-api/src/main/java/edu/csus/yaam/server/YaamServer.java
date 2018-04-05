@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.experimental.Accessors;
 import lombok.extern.log4j.Log4j2;
 import spark.Spark;
+import spark.Spark404Fix;
 
 /**
  * @author Ryan R
@@ -111,5 +112,6 @@ public class YaamServer {
 
         // Ensure Spark is launched, in the event endpoint registration is commented out
         Spark.init();
+        Spark404Fix.blockingInject();
     }
 }
