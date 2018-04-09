@@ -2,6 +2,7 @@ package edu.csus.yaam.client.api;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.util.UUID;
 
@@ -10,14 +11,14 @@ import java.util.UUID;
  */
 @Data public class User
 {
-	@Getter protected UUID userID;
+	@Getter protected UUID uuid;
 	@Getter protected String userName;
 	@Getter protected String displayName;
 	@Getter protected String SSN; //we need it just trust me :)
 	
-	public User(UUID userID, String userName, String displayName, String SSN)
+	public User(@NonNull UUID uuid, @NonNull String userName, @NonNull String displayName, @NonNull String SSN)
 	{
-		this.userID = userID;
+		this.uuid = uuid;
 		this.userName = userName;
 		this.displayName = displayName;
 		this.SSN = SSN;
