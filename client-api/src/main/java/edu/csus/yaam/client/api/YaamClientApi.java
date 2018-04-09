@@ -1,10 +1,10 @@
 package edu.csus.yaam.client.api;
 
-
 import lombok.NonNull;
-
-import java.net.MalformedURLException;
-import java.net.URL;
+import org.asynchttpclient.AsyncHttpClient;
+import org.asynchttpclient.DefaultAsyncHttpClientConfig;
+import org.asynchttpclient.Dsl;
+import org.asynchttpclient.uri.Uri;
 
 /**
  * @author Paul M
@@ -12,17 +12,22 @@ import java.net.URL;
  */
 public class YaamClientApi
 {
+    protected Uri remoteHost;
 	protected ClientAPICallback callback;
-	protected URL remoteHost;
-	
+
+	private final AsyncHttpClient httpClient;
+
 	/*
 	The URL parameter host is used only for the host name.
 	Callback must not be null.
 	 */
-	public YaamClientApi(@NonNull String host, @NonNull ClientAPICallback clientCallback) throws MalformedURLException
-	{
-		this.callback = callback;
-		remoteHost = new URL("http", host,80 ,"");
-		
+	public YaamClientApi(@NonNull Uri host, @NonNull ClientAPICallback clientCallback)
+    {
+        remoteHost = host;
+		this.callback = clientCallback;
+
+		httpClient = Dsl.asyncHttpClient(new DefaultAsyncHttpClientConfig.Builder()
+                .build()
+        );
 	}
 }
