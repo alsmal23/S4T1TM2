@@ -5,6 +5,7 @@ import edu.csus.yaam.server.util.IOUtils;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -12,6 +13,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import lombok.experimental.Delegate;
 
 /**
  * @author Ryan R
@@ -26,7 +28,16 @@ public class SQLiteDatabase {
      * Since SQLite is local, there is no benefit in connection pooling
      */
     @Getter
+    @Delegate(types = Delegates.class)
     private Connection connection;
+
+
+    // method delegates
+
+    private interface Delegates {
+        Statement createStatement();
+        PreparedStatement prepareStatement(String sql);
+    }
 
 
     // initialization
@@ -62,5 +73,29 @@ public class SQLiteDatabase {
             }
         }
         statement.closeOnCompletion();
+    }
+
+
+    // (hacky) execution
+
+    @SneakyThrows
+    public void executeSync(@NonNull ConnectionConsumer consumer) {
+        consumer.accept(connection);
+    }
+
+    @SneakyThrows
+    public <T> T executeSync(@NonNull ConnectionFunction<T> consumer) {
+        return (T) consumer.accept(connection);
+    }
+
+
+    @FunctionalInterface
+    public interface ConnectionFunction<T> {
+        T accept(Connection connection) throws Throwable;
+    }
+
+    @FunctionalInterface
+    public interface ConnectionConsumer {
+        void accept(Connection connection) throws Throwable;
     }
 }

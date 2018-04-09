@@ -5,13 +5,11 @@ import edu.csus.yaam.server.webapi.endpoint.APIEndpoint;
 import edu.csus.yaam.server.webapi.endpoint.Endpoint;
 import edu.csus.yaam.server.webapi.endpoint.EndpointContext;
 import edu.csus.yaam.server.webapi.endpoint.RequestMethod;
-
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.UUID;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import spark.Request;
 import spark.Response;
 
@@ -39,31 +37,29 @@ public class ViewPursuits implements Endpoint
 	 */
 	@Override
 	public void handle(Request request, Response response, EndpointContext context)
-	{//uuid, project, name, type
-		String sql = "SELECT * FROM  Pursuit WHERE project = ?";
-
+	{
 		UUID project = context.routeArgument("project");
 
-		try
-		{
-			PreparedStatement statement = database.getConnection().prepareStatement(sql);
-			statement.setString(1, project.toString());
-			ResultSet rs = statement.executeQuery();
+		//uuid, project, name, type
+		String sql = "SELECT * FROM  Pursuit WHERE project_uuid = ?";
 
-			JSONArray array = new JSONArray();
-			while (rs.next())
-			{
-				array.put(new JSONObject()
-						.put("uuid", rs.getString("uuid"))
-						.put("project", rs.getString("project"))
-						.put("name", rs.getString("name"))
-						.put("type", rs.getString("type"))
-						.toString());
-			}
-			response.body(array.toString());
-		} catch (SQLException e)
+		database.executeSync(connection ->
 		{
-			response.body(e.toString());
-		}//on exception putting exceptions toString into response
+			try (PreparedStatement statement = connection.prepareStatement(sql)) {
+				statement.setString(1, project.toString());
+				ResultSet rs = statement.executeQuery();
+
+				JSONArray array = new JSONArray();
+				while (rs.next()) {
+					array.put(new JSONObject()
+							.put("uuid", rs.getString("uuid"))
+							.put("project", rs.getString("project_uuid"))
+							.put("name", rs.getString("name"))
+							.put("type", rs.getString("type"))
+							.toString());
+				}
+				response.body(array.toString());
+			}
+		});
 	}
 }
