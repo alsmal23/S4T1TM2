@@ -92,9 +92,9 @@ public class YaamServer {
         Spark.before((request, response) -> log.info("Request: " + request.uri()));
 
         // register endpoints
-        Endpoint[] endpoints = {
-                new ViewPursuits()
-        };
+        Endpoint[] endpoints = new Endpoint[]{
+				new ViewPursuits(database)
+		};
 
         for (Endpoint endpoint : endpoints) {
             try {
