@@ -7,4 +7,6 @@ interface ClientAPICallback
 {
 	void didConnectToServerSucessfully();
 	void failedToConnectToServer(String reason);
+	void didAuthenticateSucessfully();
+	void failedToAuthenticate(String reason);
 }
