@@ -9,6 +9,7 @@ import edu.csus.yaam.server.webapi.endpoint.RequestMethod;
 import java.sql.*;
 import java.util.UUID;
 
+import lombok.extern.log4j.Log4j2;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,6 +20,7 @@ import spark.Response;
  * @author Ryan R
  * @date 4/1/2018
  */
+@Log4j2
 @APIEndpoint(route = "/project/{project:UUID}/pursuits", method = RequestMethod.GET)
 public class ViewPursuits implements Endpoint
 {
@@ -40,6 +42,10 @@ public class ViewPursuits implements Endpoint
 	@Override
 	public void handle(Request request, Response response, EndpointContext context)
 	{//uuid, project, name, type
+		log.info("Executing " +
+				this.getClass().getSimpleName()+" "+
+				context.routeArgument("project"));
+
 		String sql = "SELECT * FROM  Pursuit WHERE project = ?";
 
 		UUID project = context.routeArgument("project");
@@ -47,6 +53,7 @@ public class ViewPursuits implements Endpoint
 		try
 		{
 			PreparedStatement statement = database.getConnection().prepareStatement(sql);
+
 			statement.setString(1, project.toString());
 			ResultSet rs = statement.executeQuery();
 
@@ -61,9 +68,11 @@ public class ViewPursuits implements Endpoint
 						.toString());
 			}
 			response.body(array.toString());
+			log.info("Return_Size: " + array.length());
 		} catch (SQLException e)
 		{
-			response.body(e.toString());
+			log.error("Error querying database", e);
 		}//on exception putting exceptions toString into response
+
 	}
 }
