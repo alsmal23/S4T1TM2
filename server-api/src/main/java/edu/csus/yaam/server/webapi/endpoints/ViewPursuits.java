@@ -9,8 +9,9 @@ import edu.csus.yaam.server.webapi.endpoint.RequestMethod;
 import java.sql.*;
 import java.util.UUID;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONWriter;
+
 import spark.Request;
 import spark.Response;
 
@@ -25,42 +26,44 @@ public class ViewPursuits implements Endpoint
 
 	public ViewPursuits(SQLiteDatabase database) { this.database = database;}
 
+	/**
+	 * table definition for convenience (Does this violate DRY? probably..)
+	 * `Pursuit` (
+	 * `uuid` CHAR(36),
+	 * `project` CHAR(36) NOT NULL,
+	 * `name` TEXT NOT NULL,
+	 * `type` TEXT NOT NULL CHECK(`type` = 'TASK' OR `type` = 'SPRINT'),
+	 * <p>
+	 * PRIMARY KEY(`uuid`),
+	 * FOREIGN KEY(`project`) REFERENCES `Project`(`uuid`)
+	 */
 	@Override
 	public void handle(Request request, Response response, EndpointContext context)
 	{//uuid, project, name, type
-		
-		String sql = "SELECT * FROM  `Pursuit`";
+		String sql = "SELECT * FROM  Pursuit WHERE project = ?";
+
 		UUID project = context.routeArgument("project");
 
-			//this is not working, the ResultSet comes back empty from the database,
-			//I inserted
-
-		try(Connection conn = database.getConnection();
-			Statement statement = conn.createStatement();
-			ResultSet rs = statement.executeQuery(sql)
-			)
+		try
 		{
-//			PreparedStatement statement = database.getConnection().prepareStatement(sql);
-//			statement.setString(1, project.toString());
-//			ResultSet rs = statement.executeQuery();
+			PreparedStatement statement = database.getConnection().prepareStatement(sql);
+			statement.setString(1, project.toString());
+			ResultSet rs = statement.executeQuery();
 
-			StringBuilder returns = new StringBuilder();
-			JSONWriter writer = new JSONWriter(returns);
-			returns.append(project.toString()+"\t"+"pre jsonify test "+rs.getWarnings()+" "+rs.toString());
-
+			JSONArray array = new JSONArray();
 			while (rs.next())
 			{
-				returns.append("succesful got open result set");
-				writer.value(new JSONObject()
+				array.put(new JSONObject()
 						.put("uuid", rs.getString("uuid"))
 						.put("project", rs.getString("project"))
 						.put("name", rs.getString("name"))
-						.put("type", rs.getString("type")));
+						.put("type", rs.getString("type"))
+						.toString());
 			}
-			response.body(returns.toString());
+			response.body(array.toString());
 		} catch (SQLException e)
 		{
 			response.body(e.toString());
-		}//on exception putting exceptions to string into response
+		}//on exception putting exceptions toString into response
 	}
 }
