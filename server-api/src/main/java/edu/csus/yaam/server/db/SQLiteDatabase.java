@@ -13,12 +13,15 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import lombok.experimental.Accessors;
 import lombok.experimental.Delegate;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * @author Ryan R
  * @date 4/1/2018
  */
+@Log4j2
 @RequiredArgsConstructor
 public class SQLiteDatabase {
     @NonNull
@@ -28,6 +31,7 @@ public class SQLiteDatabase {
      * Since SQLite is local, there is no benefit in connection pooling
      */
     @Getter
+    @Accessors(fluent = true)
     @Delegate(types = Delegates.class)
     private Connection connection;
 
@@ -35,8 +39,8 @@ public class SQLiteDatabase {
     // method delegates
 
     private interface Delegates {
-        Statement createStatement();
-        PreparedStatement prepareStatement(String sql);
+        Statement createStatement() throws SQLException;
+        PreparedStatement prepareStatement(String sql) throws SQLException;
     }
 
 
@@ -69,7 +73,7 @@ public class SQLiteDatabase {
             try {
                 statement.execute(IOUtils.resourceToString("/sqlite/schema/" + fileName));
             } catch (Throwable throwable) {
-                throw new RuntimeException("error executing database statement: /sqlite/schema/" + fileName, throwable);
+                log.error("error executing database statement: /sqlite/schema/" + fileName, throwable);
             }
         }
         statement.closeOnCompletion();
@@ -85,7 +89,7 @@ public class SQLiteDatabase {
 
     @SneakyThrows
     public <T> T executeSync(@NonNull ConnectionFunction<T> consumer) {
-        return (T) consumer.accept(connection);
+        return consumer.accept(connection);
     }
 
 

@@ -23,3 +23,5 @@ statements:
 ## Custom defined project attributes
 - "project/attributes/size.sql"
 - "project/attributes/tag.sql"
+
+- "tests.sql"

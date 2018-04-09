@@ -55,8 +55,7 @@ public class ViewPursuits implements Endpoint
 							.put("uuid", rs.getString("uuid"))
 							.put("project", rs.getString("project_uuid"))
 							.put("name", rs.getString("name"))
-							.put("type", rs.getString("type"))
-							.toString());
+							.put("type", rs.getString("type")));
 				}
 				response.body(array.toString());
 			}
