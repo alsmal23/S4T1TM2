@@ -82,7 +82,6 @@ public class YaamServer {
         // apply route mappings
 
         // discourage snooping
-        Spark.notFound("/dsf");
         Spark.notFound((request, response) -> {
             response.status(HttpServletResponse.SC_FORBIDDEN);
             return "";
