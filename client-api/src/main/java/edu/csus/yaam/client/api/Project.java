@@ -15,7 +15,6 @@ public class Project
 	@Getter TreeMap<UUID, Member>      members;
 	@Getter TreeMap<UUID, Tag>         tags;
 	@Getter TreeMap<UUID, Size>        sizes;
-	@Getter TreeMap<UUID, WorkSession> workSessions;
 	@Getter String name;
 	@Getter String description;
 	@Getter UUID   projectUUID;
@@ -35,7 +34,6 @@ public class Project
 		members      = new TreeMap<>();
 		tags         = new TreeMap<>();
 		sizes        = new TreeMap<>();
-		workSessions = new TreeMap<>();
 	}
 	
 	

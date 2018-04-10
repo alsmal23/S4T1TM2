@@ -9,11 +9,10 @@ import java.util.UUID;
  * Created by paulp on 4/9/2018.
  */
 
-public interface Pursuit
+abstract class Pursuit
 {
-	Project associatedProject = null;
-	UUID thisUUID = null;
-	String name = null;
-	UUID parentUUID = null; //Pursuit or Project
-	Tag[] tags = null;
+	Project associatedProject;
+	String  name;
+	UUID    parentUUID; //Pursuit or Project
+	UUID[]  tagUUIDs;
 }

@@ -14,18 +14,12 @@ import java.util.UUID;
 public class WorkSession
 {
 	protected final UUID    workerUUID;
-	protected final UUID    taskUUID;
 	protected final Instant startTime;
 	protected final Instant endTime;
-	protected final Project associatedProject;
 	
 	public Duration getWorkSessionDuration()
 	{
 		return Duration.between(startTime, endTime);
 	}
 	
-	public User getWorker()
-	{
-		return associatedProject.getClientApi().getUsers().get(workerUUID);
-	}
 }
