@@ -9,4 +9,7 @@ interface ClientAPICallback
 	void failedToConnectToServer(String reason);
 	void didAuthenticateSucessfully();
 	void failedToAuthenticate(String reason);
+	void serverConnectionLost();
+	void knownUsersSucessfullyRetrieved(User[] knownUsers);//is called with a list of all the Users that have projects in common with you
+	void projectsSucessfullyRetrieved(Project[] projects); //is called with a list of all the projects you are a member of
 }
