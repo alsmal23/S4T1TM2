@@ -15,6 +15,7 @@ public class WorkSession
 	protected final User worker;
 	protected final Instant startTime;
 	protected final Instant endTime;
+	protected final YaamClientApi clientApi;
 	
 	public Duration getWorkSessionDuration()
 	{

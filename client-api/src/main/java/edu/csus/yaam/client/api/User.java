@@ -17,5 +17,6 @@ public class User
 	protected final String userName;
 	protected final String displayName;
 	protected final String SSN; //we need it just trust me :)
+	protected final YaamClientApi clientApi;
 	
 }

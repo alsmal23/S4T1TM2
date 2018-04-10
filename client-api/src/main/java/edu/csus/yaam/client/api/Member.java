@@ -13,5 +13,6 @@ public class Member
 	protected final User user;
 	//I am using a regular array because the permissions should not be mutable.
 	protected final String[] permissions;
+	protected final YaamClientApi clientApi;
 	
 }
