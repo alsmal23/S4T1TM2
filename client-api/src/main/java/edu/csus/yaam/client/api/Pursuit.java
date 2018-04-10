@@ -13,6 +13,6 @@ public interface Pursuit
 {
 	UUID thisUUID = null;
 	String name = null;
-	UUID parentUUID = null;
+	UUID parentUUID = null; //Pursuit or Project
 	Tag[] tags = null;
 }
