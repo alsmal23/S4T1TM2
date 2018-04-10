@@ -41,12 +41,12 @@ public class ViewPursuits implements Endpoint
 		UUID project = context.routeArgument("project");
 
 		//uuid, project, name, type
-		String sql = "SELECT * FROM  Pursuit WHERE project_uuid = ?";
+		String sql = "SELECT * FROM  Pursuit"; //WHERE project_uuid = ?";
 
 		database.executeSync(connection ->
 		{
 			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				statement.setString(1, project.toString());
+				//statement.setString(1, project.toString());
 				ResultSet rs = statement.executeQuery();
 
 				JSONArray array = new JSONArray();
