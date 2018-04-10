@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS `PursuitTag` (
   FOREIGN KEY(`tag`) REFERENCES `TagAttribute`(`uuid`)
 );
 
-CREATE INDEX IX_PursuitTag_pursuit_uuid ON `PursuitTag`(`pursuit_uuid`);
+CREATE INDEX IF NOT EXISTS IX_PursuitTag_pursuit_uuid ON `PursuitTag`(`pursuit_uuid`);

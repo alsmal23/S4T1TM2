@@ -10,4 +10,4 @@ CREATE TABLE IF NOT EXISTS `TaskWorkEntry` (
   FOREIGN KEY(`user_uuid`) REFERENCES `User`(`uuid`)
 );
 
-CREATE INDEX IX_TaskWorkEntry_task_pursuit_uuid ON `TaskWorkEntry`(`task_pursuit_uuid`);
+CREATE INDEX IF NOT EXISTS IX_TaskWorkEntry_task_pursuit_uuid ON `TaskWorkEntry`(`task_pursuit_uuid`);

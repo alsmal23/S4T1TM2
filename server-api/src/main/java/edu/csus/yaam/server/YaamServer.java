@@ -89,7 +89,11 @@ public class YaamServer {
 
         // add a authentication filter before every request, excluding /auth
         Spark.before(new AuthenticationFilter());
-        Spark.before((request, response) -> log.info("Request: " + request.uri()));
+        Spark.before((request, response) -> {
+            if (!request.uri().equals("/robots.txt") && !request.uri().equals("/favicon.ico")) {
+                log.info("Request: " + request.uri());
+            }
+        });
 
         // register endpoints
         Endpoint[] endpoints = new Endpoint[]{

@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS `TagAttribute` (
   FOREIGN KEY(`project_uuid`) REFERENCES `Project`(`uuid`)
 );
 
-CREATE INDEX IX_TagAttribute_project_uuid ON `TagAttribute`(`project_uuid`);
+CREATE INDEX IF NOT EXISTS IX_TagAttribute_project_uuid ON `TagAttribute`(`project_uuid`);

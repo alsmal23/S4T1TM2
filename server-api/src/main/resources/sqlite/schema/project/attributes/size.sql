@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS `SizeAttribute` (
   FOREIGN KEY(`project_uuid`) REFERENCES `Project`(`uuid`)
 );
 
-CREATE INDEX IX_SizeAttribute_project_uuid ON `SizeAttribute`(`project_uuid`);
+CREATE INDEX IF NOT EXISTS IX_SizeAttribute_project_uuid ON `SizeAttribute`(`project_uuid`);

@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS `Task` (
   `pursuit_uuid` CHAR(36),
-  `name` TEXT NOT NULL,
   `size_uuid` CHAR(36),
   `assignee_uuid` CHAR(36),
   `description` TEXT,

@@ -8,4 +8,4 @@ CREATE TABLE IF NOT EXISTS `Pursuit` (
   FOREIGN KEY(`project_uuid`) REFERENCES `Project`(`uuid`)
 );
 
-CREATE INDEX IX_Pursuit_project_uuid ON `Project`(`uuid`);
+CREATE INDEX IF NOT EXISTS IX_Pursuit_project_uuid ON `Project`(`uuid`);

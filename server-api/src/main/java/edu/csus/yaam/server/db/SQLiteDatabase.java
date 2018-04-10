@@ -24,7 +24,6 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class SQLiteDatabase {
-    @NonNull
     private final File file;
 
     /**
@@ -51,7 +50,9 @@ public class SQLiteDatabase {
      */
     public void connect() {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + file.getAbsolutePath());
+            connection = DriverManager.getConnection("jdbc:sqlite:" +
+                    (file != null ? file.getAbsolutePath() : ":memory:")
+            );
         } catch (SQLException exception) {
             throw new RuntimeException("failed to load SQLite database from file: " + file.getAbsolutePath());
         }
@@ -71,7 +72,11 @@ public class SQLiteDatabase {
         // execute initialization scripts
         for (String fileName : (List<String>) databaseSettings.getList("statements")) {
             try {
-                statement.execute(IOUtils.resourceToString("/sqlite/schema/" + fileName));
+                String queries = IOUtils.resourceToString("/sqlite/schema/" + fileName);
+                // hacky, but should be a quick fix
+                for (String query : queries.split(";")) {
+                    statement.execute(query);
+                }
             } catch (Throwable throwable) {
                 log.error("error executing database statement: /sqlite/schema/" + fileName, throwable);
             }

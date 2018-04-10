@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import lombok.extern.log4j.Log4j2;
 import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.impl.action.StoreTrueArgumentAction;
+import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.ArgumentGroup;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.ArgumentParserException;
@@ -36,14 +36,20 @@ public class YaamServerLauncher {
                 .nargs(1)
                 .type(File.class)
                 .metavar("config.yml")
-                .setDefault(new File("yaam-config.yml"))
+                .setDefault(new File("yaamServer.yml"))
                 .help("Specifies a configuration file by filepath");
         // use no external configuration file, use bundled config
         optionalArguments.addArgument("--noconf")
-                .action(new StoreTrueArgumentAction())
+                .action(Arguments.storeTrue())
                 .dest("noConfig")
                 .type(boolean.class)
                 .help("Uses default bundled config");
+        // use strictly a in-memory sqlite database
+        optionalArguments.addArgument("--memorydb")
+                .action(Arguments.storeTrue())
+                .dest("memoryDatabase")
+                .type(boolean.class)
+                .help("Uses a in-memory database");
 
 
         // parse arguments
