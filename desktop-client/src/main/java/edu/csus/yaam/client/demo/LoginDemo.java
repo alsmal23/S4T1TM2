@@ -59,18 +59,20 @@ public class LoginDemo extends Application {
         usernameField.setPromptText("Username");
         usernameField.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(usernameField.widthProperty().divide(2)));
         usernameField.layoutYProperty().bind(rootPane.heightProperty().multiply(.3).subtract(usernameField.heightProperty().divide(2)));
-        //username.setFocusColor(Color.GREEN);  // In theory, this would display green if it met our log in reqs, but I don't think we have any right now.
+        usernameField.setFocusColor(Color.GREEN);
         //username.setUnFocusColor(Color.RED);  // To display red if the username or password is incorrect
         rootPane.getChildren().add(usernameField);
 
+
         JFXPasswordField passwordField = new JFXPasswordField();
         passwordField.setPromptText("Password");
-        //password.setFocusColor(Color.GREEN); // In theory, this would display green if it met our log in reqs, but I don't think we have any right now.
+        passwordField.setFocusColor(Color.GREEN);
         //password.setUnFocusColor(Color.RED); // To display red if the username or password is incorrect
         passwordField.setStyle("-fx-text-box-border: Snow;");
         passwordField.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(passwordField.widthProperty().divide(2)));
         passwordField.layoutYProperty().bind(rootPane.heightProperty().multiply(.4).subtract(passwordField.heightProperty().divide(2)));
         rootPane.getChildren().add(passwordField);
+
 
         JFXButton loginButton = new JFXButton("LOGIN");
         loginButton.setStyle("-fx-font-family: 'Montserrat SemiBold'");
@@ -78,6 +80,16 @@ public class LoginDemo extends Application {
         loginButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(loginButton.widthProperty().divide(2)));
         loginButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.5).subtract(loginButton.heightProperty().divide(2)));
         rootPane.getChildren().add(loginButton);
+
+        loginButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("Clicked! Is shift down: " + event.isShiftDown());
+                usernameField.setUnFocusColor(Color.RED);
+                passwordField.setUnFocusColor(Color.RED);
+            }
+        });
+
 
         JFXButton newAccountButton = new JFXButton("Create account");
         newAccountButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(newAccountButton.widthProperty().divide(2)));
