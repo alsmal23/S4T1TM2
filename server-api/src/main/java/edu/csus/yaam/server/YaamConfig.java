@@ -2,7 +2,9 @@ package edu.csus.yaam.server;
 
 import com.timvisee.yamlwrapper.ConfigurationSection;
 import com.timvisee.yamlwrapper.YamlConfiguration;
+import edu.csus.yaam.server.util.IOUtils;
 import java.io.File;
+import java.nio.file.Files;
 import lombok.RequiredArgsConstructor;
 import net.sourceforge.argparse4j.inf.Namespace;
 
@@ -27,19 +29,25 @@ public class YaamConfig {
     public static YaamConfig load(Namespace namespace) {
         YamlConfiguration config = new YamlConfiguration();
 
-        // load YAML configuration
+        // load/save YAML configuration
         boolean noConfig = namespace.getBoolean("noConfig");
         File file = namespace.get("configFile");
         try {
             if (noConfig) {
                 config.load(YaamConfig.class.getResourceAsStream("/yaam/defaultConfig.yml"));
             } else {
-                config.load(namespace.<File>get("configFile"));
+                File configFile = namespace.get("configFile");
+                if (!configFile.exists()) {
+                    Files.write(configFile.toPath(), IOUtils.resourceToString("/yaam/defaultConfig.yml").getBytes());
+                }
+                config.load(configFile);
             }
         } catch (Throwable throwable) {
             throw new RuntimeException("failed to load configuration from file" + (!noConfig ? ": " + file.getAbsolutePath() : ""));
         }
 
+
+        // parse configuration
         ConfigurationSection connectionSection = config.getConfigurationSection("connection");
         ConfigurationSection webAPISection = connectionSection.getConfigurationSection("webAPI");
 
@@ -49,7 +57,7 @@ public class YaamConfig {
                         webAPISection.getString("host"),
                         webAPISection.getInt("port")
                 ),
-                new File(config.getString("sqliteDatabase"))
+                !namespace.getBoolean("memoryDatabase") ? new File(config.getString("sqliteDatabase")) : null
         );
     }
 }

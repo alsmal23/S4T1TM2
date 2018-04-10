@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 import lombok.extern.log4j.Log4j2;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import spark.Spark;
 import spark.Spark404Fix;
 
@@ -92,6 +94,23 @@ public class YaamServer {
         Spark.before((request, response) -> {
             if (!request.uri().equals("/robots.txt") && !request.uri().equals("/favicon.ico")) {
                 log.info("Request: " + request.uri());
+            }
+        });
+
+        // marks responses as JSON
+        Spark.afterAfter((request, response) -> {
+            if (!response.body().isEmpty()) {
+                // try/catch abuse?!
+                try {
+                    new JSONObject(response.body());
+                } catch (Throwable ignored) {
+                    try {
+                        new JSONArray(response.body());
+                    } catch (Throwable ignored2) {
+                        return;
+                    }
+                }
+                response.type("application/json");
             }
         });
 
