@@ -17,5 +17,5 @@ public class Tag
 	protected final UUID uuid;
 	protected final String label;
 	protected final Color tagColor;
-	protected final YaamClientApi clientApi;
+	protected final Project associatedProject;
 }

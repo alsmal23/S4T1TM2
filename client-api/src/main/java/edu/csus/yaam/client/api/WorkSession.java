@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.UUID;
 
 /**
  * Created by paulp on 4/9/2018.
@@ -12,10 +13,11 @@ import java.time.Instant;
 @Data
 public class WorkSession
 {
-	protected final User worker;
+	protected final UUID    workerUUID;
+	protected final UUID    taskUUID;
 	protected final Instant startTime;
 	protected final Instant endTime;
-	protected final YaamClientApi clientApi;
+	protected final Project associatedProject;
 	
 	public Duration getWorkSessionDuration()
 	{

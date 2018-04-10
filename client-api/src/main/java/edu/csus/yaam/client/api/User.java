@@ -17,6 +17,6 @@ public class User
 	protected final String userName;
 	protected final String displayName;
 	protected final String SSN; //we need it just trust me :)
-	protected final YaamClientApi clientApi;
+	protected final YaamClientApi clientApi; //stores a pointer to the clientAPI instead of the project because Users are not project specific
 	
 }

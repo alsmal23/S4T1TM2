@@ -15,6 +15,6 @@ public class Size
 {
 	protected final UUID uuid;
 	protected final String label;
-	protected final YaamClientApi clientApi;
+	protected final Project associatedProject;
 	
 }
