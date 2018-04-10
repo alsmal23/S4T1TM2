@@ -23,4 +23,9 @@ public class WorkSession
 	{
 		return Duration.between(startTime, endTime);
 	}
+	
+	public User getWorker()
+	{
+		return associatedProject.getClientApi().getUsers().get(workerUUID);
+	}
 }

@@ -1,5 +1,6 @@
 package edu.csus.yaam.client.api;
 
+import lombok.Getter;
 import lombok.NonNull;
 import org.asynchttpclient.AsyncHttpClient;
 import org.asynchttpclient.DefaultAsyncHttpClientConfig;
@@ -22,7 +23,7 @@ public class YaamClientApi
 	
 	//I choose TreeMaps to store the users and projects because I want to be able to search for users and projects by UUID and TreeMaps are efficient at both searches and insetions.
 	//TreeMaps are my favorite Map
-	TreeMap<UUID, User> users;
+	@Getter TreeMap<UUID, User> users;
 	
 	
 	/*
