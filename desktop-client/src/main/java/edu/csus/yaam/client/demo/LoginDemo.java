@@ -1,12 +1,15 @@
 package edu.csus.yaam.client.demo;
 
 
+import com.jfoenix.controls.JFXPasswordField;
 import javafx.application.Application;
+import javafx.beans.property.ObjectProperty;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.geometry.BoundingBox;
+import javafx.scene.shape.Rectangle;
 import com.sun.javafx.binding.StringConstant;
 import javafx.event.EventHandler;
 import javafx.scene.control.ChoiceBox;
@@ -31,7 +34,7 @@ public class LoginDemo extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         // ----------- STAGE -------------
-        primaryStage.setTitle("Default Title");
+        primaryStage.setTitle("Login");
         primaryStage.setHeight(600);
         primaryStage.setWidth(800);
 
@@ -41,35 +44,44 @@ public class LoginDemo extends Application {
 
 
         //------------ BOUNDING BOX ------------ Focuses the user onto important elements of the page
-        //BoundingBox loginBox = new BoundingBox(50, 50, 100, 100); //double minX, double minY, double width, double height
-        //rootPane.getChildren().add(loginBox);
+        Rectangle r = new Rectangle();
+        r.setX(280);
+        r.setY(120);
+        r.setWidth(250);
+        r.setHeight(300);
+        r.setFill(Color.SNOW);
+        r.setStroke(Color.GRAY);
+        rootPane.getChildren().add(r);
+
 
         // ----------- INPUTS AND BUTTONS -------------
-        JFXTextField username = new JFXTextField();
-        username.setPromptText("Placeholder value...");
-        username.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(username.widthProperty().divide(2)));
-        username.layoutYProperty().bind(rootPane.heightProperty().multiply(.3).subtract(username.heightProperty().divide(2)));
-        username.setFocusColor(Color.GREEN);
-        username.setUnFocusColor(Color.RED);
-        rootPane.getChildren().add(username);
+        JFXTextField usernameField = new JFXTextField();
+        usernameField.setPromptText("Username");
+        usernameField.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(usernameField.widthProperty().divide(2)));
+        usernameField.layoutYProperty().bind(rootPane.heightProperty().multiply(.3).subtract(usernameField.heightProperty().divide(2)));
+        //username.setFocusColor(Color.GREEN);  // In theory, this would display green if it met our log in reqs, but I don't think we have any right now.
+        //username.setUnFocusColor(Color.RED);  // To display red if the username or password is incorrect
+        rootPane.getChildren().add(usernameField);
 
-        JFXTextField password = new JFXTextField();
-        password.setPromptText("Placeholder value...");
-        password.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(password.widthProperty().divide(2)));
-        password.layoutYProperty().bind(rootPane.heightProperty().multiply(.4).subtract(password.heightProperty().divide(2)));
-        password.setFocusColor(Color.GREEN);
-        password.setUnFocusColor(Color.RED);
-        password.setStyle("-fx-text-box-border: LightGray;");
-        rootPane.getChildren().add(password);
+        JFXPasswordField passwordField = new JFXPasswordField();
+        passwordField.setPromptText("Password");
+        //password.setFocusColor(Color.GREEN); // In theory, this would display green if it met our log in reqs, but I don't think we have any right now.
+        //password.setUnFocusColor(Color.RED); // To display red if the username or password is incorrect
+        passwordField.setStyle("-fx-text-box-border: Snow;");
+        passwordField.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(passwordField.widthProperty().divide(2)));
+        passwordField.layoutYProperty().bind(rootPane.heightProperty().multiply(.4).subtract(passwordField.heightProperty().divide(2)));
+        rootPane.getChildren().add(passwordField);
 
-        JFXButton loginButton = new JFXButton("Login");
-        loginButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(password.widthProperty().divide(2)));
-        loginButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.5).subtract(password.heightProperty().divide(2)));
+        JFXButton loginButton = new JFXButton("LOGIN");
+        loginButton.setStyle("-fx-font-family: 'Montserrat SemiBold'");
+        loginButton.setBackground(new Background(new BackgroundFill(Color.rgb(225, 225, 225), null, null)));
+        loginButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(loginButton.widthProperty().divide(2)));
+        loginButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.5).subtract(loginButton.heightProperty().divide(2)));
         rootPane.getChildren().add(loginButton);
 
-        JFXButton newAccountButton = new JFXButton("Create a New Account");
-        newAccountButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(password.widthProperty().divide(2)));
-        newAccountButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.6).subtract(password.heightProperty().divide(2)));
+        JFXButton newAccountButton = new JFXButton("Create account");
+        newAccountButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(newAccountButton.widthProperty().divide(2)));
+        newAccountButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.65).subtract(newAccountButton.heightProperty().divide(2)));
         rootPane.getChildren().add(newAccountButton);
 
 
