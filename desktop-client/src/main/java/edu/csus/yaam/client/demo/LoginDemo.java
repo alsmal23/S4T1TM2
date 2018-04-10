@@ -4,6 +4,7 @@ package edu.csus.yaam.client.demo;
 import com.jfoenix.controls.JFXPasswordField;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
+import javafx.event.ActionEvent;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -60,40 +61,44 @@ public class LoginDemo extends Application {
         usernameField.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(usernameField.widthProperty().divide(2)));
         usernameField.layoutYProperty().bind(rootPane.heightProperty().multiply(.3).subtract(usernameField.heightProperty().divide(2)));
         usernameField.setFocusColor(Color.GREEN);
-        //username.setUnFocusColor(Color.RED);  // To display red if the username or password is incorrect
         rootPane.getChildren().add(usernameField);
 
 
         JFXPasswordField passwordField = new JFXPasswordField();
         passwordField.setPromptText("Password");
         passwordField.setFocusColor(Color.GREEN);
-        //password.setUnFocusColor(Color.RED); // To display red if the username or password is incorrect
         passwordField.setStyle("-fx-text-box-border: Snow;");
         passwordField.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(passwordField.widthProperty().divide(2)));
         passwordField.layoutYProperty().bind(rootPane.heightProperty().multiply(.4).subtract(passwordField.heightProperty().divide(2)));
         rootPane.getChildren().add(passwordField);
 
 
-        JFXButton loginButton = new JFXButton("LOGIN");
-        loginButton.setStyle("-fx-font-family: 'Montserrat SemiBold'");
+        Text loginErrorText = new Text("Account not found");
+        loginErrorText.setFill(Color.SNOW);
+        loginErrorText.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(passwordField.widthProperty().divide(2)));
+        loginErrorText.layoutYProperty().bind(rootPane.heightProperty().multiply(.5).subtract(passwordField.heightProperty().divide(2)));
+        rootPane.getChildren().add(loginErrorText);
+
+
+        JFXButton loginButton = new JFXButton("LOGIN"); //Can we make this bold?
         loginButton.setBackground(new Background(new BackgroundFill(Color.rgb(225, 225, 225), null, null)));
         loginButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(loginButton.widthProperty().divide(2)));
-        loginButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.5).subtract(loginButton.heightProperty().divide(2)));
+        loginButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.6).subtract(loginButton.heightProperty().divide(2)));
         rootPane.getChildren().add(loginButton);
 
         loginButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                System.out.println("Clicked! Is shift down: " + event.isShiftDown());
                 usernameField.setUnFocusColor(Color.RED);
                 passwordField.setUnFocusColor(Color.RED);
+                loginErrorText.setFill(Color.RED);
             }
         });
 
 
         JFXButton newAccountButton = new JFXButton("Create account");
         newAccountButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(newAccountButton.widthProperty().divide(2)));
-        newAccountButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.65).subtract(newAccountButton.heightProperty().divide(2)));
+        newAccountButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.7).subtract(newAccountButton.heightProperty().divide(2)));
         rootPane.getChildren().add(newAccountButton);
 
 
