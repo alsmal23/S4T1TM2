@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public interface Pursuit
 {
+	Project associatedProject = null;
 	UUID thisUUID = null;
 	String name = null;
 	UUID parentUUID = null; //Pursuit or Project
