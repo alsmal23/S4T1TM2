@@ -9,10 +9,12 @@ import java.util.UUID;
  * Created by paulp on 4/9/2018.
  */
 
+@Data
 abstract class Pursuit
 {
-	Project associatedProject;
-	String  name;
-	UUID    parentUUID; //Pursuit or Project
-	UUID[]  tagUUIDs;
+	@Getter protected final String  name;
+	@Getter protected final String  description;
+	@Getter protected final UUID    parentUUID; //Pursuit or Project
+	@Getter protected final UUID[]  tagUUIDs;
+	@Getter protected final Project associatedProject;
 }
