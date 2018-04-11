@@ -1,6 +1,6 @@
 # YAAM Web Protocol
 
-##Funtionality lacking documentation in this document
+## Funtionality lacking documentation in this document
 1.  There is no mechanism that allows the client to retrieve a list of known Users
 2. There is no mechanism that allows the client to retrieve a list containing the projects they are a member of
 3. There is no documented mechanism that allows the client to retrieve the attributes of a project (such as its name, description, tags, owner, etc.) other than the pursuits that are part of that project
