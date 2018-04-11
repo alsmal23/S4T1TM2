@@ -3,17 +3,12 @@ package edu.csus.yaam.client.demo;
 
 import com.jfoenix.controls.JFXPasswordField;
 import javafx.application.Application;
-import javafx.beans.property.ObjectProperty;
-import javafx.event.ActionEvent;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import com.sun.javafx.binding.StringConstant;
 import javafx.event.EventHandler;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -50,7 +45,6 @@ public class LoginDemo extends Application {
         loginBoundingBox.setHeight(300);
         loginBoundingBox.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(loginBoundingBox.widthProperty().divide(2)));
         loginBoundingBox.layoutYProperty().bind(rootPane.heightProperty().multiply(.5f).subtract(loginBoundingBox.heightProperty().divide(2)));
-
         loginBoundingBox.setFill(Color.SNOW);
         loginBoundingBox.setStroke(Color.GRAY);
         rootPane.getChildren().add(loginBoundingBox);
@@ -106,7 +100,7 @@ public class LoginDemo extends Application {
 
         // ----------- DEFINE/SET STAGE/SCENE -------------
         Scene scene = new Scene(rootPane);
-        scene.setFill(Color.GRAY);
+        scene.setFill(Color.LIGHTGRAY);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
