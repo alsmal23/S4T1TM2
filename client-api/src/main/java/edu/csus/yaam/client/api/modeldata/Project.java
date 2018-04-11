@@ -1,5 +1,6 @@
-package edu.csus.yaam.client.api;
+package edu.csus.yaam.client.api.modeldata;
 
+import edu.csus.yaam.client.api.YaamClientApi;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -20,7 +21,8 @@ public class Project
 	@Getter String description;
 	@Getter UUID   projectUUID;
 	@Getter UUID   ownerUUID;
-	@Getter YaamClientApi clientApi;
+	@Getter
+	YaamClientApi clientApi;
 	
 	public Project(@NonNull String name, @NonNull String description, @NonNull UUID projectUUID, @NonNull UUID ownerUUID, @NonNull YaamClientApi clientApi)
 	{

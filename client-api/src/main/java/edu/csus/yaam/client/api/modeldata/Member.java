@@ -1,7 +1,6 @@
-package edu.csus.yaam.client.api;
+package edu.csus.yaam.client.api.modeldata;
 
 import lombok.Data;
-import lombok.Getter;
 
 import java.util.UUID;
 

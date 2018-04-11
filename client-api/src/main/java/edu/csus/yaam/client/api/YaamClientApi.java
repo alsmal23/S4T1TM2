@@ -1,5 +1,7 @@
 package edu.csus.yaam.client.api;
 
+import edu.csus.yaam.client.api.modeldata.Project;
+import edu.csus.yaam.client.api.modeldata.User;
 import javafx.application.Platform;
 import lombok.Getter;
 import lombok.NonNull;
