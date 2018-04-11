@@ -3,6 +3,7 @@ package edu.csus.yaam.client.api;
 import lombok.Getter;
 import lombok.NonNull;
 
+import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
 
@@ -11,10 +12,10 @@ import java.util.UUID;
  */
 public class Project
 {
-	@Getter TreeMap<UUID, Pursuit>     pursuits;
-	@Getter TreeMap<UUID, Member>      members;
-	@Getter TreeMap<UUID, Tag>         tags;
-	@Getter TreeMap<UUID, Size>        sizes;
+	@Getter Map<UUID, Pursuit> pursuits;
+	@Getter Map<UUID, Member>      members;
+	@Getter Map<UUID, Tag>         tags;
+	@Getter Map<UUID, Size>        sizes;
 	@Getter String name;
 	@Getter String description;
 	@Getter UUID   projectUUID;
