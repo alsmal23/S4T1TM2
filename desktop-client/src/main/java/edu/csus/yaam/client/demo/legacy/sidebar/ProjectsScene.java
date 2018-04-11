@@ -1,13 +1,12 @@
-package edu.csus.yaam.client.legacy.sidebar;
+package edu.csus.yaam.client.demo.legacy.sidebar;
 
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeView;
 import com.sun.javafx.binding.DoubleConstant;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import edu.csus.yaam.client.legacy.nav.NavAction;
-import edu.csus.yaam.client.legacy.nav.ProjectScene;
-import edu.csus.yaam.test.TreeViewDemo;
-import edu.csus.yaam.test.TreeViewDemo.FilterableTreeItem;
+import edu.csus.yaam.client.demo.legacy.nav.NavAction;
+import edu.csus.yaam.client.demo.legacy.nav.ProjectScene;
+import edu.csus.yaam.client.util.FilterableTreeItem;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.control.TextField;
@@ -109,7 +108,7 @@ public class ProjectsScene implements ProjectScene {
         // define search predicate
         rootNode.predicateProperty().bind(Bindings.createObjectBinding(() -> { // predicate is reevaluated when filterfield is modified
             if (filterField.getText() == null || filterField.getText().isEmpty()) { return null; }
-            return TreeViewDemo.TreeItemPredicate.create(actor -> actor.toLowerCase().contains(filterField.getText().toLowerCase()));
+            return FilterableTreeItem.TreeItemPredicate.create(actor -> actor.toLowerCase().contains(filterField.getText().toLowerCase()));
         }, filterField.textProperty()));
 
         return scene;

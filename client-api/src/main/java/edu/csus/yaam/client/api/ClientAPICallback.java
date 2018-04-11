@@ -1,7 +1,12 @@
 package edu.csus.yaam.client.api;
 
+import edu.csus.yaam.client.api.modeldata.Project;
+import edu.csus.yaam.client.api.modeldata.User;
+
 /**
  * Created by paulp on 4/8/2018.
+ *
+ * When the YaamClientApi is constructed a class implementing ClientAPICallback must be passed in to recieve callbacks from requests
  */
 public interface ClientAPICallback
 {

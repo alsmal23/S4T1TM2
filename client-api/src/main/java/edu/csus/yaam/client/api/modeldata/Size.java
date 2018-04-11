@@ -1,10 +1,9 @@
-package edu.csus.yaam.client.api;
+package edu.csus.yaam.client.api.modeldata;
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 
-import java.awt.Color;
 import java.util.UUID;
 
 /**
@@ -12,9 +11,9 @@ import java.util.UUID;
  */
 
 @Data
-public class Tag
+public class Size
 {
 	protected final UUID uuid;
 	protected final String label;
-	protected final Color tagColor;
+	
 }

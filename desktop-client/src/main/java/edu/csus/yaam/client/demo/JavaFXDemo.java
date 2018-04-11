@@ -136,6 +136,7 @@ public class JavaFXDemo extends Application {
 
         //Edit button
         JFXButton editButton = new JFXButton("Edit");
+        editButton.layoutXProperty().bind(rootPane.widthProperty().subtract(editButton.widthProperty()).subtract(10));
         editButton.layoutXProperty().bind(rootPane.widthProperty().multiply(.9f));
         editButton.layoutYProperty().bind(rootPane.heightProperty().multiply(.01f));
         rootPane.getChildren().add(editButton);
