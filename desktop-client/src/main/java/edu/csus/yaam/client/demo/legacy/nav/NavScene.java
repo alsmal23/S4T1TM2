@@ -1,4 +1,4 @@
-package edu.csus.yaam.client.legacy.nav;
+package edu.csus.yaam.client.demo.legacy.nav;
 
 import java.util.ArrayList;
 import java.util.List;

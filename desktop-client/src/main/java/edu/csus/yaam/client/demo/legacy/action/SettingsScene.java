@@ -1,8 +1,8 @@
-package edu.csus.yaam.client.legacy.action;
+package edu.csus.yaam.client.demo.legacy.action;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import edu.csus.yaam.client.legacy.nav.NavAction;
-import edu.csus.yaam.client.legacy.nav.ProjectScene;
+import edu.csus.yaam.client.demo.legacy.nav.NavAction;
+import edu.csus.yaam.client.demo.legacy.nav.ProjectScene;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;

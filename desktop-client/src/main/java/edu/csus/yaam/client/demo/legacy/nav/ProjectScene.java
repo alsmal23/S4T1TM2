@@ -1,4 +1,4 @@
-package edu.csus.yaam.client.legacy.nav;
+package edu.csus.yaam.client.demo.legacy.nav;
 
 import javafx.scene.Node;
 
