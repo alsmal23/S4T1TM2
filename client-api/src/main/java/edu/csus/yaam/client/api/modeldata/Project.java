@@ -20,8 +20,7 @@ public class Project
 	@Getter String description;
 	@Getter UUID   projectUUID;
 	@Getter UUID   ownerUUID;
-	@Getter
-	YaamClientApi clientApi;
+	@Getter YaamClientApi clientApi;
 	
 	Set<UUID> cachedProjectComponents;
 	
@@ -46,7 +45,9 @@ public class Project
 	//retrieves a list of all pusuits that are "top level" (their direct parent is the Project its self)
 	public void retrieveTopLevelPursuits()
 	{
-	
+		ArrayList<Pursuit> topLevelPursuits = new ArrayList<>();
+		
+		
 	}
 	
 	//This is a potentially BLOCKING CALL that retrieves a pursuit from its cache if it is cached or retrieves it from the server BY BLOCKING CALL

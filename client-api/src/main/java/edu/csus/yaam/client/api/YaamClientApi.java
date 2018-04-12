@@ -7,10 +7,13 @@ import lombok.Getter;
 import lombok.NonNull;
 import org.asynchttpclient.*;
 import org.asynchttpclient.uri.Uri;
+import org.json.JSONObject;
 
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * @author Paul M
@@ -18,15 +21,15 @@ import java.util.UUID;
  */
 public class YaamClientApi
 {
-    protected Uri remoteHost;
+	protected Uri remoteHost;
 	protected ClientAPICallback callback;
-
+	
 	private final AsyncHttpClient httpClient;
 	
 	//I choose TreeMaps to store the users and projects because I want to be able to search for users and projects by UUID and TreeMaps are efficient at both searches and insetions.
 	//TreeMaps are my favorite Map
-	@Getter Map<UUID, User> users;
-	@Getter Map<UUID, Project> projects;
+	Map<UUID, User> users;
+	Map<UUID, Project> projects;
 	
 	
 	/*
@@ -34,29 +37,65 @@ public class YaamClientApi
 	Callback must not be null.
 	 */
 	public YaamClientApi(@NonNull Uri host, @NonNull ClientAPICallback clientCallback)
-    {
-        remoteHost = host;
+	{
+		remoteHost = host;
 		this.callback = clientCallback;
 		
-		users    = new TreeMap<>();
+		users = new TreeMap<>();
 		projects = new TreeMap<>();
-
-		httpClient = Dsl.asyncHttpClient(new DefaultAsyncHttpClientConfig.Builder()
-                .build()
-        );
+		
+		httpClient = Dsl.asyncHttpClient();
 	}
 	
 	public void authenticate(String userName, String password)
 	{
-		new Thread(() -> {
-			//call blocking authentication methods here
-			//TODO: Implement authentication with actal server calls.  Currently the documentation RE how to authenticate is incomplete.
+		new Thread(() ->
+		{
+			//create JSON payload
+			//WE NEED TO SPECIFY THE JSON PAYLOAD FORMAT
+			JSONObject object = new JSONObject();
+			object.append("uname", userName);
+			object.append("passwd", password);
 			
+			//build a request with a JSON payload
+			Request authRequest = Dsl.post(remoteHost.getBaseUrl().concat("/auth")).setBody(object.toString()).build();
 			
-			Platform.runLater(() -> {
-				//call the callback for the UI
-				callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_FAILED, null);
-			});
+			//get a response
+			Future<Response> futureResponse = httpClient.executeRequest(authRequest);
+			try
+			{
+				//blocks unitl the response has been received
+				Response response = futureResponse.get();
+				
+				//get the user's UUID
+				JSONObject responseObject = new JSONObject(response.getResponseBody());
+				String userUUIDString = responseObject.getString("uuid");
+				UUID userUUID = UUID.fromString(userUUIDString);
+				
+				//get the logged in user
+				User loggedInUser = retreieveUserByUUID(userUUID);
+				
+				//do the callback
+				Platform.runLater(() -> {
+					callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_SUCESS, loggedInUser);
+				});
+				
+			}
+			catch (InterruptedException | ExecutionException e)
+			{
+				System.err.println("Could not authenticate:");
+				e.printStackTrace();
+				Platform.runLater(() -> {
+					//call the callback for the UI
+					callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_FAILED, null);
+				});
+			}
 		}).start();
+	}
+	
+	public User retreieveUserByUUID(UUID userUUID)
+	{
+		//TODO: IMPLEMENT
+		return null;
 	}
 }
