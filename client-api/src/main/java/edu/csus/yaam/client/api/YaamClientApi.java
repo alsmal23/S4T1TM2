@@ -5,14 +5,13 @@ import edu.csus.yaam.client.api.modeldata.User;
 import javafx.application.Platform;
 import lombok.Getter;
 import lombok.NonNull;
-import org.asynchttpclient.AsyncHttpClient;
-import org.asynchttpclient.DefaultAsyncHttpClientConfig;
-import org.asynchttpclient.Dsl;
+import org.asynchttpclient.*;
 import org.asynchttpclient.uri.Uri;
+import org.json.JSONObject;
 
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * @author Paul M
@@ -20,45 +19,113 @@ import java.util.UUID;
  */
 public class YaamClientApi
 {
-    protected Uri remoteHost;
-	protected ClientAPICallback callback;
-
-	private final AsyncHttpClient httpClient;
+	@Getter private Uri remoteHost;
+	@Getter private ClientAPICallback callback;
 	
-	//I choose TreeMaps to store the users and projects because I want to be able to search for users and projects by UUID and TreeMaps are efficient at both searches and insetions.
-	//TreeMaps are my favorite Map
-	@Getter Map<UUID, User> users;
-	@Getter Map<UUID, Project> projects;
+	@Getter private final AsyncHttpClient httpClient;
 	
+	//The users and projects maps store a mapping from the UUID of a user or project to the actual cached user or project
+	private Map<UUID, User>    users;
+	private Map<UUID, Project> projects;
 	
 	/*
 	The Uri parameter host is used only for the host name.
 	Callback must not be null.
 	 */
 	public YaamClientApi(@NonNull Uri host, @NonNull ClientAPICallback clientCallback)
-    {
-        remoteHost = host;
+	{
+		remoteHost = host;
 		this.callback = clientCallback;
 		
-		users    = new TreeMap<>();
+		users = new TreeMap<>();
 		projects = new TreeMap<>();
-
-		httpClient = Dsl.asyncHttpClient(new DefaultAsyncHttpClientConfig.Builder()
-                .build()
-        );
+		
+		httpClient = Dsl.asyncHttpClient();
 	}
 	
-	public void authenticate(String userName, String password)
+	public void authenticate(@NonNull String userName, @NonNull String password)
 	{
-		new Thread(() -> {
-			//call blocking authentication methods here
-			//TODO: Implement authentication with actal server calls.  Currently the documentation RE how to authenticate is incomplete.
+		new Thread(() ->
+		{
+			//create JSON payload
+			//WE NEED TO SPECIFY THE JSON PAYLOAD FORMAT
+			JSONObject object = new JSONObject();
+			object.append("uname", userName);
+			object.append("passwd", password);
 			
+			//build a request with a JSON payload
+			Request authRequest = Dsl.post(remoteHost.getBaseUrl().concat("/auth")).setBody(object.toString()).build();
+			
+			//get a response
+			Future<Response> futureResponse = httpClient.executeRequest(authRequest);
+			try
+			{
+				//blocks unitl the response has been received
+				Response response = futureResponse.get();
+				
+				//get the user's UUID
+				//WE NEED TO SPECIFY THE JSON PAYLOAD FORMAT
+				JSONObject responseObject = new JSONObject(response.getResponseBody());
+				String userUUIDString = responseObject.getString("uuid");
+				UUID userUUID = UUID.fromString(userUUIDString);
+				
+				//do the callback
+				Platform.runLater(() -> {
+					callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_SUCESS, userUUID);
+				});
+				
+			}
+			catch (InterruptedException | ExecutionException e)
+			{
+				System.err.println("Could not authenticate:");
+				e.printStackTrace();
+				Platform.runLater(() -> {
+					//call the callback for the UI
+					callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_FAILED, null);
+				});
+			}
+		}).start();
+	}
+	
+	//retrieves known Users and sends them to the ClientAPICalback
+	public void retrieveKnownUsers()
+	{
+		//TODO: Implement
+		new Thread(() -> {
+			//
+			//make blocking call that requests all users
+			//
+			
+			//
+			//Deserialize the Users
+			//
 			
 			Platform.runLater(() -> {
-				//call the callback for the UI
-				callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_FAILED, null);
+				//send callback to the UI with actual user data
+				callback.knownUsersSucessfullyRetrieved(new User[0]);
 			});
 		}).start();
+		
+	}
+	
+	//retrieves known Projects and sends them to the ClientAPICalback
+	public void retrieveKnownProjects()
+	{
+		//TODO: Implement
+		new Thread(() -> {
+			//
+			//make blocking call that requests all known projects
+			//
+			
+			//
+			//Deserialize the projects
+			//
+			
+			Platform.runLater(() -> {
+				//send callback to the UI with actual user data
+				callback.projectsSucessfullyRetrieved(new Project[0]);
+			});
+		}).start();
+		
 	}
 }

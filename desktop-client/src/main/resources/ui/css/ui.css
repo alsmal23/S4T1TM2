@@ -1,3 +1,15 @@
+/** Header **/
+#header {
+    -fx-background-color: #1F262D;
+}
+
+#pathBarContainer {
+    -fx-border-color: black;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-style: solid;
+    -fx-border-insets: -1;
+}
+
 /* Brand name */
 #brandNameContainer {
     -fx-background-color: #1F262D;
@@ -9,88 +21,59 @@
     -fx-font-family: "Maison Mono";
 }
 
-/* Navigation Sidebar **/
+/** Sidebar **/
 #sidebar {
     -fx-background-color: #2E363F;
 }
 
-#sidebar > .x {
+#sidebar > JFXRippler {
+    -jfx-rippler-fill: white;
 }
 
-/* Action Bar */
-#actionBar {
-    -fx-background-color: #1F262D;
-    -fx-border-color: red red red #2e363f;
-    -fx-border-width: 0 0 0 1;
-    -fx-border-style: solid;
-}
-
-#actionBar > .action {
-    -fx-border-color: red #2e363f red #000;
-    -fx-border-width: 0 1 0 1;
-    -fx-border-style: solid;
-}
-
-#actionBar > .action:hover {
-    -fx-cursor: hand;
-    -fx-background-color: #000;
-}
-
-#actionBar .text {
-    -fx-fill: #999;
-}
-
-#actionBar > .action:hover .text {
-    -fx-fill: white;
-}
-
-/* Path Bar */
-#pathBar {
-    -fx-background-color: white;
-}
-
-/* Inner content container */
-#innerContent {
-    -fx-background-image: url("../img/bg_white.png");
-    -fx-background-repeat: repeat;
-}
-
-#innerContent:focused {
-    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 5, 4, 3;
-}
-
-.selected {
-    -fx-background-color: #27a9e3;
-}
-.selected .text {
-    -fx-fill: white;
-}
-
-.test {
-    -fx-border-color: #37414b red #1f262d red;
+#sidebar .navigation-option {
+    -fx-background-color: #2E363F;
+    -fx-border-color: #37414b transparent #1f262d transparent;
     -fx-border-width: 1 0 1 0;
     -fx-border-style: solid;
 }
 
-.test .text {
-    -fx-fill: #AAA;
+#sidebar .navigation-option:hover {
+    -fx-background-color: #27a9e3;
+    -fx-border-color: #26ace8 transparent #237fad transparent;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-style: solid;
+    -fx-cursor: hand;
+}
+
+#sidebar .navigation-option FontAwesomeIconView, #sidebar .navigation-option Text {
+    -fx-fill: #CCC;
+}
+
+#sidebar .navigation-option Text {
     -fx-font-size: 14px;
 }
 
-.test:hover {
-    -fx-background-color: #27a9e3;
+#sidebar .navigation-option FontAwesomeIconView {
+    -glyph-size: 14px;
 }
 
-.test:hover .text {
-    -fx-background-color: #27a9e3;
+#sidebar .navigation-option:hover FontAwesomeIconView, #sidebar .navigation-option:hover Text {
     -fx-fill: white;
 }
 
-JFXTextField {
-    -fx-background-color: white;
-    -fx-border-color: #DDD;
-    -fx-border-width: 1 1 0 1;
+#sidebar .collapser FontAwesomeIconView {
+    -fx-fill: white;
+    -glyph-size: 25px;
+}
+
+#sidebar .footer {
+    -fx-background-color: rgba(0, 0, 0, .1);
+    -fx-border-color: rgba(0, 0, 0, .2);
+    -fx-border-width: 1 0 0 0;
     -fx-border-style: solid;
+}
+
+/** Inner Content **/
+#innerContent {
+    -fx-background-image: url("/ui/img/bg_white.png");
 }

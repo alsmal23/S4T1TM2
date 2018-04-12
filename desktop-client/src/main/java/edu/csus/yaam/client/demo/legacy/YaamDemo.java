@@ -50,7 +50,7 @@ public class YaamDemo extends Application {
 
         // scene
         Scene scene = new Scene(content);
-        scene.getStylesheets().add("/ui/css/ui.css");
+        scene.getStylesheets().add("/ui/css/ui-legacy.css");
 
         // stage
         primaryStage.setTitle("YAAM Demo");
