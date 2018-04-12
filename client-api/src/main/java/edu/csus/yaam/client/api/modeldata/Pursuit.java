@@ -12,6 +12,7 @@ import java.util.UUID;
 @Data
 abstract class Pursuit
 {
+	@Getter protected final UUID    pursuitUUID;
 	@Getter protected final String  name;
 	@Getter protected final String  description;
 	@Getter protected final UUID    parentUUID; //Pursuit or Project

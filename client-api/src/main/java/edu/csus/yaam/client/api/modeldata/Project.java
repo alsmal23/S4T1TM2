@@ -1,10 +1,21 @@
 package edu.csus.yaam.client.api.modeldata;
 
+import edu.csus.yaam.client.api.ClientAPICallback;
+import edu.csus.yaam.client.api.ClientAPIUtils;
 import edu.csus.yaam.client.api.YaamClientApi;
 import lombok.Getter;
 import lombok.NonNull;
+import org.asynchttpclient.Dsl;
+import org.asynchttpclient.Request;
+import org.asynchttpclient.RequestBuilder;
+import org.asynchttpclient.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.time.Instant;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * Created by paulp on 4/9/2018.
@@ -32,7 +43,7 @@ public class Project
 		this.ownerUUID = ownerUUID;
 		this.clientApi = clientApi;
 		
-		//initalize the maps to their original values
+		//initialize the maps to their original values
 		pursuits     = new TreeMap<>();
 		members      = new TreeMap<>();
 		tags         = new TreeMap<>();
@@ -42,10 +53,9 @@ public class Project
 		cachedProjectComponents = new TreeSet<>();
 	}
 	
-	//retrieves a list of all pusuits that are "top level" (their direct parent is the Project its self)
+	//retrieves a list of all pursuits that are "top level" (their direct parent is the Project its self)
 	public void retrieveTopLevelPursuits()
 	{
-		ArrayList<Pursuit> topLevelPursuits = new ArrayList<>();
 		
 		
 	}
@@ -68,7 +78,77 @@ public class Project
 	//BLOCKING CALL that downloads a pursuit from the server and adds it to the cache
 	private void downloadPursuit(UUID pursuitUUID)
 	{
-		//TODO: download and cache the Pursuit associated with the passed pursuitUUID
+		//build pursuit request
+		Request pursuitRequest = Dsl.post(getClientApi().getRemoteHost().getBaseUrl().concat("/pursuit/"+pursuitUUID.toString())).build();
+		
+		Future<Response> futureResponse = getClientApi().getHttpClient().executeRequest(pursuitRequest);
+		
+		try
+		{
+			Response response = futureResponse.get();
+			
+			//parse JSON object
+			//WE NEED TO SPECIFY THE JSON PAYLOAD FORMAT
+			JSONObject pursuitJSON = new JSONObject(response.getResponseBody());
+			Pursuit resultPursuit;
+			
+			//get the information about all pursuits
+			UUID returnedUUID = UUID.fromString(pursuitJSON.getString("uuid"));
+			String name = pursuitJSON.getString("name");
+			String description = pursuitJSON.getString("desc");
+			UUID parent = UUID.fromString(pursuitJSON.getString("parent"));
+			//get the tags that the pursuit has applied to it
+			JSONArray tagsArray = pursuitJSON.getJSONArray("tags");
+			UUID tagUUIDs[] = ClientAPIUtils.getUUIDsFromJSON(pursuitJSON.getJSONArray("tags"));
+			
+			//determine if it is a Sprint or Task
+			String type = pursuitJSON.getString("type");
+			if (type.equals("sprint"))
+			{
+				//get data specific to sprints
+				Instant dueTime = Instant.ofEpochSecond(pursuitJSON.getLong("duetime"));
+				UUID taskUUIDs[] = ClientAPIUtils.getUUIDsFromJSON(pursuitJSON.getJSONArray("tasks"));
+				
+				resultPursuit = new Sprint(returnedUUID,name,description,parent,tagUUIDs,dueTime,taskUUIDs,this);
+			}
+			else if (type.equals("task"))
+			{
+				//get data specific to tasks
+				UUID size = UUID.fromString(pursuitJSON.getString("size"));
+				UUID assignee = UUID.fromString(pursuitJSON.getString("assignedto"));
+				//get the work sessions
+				JSONArray workSessionsJSON = pursuitJSON.getJSONArray("worksess");
+				WorkSession workSessions[] = new WorkSession[workSessionsJSON.length()];
+				for (int i = 0; i < workSessions.length; i++)
+				{
+					//get the work session info
+					JSONObject currentWS = workSessionsJSON.getJSONObject(i);
+					UUID worker        = UUID.fromString(currentWS.getString("worker"));
+					Instant startTime  = Instant.ofEpochSecond(currentWS.getLong("start"));
+					Instant endTime    = Instant.ofEpochSecond(currentWS.getLong("end"));
+					
+					workSessions[i] = new WorkSession(worker,startTime,endTime);
+				}
+				
+				resultPursuit = new Task(returnedUUID,name,description,parent,tagUUIDs,size,assignee,workSessions,this);
+			}
+			else
+			{
+				System.err.println("Could not download pursuit: contains invalid type \"" + type + "\"");
+				resultPursuit = null;
+			}
+			
+			//remove old copy of Pursuit(if it exists) and add the recently downloaded version
+			pursuits.remove(resultPursuit.getPursuitUUID());
+			pursuits.put(resultPursuit.getPursuitUUID(),resultPursuit);
+			
+		}
+		catch (InterruptedException | ExecutionException e)
+		{
+			System.err.println("Could not download pursuit:");
+			e.printStackTrace();
+			
+		}
 		
 	}
 }

@@ -3,6 +3,7 @@ package edu.csus.yaam.client.api;
 import edu.csus.yaam.client.api.modeldata.Project;
 import edu.csus.yaam.client.api.modeldata.User;
 import javafx.application.Platform;
+import lombok.Getter;
 import lombok.NonNull;
 import org.asynchttpclient.*;
 import org.asynchttpclient.uri.Uri;
@@ -18,9 +19,10 @@ import java.util.concurrent.Future;
  */
 public class YaamClientApi
 {
-	protected Uri remoteHost;
-	protected ClientAPICallback callback;
+	@Getter private Uri remoteHost;
+	@Getter private ClientAPICallback callback;
 	
+	@Getter
 	private final AsyncHttpClient httpClient;
 	
 	//I choose TreeMaps to store the users and projects because I want to be able to search for users and projects by UUID and TreeMaps are efficient at both searches and insetions.
@@ -34,7 +36,7 @@ public class YaamClientApi
 	 */
 	public YaamClientApi(@NonNull Uri host, @NonNull ClientAPICallback clientCallback)
 	{
-		remoteHost = host;
+		remoteHost = new Uri("http", null, host.getHost(), host.getPort(), null, null);
 		this.callback = clientCallback;
 		
 		users = new TreeMap<>();
