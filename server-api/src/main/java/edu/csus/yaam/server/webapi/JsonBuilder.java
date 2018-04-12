@@ -80,7 +80,9 @@ public class JsonBuilder
 					case Types.DECIMAL:
 						record.put(results.getMetaData().getColumnLabel(i), results.getDouble(i));
 						break;
-
+					/**
+					 *
+					 */
 					case Types.NULL:
 						record.put(results.getMetaData().getColumnLabel(i), JSONObject.NULL);
 						break;
