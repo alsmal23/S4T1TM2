@@ -610,4 +610,5 @@ We should probably get rig of UC-16 and merge it w/ UC-14
 2. System calculates statistics based on filters
 3. ←System: Displays filtered Statistics
 
-
+https://www.lucidchart.com/publicSegments/view/407f0d21-dfb8-4d33-9ca1-ed4b51a49ead
+https://www.lucidchart.com/publicSegments/view/26d10e9d-73cd-4611-a396-ecf5a0dcd665

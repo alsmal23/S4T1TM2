@@ -5,9 +5,11 @@ import edu.csus.yaam.server.webapi.endpoint.APIEndpoint;
 import edu.csus.yaam.server.webapi.endpoint.Endpoint;
 import edu.csus.yaam.server.webapi.endpoint.EndpointContext;
 import edu.csus.yaam.server.webapi.endpoint.RequestMethod;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.UUID;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import spark.Request;
@@ -41,24 +43,25 @@ public class ViewPursuits implements Endpoint
 		UUID project = context.routeArgument("project");
 
 		//uuid, project, name, type
-		String sql = "SELECT * FROM  Pursuit"; //WHERE project_uuid = ?";
+		String sql = "SELECT * FROM  Pursuit WHERE project_uuid = ?";
 
 		database.executeSync(connection ->
 		{
-			try (PreparedStatement statement = connection.prepareStatement(sql)) {
-				//statement.setString(1, project.toString());
-				ResultSet rs = statement.executeQuery();
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, project.toString());
+			ResultSet rs = statement.executeQuery();
 
-				JSONArray array = new JSONArray();
-				while (rs.next()) {
-					array.put(new JSONObject()
-							.put("uuid", rs.getString("uuid"))
-							.put("project", rs.getString("project_uuid"))
-							.put("name", rs.getString("name"))
-							.put("type", rs.getString("type")));
-				}
-				response.body(array.toString());
+			JSONArray array = new JSONArray();
+			while (rs.next())
+			{
+				array.put(new JSONObject()
+						.put("uuid", rs.getString("uuid"))
+						.put("project", rs.getString("project_uuid"))
+						.put("name", rs.getString("name"))
+						.put("type", rs.getString("type")));
 			}
+			response.body(array.toString());
+
 		});
 	}
 }
