@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeViewPath;
 import com.sun.javafx.binding.DoubleConstant;
 import java.util.function.Consumer;
-import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ListChangeListener.Change;
 import javafx.geometry.Pos;
@@ -12,13 +11,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.WindowEvent;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 
@@ -28,34 +25,48 @@ import lombok.experimental.Accessors;
  */
 @Accessors(fluent = true)
 public class HeaderPane extends Pane {
-    @Getter
-    private final StackPane brandName;
-    private final TreeView<String> pathTree;
+    private final YaamStage stage;
 
-    public HeaderPane() {
+    @Getter
+    private StackPane brandName;
+    private TreeView<String> pathTree;
+
+    public HeaderPane(YaamStage stage) {
+        this.stage = stage;
+
         this.setId("header");
 
+        this.constructBrandName();
+        this.constructPathBar();
+    }
+
+
+    // binding
+
+    private void constructBrandName() {
         // construct brand name
         brandName = new StackPane();
-
         brandName.setId("brandNameContainer");
         brandName.layoutXProperty().bind(DoubleConstant.valueOf(0));
         brandName.layoutYProperty().bind(DoubleConstant.valueOf(0));
         brandName.prefHeightProperty().bind(DoubleConstant.valueOf(70));
         brandName.prefWidthProperty().bind(DoubleConstant.valueOf(200));
         brandName.setAlignment(Pos.CENTER);
+
         // TODO: Actually get a program logo/font setup
         Text programLogo = new Text("YAAM");
         programLogo.setId("brandNameText");
+
+        // add as children
         brandName.getChildren().add(programLogo);
+        this.getChildren().addAll(brandName);
+    }
 
-
+    private void constructPathBar() {
         // construct path bar
         Pane pathBarContainer = new Pane();
-        pathBarContainer.setBackground(new Background(new BackgroundFill(Color.BLUE, null, null)));
 
-        pathBarContainer.setId("pathBar");
-        //        pathBarContainer.setAlignment(Pos.CENTER);
+        pathBarContainer.setId("pathBarContainer");
         pathBarContainer.layoutXProperty().bind(brandName.widthProperty());
         pathBarContainer.layoutYProperty().bind(brandName.heightProperty().divide(2));
         pathBarContainer.prefWidthProperty().bind(this.widthProperty().subtract(brandName.widthProperty()));
@@ -65,10 +76,12 @@ public class HeaderPane extends Pane {
         pathTree = new TreeView<>();
         pathTree.rootProperty().addListener((observable, oldValue, newValue) -> {
             TreeItem<String> last = newValue;
-            while (!last.getChildren().isEmpty()) {
-                last = last.getChildren().get(0);
+            if (last != null) {
+                while (!last.getChildren().isEmpty()) {
+                    last = last.getChildren().get(0);
+                }
+                last.getChildren().addListener((ListChangeListener<? super TreeItem<String>>) this::pathSelectionUpdate);
             }
-            last.getChildren().addListener((ListChangeListener<? super TreeItem<String>>) this::pathSelectionUpdate);
             pathTree.getSelectionModel().select(last);
         });
         JFXTreeViewPath pathBar = new JFXTreeViewPath(pathTree);
@@ -79,20 +92,21 @@ public class HeaderPane extends Pane {
         rectangle.widthProperty().bind(pathBar.widthProperty());
         rectangle.heightProperty().bind(pathBarContainer.heightProperty());
         pathBar.setClip(rectangle);
-        pathBarContainer.getChildren().add(pathBar);
 
-        // default path
-        this.path("");
-        // for some reason, the first time a root is set in the tree view, it is highlighted; disable highlighting
-        Platform.runLater(() -> walk(pathBar, node -> {
+
+        // clear tree
+        this.updatePathBar();
+
+        // for some reason, before the tree view has been displayed, it is highlighted; disables highlighting after stage is loaded
+        stage.addEventFilter(WindowEvent.WINDOW_SHOWN, event -> walk(pathBar, node -> {
             if (node instanceof JFXButton) {
                 ((JFXButton) node).setDisableVisualFocus(true);
             }
         }));
 
-
         // add as children
-        this.getChildren().addAll(brandName, pathBarContainer);
+        pathBarContainer.getChildren().add(pathBar);
+        this.getChildren().addAll(pathBarContainer);
     }
 
     /**
@@ -104,8 +118,10 @@ public class HeaderPane extends Pane {
             change.getAddedSubList().forEach(added -> added.getChildren().addListener((ListChangeListener<? super TreeItem<String>>) this::pathSelectionUpdate));
 
             TreeItem<String> last = change.getAddedSubList().get(0);
-            while (!last.getChildren().isEmpty()) {
-                last = last.getChildren().get(0);
+            if (last != null) {
+                while (!last.getChildren().isEmpty()) {
+                    last = last.getChildren().get(0);
+                }
             }
             pathTree.getSelectionModel().select(last);
         }
@@ -127,7 +143,7 @@ public class HeaderPane extends Pane {
     /**
      * Updates the path bar hierarchy
      */
-    public void path(String... paths) {
+    public void updatePathBar(String... paths) {
         if (paths.length != 0) {
             TreeItem<String> root = new TreeItem<>(paths[0]);
             TreeItem<String> last = root;
@@ -138,7 +154,7 @@ public class HeaderPane extends Pane {
             }
             pathTree.setRoot(root);
         } else {
-            pathTree.setRoot(null);
+            pathTree.setRoot(new TreeItem<>(""));
         }
     }
 }

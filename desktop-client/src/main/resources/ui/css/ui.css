@@ -3,6 +3,13 @@
     -fx-background-color: #1F262D;
 }
 
+#pathBarContainer {
+    -fx-border-color: black;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-style: solid;
+    -fx-border-insets: -1;
+}
+
 /* Brand name */
 #brandNameContainer {
     -fx-background-color: #1F262D;
@@ -19,4 +26,54 @@
     -fx-background-color: #2E363F;
 }
 
+#sidebar > JFXRippler {
+    -jfx-rippler-fill: white;
+}
+
+#sidebar .navigation-option {
+    -fx-background-color: #2E363F;
+    -fx-border-color: #37414b transparent #1f262d transparent;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-style: solid;
+}
+
+#sidebar .navigation-option:hover {
+    -fx-background-color: #27a9e3;
+    -fx-border-color: #26ace8 transparent #237fad transparent;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-style: solid;
+    -fx-cursor: hand;
+}
+
+#sidebar .navigation-option FontAwesomeIconView, #sidebar .navigation-option Text {
+    -fx-fill: #CCC;
+}
+
+#sidebar .navigation-option Text {
+    -fx-font-size: 14px;
+}
+
+#sidebar .navigation-option FontAwesomeIconView {
+    -glyph-size: 14px;
+}
+
+#sidebar .navigation-option:hover FontAwesomeIconView, #sidebar .navigation-option:hover Text {
+    -fx-fill: white;
+}
+
+#sidebar .collapser FontAwesomeIconView {
+    -fx-fill: white;
+    -glyph-size: 25px;
+}
+
+#sidebar .footer {
+    -fx-background-color: rgba(0, 0, 0, .1);
+    -fx-border-color: rgba(0, 0, 0, .2);
+    -fx-border-width: 1 0 0 0;
+    -fx-border-style: solid;
+}
+
 /** Inner Content **/
+#innerContent {
+    -fx-background-image: url("/ui/img/bg_white.png");
+}
