@@ -9,6 +9,7 @@
 6. There is no mechanism that allows the client to delete a project, sprint, or task
 7. There is no mechanism for a user to change their account's password or display name (perhaps changing user attributes like username, password, displayname, and SSN should be consolidated under one endpoint?)
 8. Most importantly none of the webapi endpoints specify what data they expect to receive.
+9. There is no mechanism that allows for moving task form one sprint to another
 
 ## Authentication
 ### /auth
