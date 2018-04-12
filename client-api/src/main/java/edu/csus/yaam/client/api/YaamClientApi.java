@@ -3,15 +3,12 @@ package edu.csus.yaam.client.api;
 import edu.csus.yaam.client.api.modeldata.Project;
 import edu.csus.yaam.client.api.modeldata.User;
 import javafx.application.Platform;
-import lombok.Getter;
 import lombok.NonNull;
 import org.asynchttpclient.*;
 import org.asynchttpclient.uri.Uri;
 import org.json.JSONObject;
 
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -28,9 +25,8 @@ public class YaamClientApi
 	
 	//I choose TreeMaps to store the users and projects because I want to be able to search for users and projects by UUID and TreeMaps are efficient at both searches and insetions.
 	//TreeMaps are my favorite Map
-	Map<UUID, User> users;
-	Map<UUID, Project> projects;
-	
+	private Map<UUID, User> users;
+	private Map<UUID, Project> projects;
 	
 	/*
 	The Uri parameter host is used only for the host name.
@@ -47,7 +43,7 @@ public class YaamClientApi
 		httpClient = Dsl.asyncHttpClient();
 	}
 	
-	public void authenticate(String userName, String password)
+	public void authenticate(@NonNull String userName, @NonNull String password)
 	{
 		new Thread(() ->
 		{
@@ -68,16 +64,14 @@ public class YaamClientApi
 				Response response = futureResponse.get();
 				
 				//get the user's UUID
+				//WE NEED TO SPECIFY THE JSON PAYLOAD FORMAT
 				JSONObject responseObject = new JSONObject(response.getResponseBody());
 				String userUUIDString = responseObject.getString("uuid");
 				UUID userUUID = UUID.fromString(userUUIDString);
 				
-				//get the logged in user
-				User loggedInUser = retreieveUserByUUID(userUUID);
-				
 				//do the callback
 				Platform.runLater(() -> {
-					callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_SUCESS, loggedInUser);
+					callback.authenticationStatusChanged(ServerAuthenticationEvent.AUTHENTICATION_SUCESS, userUUID);
 				});
 				
 			}
@@ -93,9 +87,4 @@ public class YaamClientApi
 		}).start();
 	}
 	
-	public User retreieveUserByUUID(UUID userUUID)
-	{
-		//TODO: IMPLEMENT
-		return null;
-	}
 }
