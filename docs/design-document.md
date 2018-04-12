@@ -614,21 +614,30 @@ __Detailed Use Cases__
 
 
 ## Domain Model  
+domain model goes here  
 
 ##System Design  
+system design goes here  
 
 ##Algorithms and Data Structures  
+algrithms and data structs go here  
 
 ##User Interface Design and Implementation  
+user interface informatin goes here  
 
 ##Progress Report and Plan of Work  
 
+
 ###Progress Report  
+
 
 ####Web Server  
 
 presently the SQLite database schema is defined with the Web Server responding correctly to a small subset of the planned API endpoints.
+
+
 ###Plan of Work  
+
 
 ####Web Server  
 
