@@ -613,21 +613,30 @@ __Detailed Use Cases__
 3. ←System: Displays filtered Statistics
 
 
-## Domain Model
-##System Design
-##Algorithms and Data Structures
-##User Interface Design and Implementation
-##Progress Report and Plan of Work
+## Domain Model  
 
-###Progress Report
-####Web Server
+##System Design  
+
+##Algorithms and Data Structures  
+
+##User Interface Design and Implementation  
+
+##Progress Report and Plan of Work  
+
+###Progress Report  
+
+####Web Server  
+
 presently the SQLite database schema is defined with the Web Server responding correctly to a small subset of the planned API endpoints.
-###Plan of Work
-####Web Server
+###Plan of Work  
+
+####Web Server  
+
 1. all GET http requests will be implemented. 
 2. implement all POST http requests.
 3. Authentication will be last priority.
-###Breakdown of Responsibilities
+###Breakdown of Responsibilities  
+
 Server-API: John
 Client-API: Paul
 Desktop-Client: Lindsay and Ryan
