@@ -34,7 +34,7 @@ public class YaamClientApi
 	 */
 	public YaamClientApi(@NonNull Uri host, @NonNull ClientAPICallback clientCallback)
 	{
-		remoteHost = new Uri("http", null, host.getHost(), host.getPort(), null, null);
+		remoteHost = host;
 		this.callback = clientCallback;
 		
 		users = new TreeMap<>();
