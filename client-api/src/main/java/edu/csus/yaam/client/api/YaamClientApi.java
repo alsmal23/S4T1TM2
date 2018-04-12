@@ -22,12 +22,10 @@ public class YaamClientApi
 	@Getter private Uri remoteHost;
 	@Getter private ClientAPICallback callback;
 	
-	@Getter
-	private final AsyncHttpClient httpClient;
+	@Getter private final AsyncHttpClient httpClient;
 	
-	//I choose TreeMaps to store the users and projects because I want to be able to search for users and projects by UUID and TreeMaps are efficient at both searches and insetions.
-	//TreeMaps are my favorite Map
-	private Map<UUID, User> users;
+	//The users and projects maps store a mapping from the UUID of a user or project to the actual cached user or project
+	private Map<UUID, User>    users;
 	private Map<UUID, Project> projects;
 	
 	/*
@@ -89,4 +87,45 @@ public class YaamClientApi
 		}).start();
 	}
 	
+	//retrieves known Users and sends them to the ClientAPICalback
+	public void retrieveKnownUsers()
+	{
+		//TODO: Implement
+		new Thread(() -> {
+			//
+			//make blocking call that requests all users
+			//
+			
+			//
+			//Deserialize the Users
+			//
+			
+			Platform.runLater(() -> {
+				//send callback to the UI with actual user data
+				callback.knownUsersSucessfullyRetrieved(new User[0]);
+			});
+		}).start();
+		
+	}
+	
+	//retrieves known Projects and sends them to the ClientAPICalback
+	public void retrieveKnownProjects()
+	{
+		//TODO: Implement
+		new Thread(() -> {
+			//
+			//make blocking call that requests all known projects
+			//
+			
+			//
+			//Deserialize the projects
+			//
+			
+			Platform.runLater(() -> {
+				//send callback to the UI with actual user data
+				callback.projectsSucessfullyRetrieved(new Project[0]);
+			});
+		}).start();
+		
+	}
 }

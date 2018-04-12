@@ -56,7 +56,7 @@ public class Project
 	//retrieves a list of all pursuits that are "top level" (their direct parent is the Project its self)
 	public void retrieveTopLevelPursuits()
 	{
-		
+	
 		
 	}
 	
@@ -88,7 +88,7 @@ public class Project
 			Response response = futureResponse.get();
 			
 			//parse JSON object
-			//WE NEED TO SPECIFY THE JSON PAYLOAD FORMAT
+			//TEMPORY EXAMPLE CODE: WE NEED TO SPECIFY THE JSON PAYLOAD FORMAT
 			JSONObject pursuitJSON = new JSONObject(response.getResponseBody());
 			Pursuit resultPursuit;
 			
@@ -138,9 +138,12 @@ public class Project
 				resultPursuit = null;
 			}
 			
-			//remove old copy of Pursuit(if it exists) and add the recently downloaded version
-			pursuits.remove(resultPursuit.getPursuitUUID());
-			pursuits.put(resultPursuit.getPursuitUUID(),resultPursuit);
+			synchronized (pursuits)
+			{
+				//remove old copy of Pursuit(if it exists) and add the recently downloaded version
+				pursuits.remove(resultPursuit.getPursuitUUID());
+				pursuits.put(resultPursuit.getPursuitUUID(),resultPursuit);
+			}
 			
 		}
 		catch (InterruptedException | ExecutionException e)
