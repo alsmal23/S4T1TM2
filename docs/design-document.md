@@ -617,6 +617,23 @@ __Detailed Use Cases__
 
 ---
 ![Domain Model Diagram](./resources/YAAMDomainModel.jpeg)
+#### Responsibilities:
+##### UI Request Receiver:
+Respond to User requests by passing Commands to the Correct modules, and passing updated information to the user interface  
+##### Tasks/Sprints/Projects:
+Store information pertaining to the task/sprint/project in question. Notify other modules of changes to those tasks.
+##### Serializer/Deserializer:
+The Serializer/Deserializer module translates messages from the desktop application into transmittable form, and translates messages form the Server into usable form.
+##### Database Communicator:
+The Database Communicator module creates proper HTTP requests from the transmittable form created by the serializer, it also receives HTTP responses form the server and extracts the message to be translated by the deserializer.
+##### Client Communicator:
+This module receives network messages and forewards them to the correct recipient.
+##### Request Handler:
+This module receives forewards from the Client Communicator and Gives it to the Handler who knows how to respond. It also forwards those responses back to the Client Communicator.
+##### Database Interacters: 
+These modules interpret the messages forwarded by the Request Handler and gets or puts the correct information from or into the database.
+##### Statistics Analyzer:
+This module will perform any statistical calculations that need to be made on Database Data before transmission.
 
 ## System Design  
 
