@@ -679,7 +679,7 @@ presently the SQLite database schema is defined with the Web Server responding c
 
 ---
 
-Server-API: John
-Client-API: Paul
-Desktop-Client: Lindsay and Ryan
+Server-API: John  
+Client-API: Paul  
+Desktop-Client: Lindsay and Ryan  
 
