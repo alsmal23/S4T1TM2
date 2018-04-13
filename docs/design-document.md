@@ -649,7 +649,7 @@ algorithms and data structs go here
 ## User Interface Design and Implementation 
 
 ---
-![User Interface Flow Diagram](./resources/YAAM UI Wireframe.jpg) 
+![Domain Model Diagram](./resources/YAAMUIWireframe.jpg)
 
 ### Progress Report   
 
