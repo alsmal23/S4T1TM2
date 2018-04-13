@@ -616,7 +616,7 @@ __Detailed Use Cases__
 ## Domain Model    
 
 ---
-domain model goes here  
+![Domain Model Diagram](./resources/YAAMDomainModel.jpeg)
 
 ## System Design  
 
