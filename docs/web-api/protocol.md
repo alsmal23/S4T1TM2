@@ -1,6 +1,8 @@
 # YAAM Web Protocol
 @paul-mchugh Needs Review
 
+For now put User uuid in Authorization field of http header
+
 ## Funtionality lacking documentation in this document
 - [x]  There is no mechanism that allows the client to retrieve a list of known Users
 - [x] There is no mechanism that allows the client to retrieve a list containing the projects they are a member of
