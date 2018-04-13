@@ -4,10 +4,12 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -49,7 +51,9 @@ public class NewAccountDemo extends Application {
         contentPane.setStyle("-fx-border-color: GRAY;");
         rootPane.getChildren().add(contentPane);
 
-        Pane newUserNameTitle = new Pane(new Text("Your new username:"));
+        StackPane newUserNameTitle = new StackPane(new Text("Your new username:"));
+        newUserNameTitle.setAlignment(Pos.CENTER);
+        newUserNameTitle.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
         newUserNameTitle.layoutXProperty().bind(contentPane.widthProperty().multiply(paddingPercent));
         newUserNameTitle.layoutYProperty().bind(contentPane.heightProperty().multiply(paddingPercent));
         contentPane.getChildren().add(newUserNameTitle);
