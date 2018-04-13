@@ -621,7 +621,8 @@ domain model goes here
 ## System Design  
 
 ---
-system design goes here  
+#### Database Diagram  
+![Database Diagram](./resources/DB.jpeg) 
 
 ## Algorithms and Data Structures  
 
@@ -633,15 +634,13 @@ algorithms and data structs go here
 ---
 user interface information goes here  
 
-## Progress Report and Plan of Work  
+
+
+### Progress Report   
 
 ---
 
-### Progress Report  
-
----
-
-#### Web Server  
+##### Web Server  
 
 ---
 presently the SQLite database schema is defined with the Web Server responding correctly to a small subset of the planned API endpoints.
@@ -651,7 +650,7 @@ presently the SQLite database schema is defined with the Web Server responding c
 
 ---
 
-#### Web Server  
+##### Web Server  
 
 ---
 

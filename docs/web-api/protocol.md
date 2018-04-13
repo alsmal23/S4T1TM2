@@ -1,8 +1,8 @@
 # YAAM Web Protocol
 
 ## Funtionality lacking documentation in this document
--[x]  There is no mechanism that allows the client to retrieve a list of known Users
--[x] There is no mechanism that allows the client to retrieve a list containing the projects they are a member of
+- [x]  There is no mechanism that allows the client to retrieve a list of known Users
+- [x] There is no mechanism that allows the client to retrieve a list containing the projects they are a member of
 3. There is no documented mechanism that allows the client to retrieve the attributes of a project (such as its name, description, tags, owner, etc.) other than the pursuits that are part of that project
 4. There is no mechanism that allows the client to modify a project
 5. There is no mechanism that allows the client to update a projects attributes (there is a way to update tasks and sprints attributes)
