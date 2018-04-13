@@ -14,6 +14,6 @@ public class YaamClientLauncher extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        new YaamClient().initialize();
+        new YaamClient().launch();
     }
 }

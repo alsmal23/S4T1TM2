@@ -25,14 +25,14 @@ public class YaamClient {
     private final TrayManager trayManager = new TrayManager(this);
 
 
-    public void initialize() {
+    public void launch() {
         localStorage.load();
 
         // prevent JavaFX platform from exiting when YaamStage is minimized to tray icon
         Platform.setImplicitExit(false);
 
         trayManager.initialize();
-        window.launch();
+        window.show();
     }
 
     /**

@@ -3,19 +3,14 @@
     -fx-background-color: #1F262D;
 }
 
-#pathBarContainer {
+#path-container {
     -fx-border-color: black;
     -fx-border-width: 0 0 1 0;
     -fx-border-style: solid;
     -fx-border-insets: -1;
 }
 
-/* Brand name */
-#brandNameContainer {
-    -fx-background-color: #1F262D;
-}
-
-#brandNameText {
+#brandName-text {
     -fx-fill: white;
     -fx-font-size: 40px;
     -fx-font-family: "Maison Mono";
@@ -67,13 +62,13 @@
 }
 
 #sidebar .footer {
-    -fx-background-color: rgba(0, 0, 0, .1);
+    -fx-background-color: rgba(0, 0, 0, .05);
     -fx-border-color: rgba(0, 0, 0, .2);
     -fx-border-width: 1 0 0 0;
     -fx-border-style: solid;
 }
 
 /** Inner Content **/
-#innerContent {
+#content {
     -fx-background-image: url("/ui/img/bg_white.png");
 }
