@@ -21,10 +21,7 @@
     -fx-background-color: #2E363F;
 }
 
-#sidebar > JFXRippler {
-    -jfx-rippler-fill: white;
-}
-
+/* Sidebar navigation */
 #sidebar .navigation-option {
     -fx-background-color: #2E363F;
     -fx-border-color: #37414b transparent #1f262d transparent;
@@ -38,6 +35,10 @@
     -fx-border-width: 1 0 1 0;
     -fx-border-style: solid;
     -fx-cursor: hand;
+}
+
+#sidebar .navigation-option JFXRippler {
+    -jfx-rippler-fill: white;
 }
 
 #sidebar .navigation-option FontAwesomeIconView, #sidebar .navigation-option Text {
@@ -56,9 +57,9 @@
     -fx-fill: white;
 }
 
-#sidebar .collapser FontAwesomeIconView {
-    -fx-fill: white;
-    -glyph-size: 25px;
+/* Sidebar footer */
+#sidebar .footer JFXRippler {
+    -jfx-rippler-fill: #888;
 }
 
 #sidebar .footer {
@@ -66,9 +67,30 @@
     -fx-border-color: rgba(0, 0, 0, .2);
     -fx-border-width: 1 0 0 0;
     -fx-border-style: solid;
+    -fx-cursor: hand;
+}
+
+#sidebar .footer:hover {
+    -fx-background-color: rgba(100%, 100%, 100%, .1);
+    -fx-border-color: rgba(0, 0, 0, .2);
+    -fx-border-width: 1 0 0 0;
+    -fx-border-style: solid;
+}
+
+#sidebar .footer FontAwesomeIconView {
+    -fx-fill: #CCC;
+    -glyph-size: 25px;
+}
+
+#sidebar .footer:hover FontAwesomeIconView {
+    -fx-fill: white;
 }
 
 /** Inner Content **/
 #content {
     -fx-background-image: url("/ui/img/bg_white.png");
+}
+
+#content > * {
+    -fx-background-color: transparent;
 }

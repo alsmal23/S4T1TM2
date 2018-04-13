@@ -2,12 +2,14 @@ package edu.csus.yaam.client.gui;
 
 import com.sun.javafx.binding.DoubleConstant;
 import edu.csus.yaam.client.YaamClient;
+import edu.csus.yaam.client.gui.PathBarContainer.Path;
 import edu.csus.yaam.client.gui.scenes.CreateAccountScene;
 import edu.csus.yaam.client.gui.scenes.ProjectListScene;
 import edu.csus.yaam.client.gui.scenes.PursuitExplorerScene;
 import edu.csus.yaam.client.gui.scenes.UserLoginScene;
 import edu.csus.yaam.client.gui.scenes.UserProfileScene;
 import edu.csus.yaam.client.gui.scenes.YaamScene;
+import edu.csus.yaam.client.gui.sidebar.SidebarPane;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.Scene;
@@ -25,6 +27,7 @@ public class YaamStage extends Stage {
 
     // root content pane
     private final Pane rootPane = new Pane();
+
     private HeaderPane header;
     private SidebarPane sidebar;
     private Pane content;
@@ -37,7 +40,7 @@ public class YaamStage extends Stage {
         this.client = client;
 
         // build the stage
-        this.construct();
+        this.initialize();
 
         // build inner scenes
         for (YaamScene scene : new YaamScene[] {
@@ -49,9 +52,12 @@ public class YaamStage extends Stage {
         }) {
             scenes.put(scene.getClass(), scene);
         }
+
+        // default scene
+        this.navigate(UserLoginScene.class);
     }
 
-    private void construct() {
+    private void initialize() {
         // stage
         this.setTitle("YAAM");
         this.setMinHeight(600);
@@ -61,6 +67,7 @@ public class YaamStage extends Stage {
 
         // create scene
         Scene scene = new Scene(rootPane);
+        // add CSS layout
         scene.getStylesheets().add("/ui/css/ui.css");
         this.setScene(scene);
 
@@ -76,7 +83,7 @@ public class YaamStage extends Stage {
         sidebar = new SidebarPane(this);
         sidebar.layoutXProperty().bind(DoubleConstant.valueOf(0));
         sidebar.layoutYProperty().bind(header.heightProperty());
-        sidebar.prefWidthProperty().bind(header.brandName().widthProperty());
+        sidebar.prefWidthProperty().bind(header.brandName.widthProperty());
         sidebar.prefHeightProperty().bind(rootPane.heightProperty().subtract(header.heightProperty()));
 
         // inner pane content
@@ -98,6 +105,10 @@ public class YaamStage extends Stage {
 
 
     // inner content changing
+
+    public void setPath(Path... paths) {
+        header.setPath(paths);
+    }
 
     /**
      * Navigates to a inner content scene page

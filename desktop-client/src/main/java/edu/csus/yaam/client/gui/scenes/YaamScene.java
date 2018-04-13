@@ -17,5 +17,5 @@ public interface YaamScene {
     /**
      * Executes the implemented method upon navigating to the scene
      */
-    void show();
+    default void show() {}
 }

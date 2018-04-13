@@ -1,19 +1,26 @@
 package edu.csus.yaam.client.gui.scenes;
 
-import javafx.scene.layout.Region;
+import javafx.geometry.Pos;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import lombok.Getter;
 
 /**
  * @author Ryan R
  * @date 4/12/2018
  */
 public class ProjectListScene implements YaamScene {
-    @Override
-    public Region getScene() {
-        throw new UnsupportedOperationException();
-    }
+    @Getter
+    private final StackPane scene;
 
-    @Override
-    public void show() {
-        throw new UnsupportedOperationException();
+    public ProjectListScene() {
+        scene = new StackPane();
+        scene.setAlignment(Pos.CENTER);
+        scene.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
+
+        scene.getChildren().add(new Text("Test"));
     }
 }

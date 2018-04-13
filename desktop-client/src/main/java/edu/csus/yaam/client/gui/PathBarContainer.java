@@ -111,7 +111,7 @@ public class PathBarContainer extends Pane {
     /**
      * Updates the path bar with the supplied paths and callbacks
      */
-    public void setPath(Path... paths) {
+    public void setPath(@NonNull Path... paths) {
         if (enabled) {
             if (paths.length != 0) {
                 TreeItem<String> parent = null;
@@ -143,7 +143,11 @@ public class PathBarContainer extends Pane {
                     }
                 });
             } else {
-                pathTree.setRoot(new TreeItem<>(""));
+                pathTree.setRoot(new TreeItem<>("")); walk(pathBar, node -> {
+                    if (node instanceof JFXButton) {
+                        ((JFXButton) node).setDisableVisualFocus(true);
+                    }
+                });
             }
         } else {
             queuedPath = paths;

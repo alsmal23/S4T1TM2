@@ -1,11 +1,11 @@
 package edu.csus.yaam.client.gui;
 
 import com.sun.javafx.binding.DoubleConstant;
+import edu.csus.yaam.client.gui.PathBarContainer.Path;
 import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import lombok.Getter;
 import lombok.experimental.Accessors;
 
 /**
@@ -16,8 +16,7 @@ import lombok.experimental.Accessors;
 public class HeaderPane extends Pane {
     private final YaamStage stage;
 
-    @Getter
-    private StackPane brandName;
+    StackPane brandName;
     private PathBarContainer pathPane;
 
     public HeaderPane(YaamStage stage) {
@@ -65,7 +64,7 @@ public class HeaderPane extends Pane {
     }
 
 
-    public void updatePathBar(PathBarContainer.Path... paths) {
+    public void setPath(Path... paths) {
         pathPane.setPath(paths);
     }
 }
