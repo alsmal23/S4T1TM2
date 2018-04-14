@@ -177,7 +177,7 @@ public class PathView extends ScrollPane {
         }
         if (path.callback != null) {
             rippler.setStyle("-fx-cursor: hand");
-            rippler.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> path.callback.run());
+            rippler.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> path.callback.run());
         }
 
         return rippler;

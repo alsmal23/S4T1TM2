@@ -1,23 +1,29 @@
-package edu.csus.yaam.client.gui;
+package edu.csus.yaam.client.gui.header;
 
 import com.sun.javafx.binding.DoubleConstant;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import edu.csus.yaam.client.gui.YaamStage;
 import edu.csus.yaam.client.gui.javafx.PathView;
+import edu.csus.yaam.client.gui.scenes.SettingsScene;
 import javafx.geometry.Pos;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import lombok.Getter;
 import lombok.experimental.Accessors;
 
 /**
  * @author Ryan R
  * @date 4/11/2018
  */
-@Accessors(fluent = true)
 public class HeaderPane extends Pane {
     private final YaamStage stage;
 
-    StackPane brandName;
+    @Getter
+    @Accessors(fluent = true)
+    private StackPane brandName;
     private PathView pathBar;
 
     public HeaderPane(YaamStage stage) {
@@ -26,9 +32,9 @@ public class HeaderPane extends Pane {
         this.setId("header");
 
         this.constructBrandName();
+        this.constructActionBar();
         this.constructPathBar();
     }
-
 
     // binding
 
@@ -52,10 +58,26 @@ public class HeaderPane extends Pane {
         this.getChildren().addAll(brandName);
     }
 
+    private void constructActionBar() {
+        Pane actionBar = new Pane();
+
+        actionBar.layoutXProperty().bind(brandName.widthProperty());
+        actionBar.prefWidthProperty().bind(this.widthProperty().subtract(brandName.widthProperty()));
+        actionBar.prefHeightProperty().bind(brandName.heightProperty().divide(2));
+
+
+        HeaderNavigationAction settingsIcon = new HeaderNavigationAction(FontAwesomeIcon.COG, "Settings");
+        settingsIcon.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> stage.navigate(SettingsScene.class));
+        actionBar.getChildren().add(settingsIcon);
+
+        this.getChildren().addAll(actionBar);
+    }
+
     private void constructPathBar() {
         Pane pathPane = new Pane();
         pathPane.getStyleClass().add("path-container");
-        pathBar = new PathView(); pathBar.layoutYProperty().bind(DoubleConstant.valueOf(-1));
+        pathBar = new PathView();
+        pathBar.layoutYProperty().bind(DoubleConstant.valueOf(-1));
         pathBar.prefWidthProperty().bind(this.widthProperty());
         Rectangle rectangle = new Rectangle(0, 1, 0, 0);
         rectangle.widthProperty().bind(pathBar.widthProperty());

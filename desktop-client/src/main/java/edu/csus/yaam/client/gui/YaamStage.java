@@ -2,11 +2,14 @@ package edu.csus.yaam.client.gui;
 
 import com.sun.javafx.binding.DoubleConstant;
 import edu.csus.yaam.client.YaamClient;
+import edu.csus.yaam.client.gui.header.HeaderPane;
 import edu.csus.yaam.client.gui.javafx.PathView;
 import edu.csus.yaam.client.gui.scenes.CreateAccountScene;
 import edu.csus.yaam.client.gui.scenes.DashboardScene;
 import edu.csus.yaam.client.gui.scenes.ProjectListScene;
 import edu.csus.yaam.client.gui.scenes.PursuitExplorerScene;
+import edu.csus.yaam.client.gui.scenes.ReportsScene;
+import edu.csus.yaam.client.gui.scenes.SettingsScene;
 import edu.csus.yaam.client.gui.scenes.UserLoginScene;
 import edu.csus.yaam.client.gui.scenes.UserProfileScene;
 import edu.csus.yaam.client.gui.scenes.YaamScene;
@@ -47,8 +50,10 @@ public class YaamStage extends Stage {
         for (YaamScene scene : new YaamScene[] {
                 new CreateAccountScene(),
                 new DashboardScene(this),
-                new ProjectListScene(),
-                new PursuitExplorerScene(),
+                new ProjectListScene(this),
+                new PursuitExplorerScene(this),
+                new ReportsScene(this),
+                new SettingsScene(this),
                 new UserLoginScene(),
                 new UserProfileScene()
         }) {
@@ -70,7 +75,10 @@ public class YaamStage extends Stage {
         // create scene
         Scene scene = new Scene(rootPane);
         // add CSS layout
-        scene.getStylesheets().add("/ui/css/ui.css");
+        scene.getStylesheets().addAll(
+                "/ui/css/yaam.css",
+                "/ui/css/no-highlight.css"
+        );
         this.setScene(scene);
 
 
@@ -85,7 +93,7 @@ public class YaamStage extends Stage {
         sidebar = new SidebarPane(this);
         sidebar.layoutXProperty().bind(DoubleConstant.valueOf(0));
         sidebar.layoutYProperty().bind(header.heightProperty());
-        sidebar.prefWidthProperty().bind(header.brandName.widthProperty());
+        sidebar.prefWidthProperty().bind(header.brandName().widthProperty());
         sidebar.prefHeightProperty().bind(rootPane.heightProperty().subtract(header.heightProperty()));
 
         // inner pane content
@@ -124,6 +132,8 @@ public class YaamStage extends Stage {
             this.setContent(scene.getScene());
             // allow scene to update
             scene.show();
+            // update sidebar
+            sidebar.select(sceneType);
         } else {
             throw new IllegalStateException("scene not registered: " + sceneType);
         }

@@ -15,11 +15,11 @@ import lombok.Getter;
  * @author Ryan R
  * @date 4/12/2018
  */
-public class NavigationOption extends Pane {
+public class SidebarNavigationOption extends Pane {
     @Getter
     private final Class<? extends YaamScene> yaamScene;
 
-    public NavigationOption(FontAwesomeIcon icon, String text, Class<? extends YaamScene> yaamScene) {
+    public SidebarNavigationOption(FontAwesomeIcon icon, String text, Class<? extends YaamScene> yaamScene) {
         this.yaamScene = yaamScene;
 
         this.getStyleClass().add("navigation-option");
