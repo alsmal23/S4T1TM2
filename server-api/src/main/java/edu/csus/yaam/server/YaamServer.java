@@ -4,7 +4,7 @@ import edu.csus.yaam.server.db.SQLiteDatabase;
 import edu.csus.yaam.server.webapi.AuthenticationFilter;
 import edu.csus.yaam.server.webapi.endpoint.Endpoint;
 import edu.csus.yaam.server.webapi.endpoint.EndpointRoute;
-import edu.csus.yaam.server.webapi.endpoints.ViewPursuits;
+import edu.csus.yaam.server.webapi.endpoints.*;
 import edu.csus.yaam.server.websocket.EchoWebSocket;
 import javax.servlet.http.HttpServletResponse;
 import lombok.Getter;
@@ -116,7 +116,8 @@ public class YaamServer {
 
         // register endpoints
         Endpoint[] endpoints = new Endpoint[]{
-				new ViewPursuits(database)
+				new ViewPursuits(database),
+                new ViewProjects(database)
 		};
 
         for (Endpoint endpoint : endpoints) {
