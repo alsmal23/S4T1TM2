@@ -2,8 +2,9 @@ package edu.csus.yaam.client.gui;
 
 import com.sun.javafx.binding.DoubleConstant;
 import edu.csus.yaam.client.YaamClient;
-import edu.csus.yaam.client.gui.PathBarContainer.Path;
+import edu.csus.yaam.client.gui.javafx.PathView;
 import edu.csus.yaam.client.gui.scenes.CreateAccountScene;
+import edu.csus.yaam.client.gui.scenes.DashboardScene;
 import edu.csus.yaam.client.gui.scenes.ProjectListScene;
 import edu.csus.yaam.client.gui.scenes.PursuitExplorerScene;
 import edu.csus.yaam.client.gui.scenes.UserLoginScene;
@@ -45,6 +46,7 @@ public class YaamStage extends Stage {
         // build inner scenes
         for (YaamScene scene : new YaamScene[] {
                 new CreateAccountScene(),
+                new DashboardScene(this),
                 new ProjectListScene(),
                 new PursuitExplorerScene(),
                 new UserLoginScene(),
@@ -54,7 +56,7 @@ public class YaamStage extends Stage {
         }
 
         // default scene
-        this.navigate(UserLoginScene.class);
+        this.navigate(DashboardScene.class);
     }
 
     private void initialize() {
@@ -106,7 +108,7 @@ public class YaamStage extends Stage {
 
     // inner content changing
 
-    public void setPath(Path... paths) {
+    public void setPath(PathView.Path... paths) {
         header.setPath(paths);
     }
 

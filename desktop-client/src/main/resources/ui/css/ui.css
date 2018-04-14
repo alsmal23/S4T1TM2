@@ -110,7 +110,7 @@
 
 /** Inner Content **/
 #content {
-    -fx-background-image: url("/ui/img/bg_white.png");
+    -fx-background-image: url("/ui/img/bg-white.png");
 }
 
 #content > * {

@@ -1,23 +1,24 @@
 package edu.csus.yaam.client.gui.scenes;
 
-import javafx.scene.layout.Region;
+import edu.csus.yaam.client.gui.YaamStage;
+import javafx.scene.layout.Pane;
+import lombok.Getter;
 
 /**
  * @author Ryan R
  * @date 4/12/2018
  */
 public class DashboardScene implements YaamScene {
-    public DashboardScene() {
+    private final YaamStage stage;
+    @Getter
+    private final Pane scene = new Pane();
 
-    }
+    public DashboardScene(YaamStage stage) {
+        this.stage = stage;
 
-    @Override
-    public Region getScene() {
-        throw new UnsupportedOperationException();
     }
 
     @Override
     public void show() {
-        throw new UnsupportedOperationException();
     }
 }

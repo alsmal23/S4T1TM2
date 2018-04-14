@@ -64,7 +64,7 @@
 
 /* Inner content container */
 #innerContent {
-    -fx-background-image: url("../img/bg_white.png");
+    -fx-background-image: url("../img/bg-white.png");
     -fx-background-repeat: repeat;
 }
 

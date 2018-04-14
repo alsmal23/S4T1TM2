@@ -1,10 +1,11 @@
 package edu.csus.yaam.client.gui;
 
 import com.sun.javafx.binding.DoubleConstant;
-import edu.csus.yaam.client.gui.PathBarContainer.Path;
+import edu.csus.yaam.client.gui.javafx.PathView;
 import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import lombok.experimental.Accessors;
 
@@ -17,7 +18,7 @@ public class HeaderPane extends Pane {
     private final YaamStage stage;
 
     StackPane brandName;
-    private PathBarContainer pathPane;
+    private PathView pathBar;
 
     public HeaderPane(YaamStage stage) {
         this.stage = stage;
@@ -52,7 +53,15 @@ public class HeaderPane extends Pane {
     }
 
     private void constructPathBar() {
-        pathPane = new PathBarContainer(stage);
+        Pane pathPane = new Pane();
+        pathPane.getStyleClass().add("path-container");
+        pathBar = new PathView(); pathBar.layoutYProperty().bind(DoubleConstant.valueOf(-1));
+        pathBar.prefWidthProperty().bind(this.widthProperty());
+        Rectangle rectangle = new Rectangle(0, 1, 0, 0);
+        rectangle.widthProperty().bind(pathBar.widthProperty());
+        rectangle.heightProperty().bind(this.heightProperty());
+        pathBar.setClip(rectangle);
+        pathPane.getChildren().add(pathBar);
 
         // bind location
         pathPane.layoutXProperty().bind(brandName.widthProperty());
@@ -64,7 +73,7 @@ public class HeaderPane extends Pane {
     }
 
 
-    public void setPath(Path... paths) {
-        pathPane.setPath(paths);
+    public void setPath(PathView.Path... paths) {
+        pathBar.setPath(paths);
     }
 }

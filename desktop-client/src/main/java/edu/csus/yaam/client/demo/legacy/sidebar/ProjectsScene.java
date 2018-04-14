@@ -6,7 +6,7 @@ import com.sun.javafx.binding.DoubleConstant;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import edu.csus.yaam.client.demo.legacy.nav.NavAction;
 import edu.csus.yaam.client.demo.legacy.nav.ProjectScene;
-import edu.csus.yaam.client.gui.util.FilterableTreeItem;
+import edu.csus.yaam.client.gui.javafx.FilterableTreeItem;
 import javafx.beans.binding.Bindings;
 import javafx.geometry.Insets;
 import javafx.scene.control.TextField;
