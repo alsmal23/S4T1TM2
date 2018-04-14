@@ -651,6 +651,11 @@ algorithms and data structs go here
 ---
 ![UI Flow Diagram](./resources/UIFlowDiagram.jpeg)
 
+- User cannot access anything below login without successfully logging in.
+- User can access any of the Sidebar tabs at any time (Sidebar is always visible). 
+- User can access User Settings at any time (User Settings menu always visible).
+
+
 ### Progress Report   
 
 ---
