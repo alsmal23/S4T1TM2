@@ -36,7 +36,6 @@ import javafx.css.PseudoClass;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -84,17 +83,18 @@ public class PathView extends ScrollPane {
         this.backgroundProperty().addListener(observable -> JFXNodeUtils.updateBackground(getBackground(), clip));
 
         container.getStyleClass().add("buttons-container");
-        container.getChildren().add(new Label("Selection Path..."));
         container.setAlignment(Pos.CENTER_LEFT);
         container.widthProperty().addListener(observable -> setHvalue(getHmax()));
         this.setContent(container);
         this.setPannable(true);
-        setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        setFitToHeight(true);
+        this.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        this.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        this.setFitToHeight(true);
         JFXScrollPane.smoothHScrolling(this);
 
         pathProperty.addListener((ListChangeListener<Path>) change -> render());
+
+        this.setPath(Path.of(""));
     }
 
     public void setPath(@NonNull Path... path) {
@@ -105,8 +105,7 @@ public class PathView extends ScrollPane {
     private void render() {
         ObservableList<Path> paths = pathProperty.get();
 
-        int level = 0;
-        List<Node> newPath = new ArrayList<>();
+        List<Node> pathNodes = new ArrayList<>();
         for (int i = 0; i < paths.size(); i++) {
             Path path = paths.get(i);
 
@@ -114,7 +113,7 @@ public class PathView extends ScrollPane {
             StackPane container = new StackPane(button);
             container.setPickOnBounds(false);
 
-            container.setTranslateX((-OFFSET - 1) * level++);
+            container.setTranslateX((-OFFSET - 1) * i);
             if (i != paths.size() - 1) {
                 SVGGlyph arrow = new SVGGlyph("M366 698l196-196-196-196 60-60 256 256-256 256z", Color.BLACK);
                 arrow.setSizeForWidth(6);
@@ -122,29 +121,31 @@ public class PathView extends ScrollPane {
                 StackPane.setAlignment(arrow, Pos.CENTER_RIGHT);
                 container.getChildren().add(arrow);
             }
-            newPath.add(container);
+            pathNodes.add(container);
         }
-        container.getChildren().setAll(newPath);
+        container.getChildren().setAll(pathNodes);
     }
 
 
     private JFXRippler createSegment(Path path, boolean first) {
-        StackPane pane2 = new StackPane(new Text(path.path));
-        pane2.setAlignment(Pos.CENTER);
-        pane2.setPadding(new Insets(0, 0, 0, path.icon != null ? 4 : 1));
-        HBox pane = new HBox(pane2);
-        pane.setPadding(new Insets(OFFSET, 1.5 * OFFSET, OFFSET, OFFSET + (!first ? OFFSET : 0)));
-        pane.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        HBox pathContainer = new HBox();
+        pathContainer.setPadding(new Insets(OFFSET, 1.5 * OFFSET, OFFSET, OFFSET + (!first ? OFFSET : 0)));
+        pathContainer.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+
+        StackPane textPane = new StackPane(new Text(path.path));
+        textPane.setAlignment(Pos.CENTER);
+        textPane.setPadding(new Insets(0, 0, 0, path.icon != null ? 4 : 1));
+        pathContainer.getChildren().add(textPane);
 
         if (path.icon != null) {
             Pane innerIconPane = new Pane(new FontAwesomeIconView(path.icon));
 
             Pane outerIconPane = new Pane(innerIconPane);
-            innerIconPane.layoutYProperty().bind(pane.heightProperty().subtract(innerIconPane.heightProperty()).divide(2).add(1));
-            pane.getChildren().add(0, outerIconPane);
+            innerIconPane.layoutYProperty().bind(pathContainer.heightProperty().subtract(innerIconPane.heightProperty()).divide(2).add(1));
+            pathContainer.getChildren().add(0, outerIconPane);
         }
 
-        JFXRippler rippler = new JFXRippler(pane) {
+        JFXRippler rippler = new JFXRippler(pathContainer) {
             @Override
             protected void layoutChildren() {
                 super.layoutChildren();
@@ -171,7 +172,11 @@ public class PathView extends ScrollPane {
             }
         };
 
-        if (path.callback != null ) {
+        if (path.path.isEmpty()) {
+            rippler.setRipplerDisabled(true);
+        }
+        if (path.callback != null) {
+            rippler.setStyle("-fx-cursor: hand");
             rippler.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> path.callback.run());
         }
 
