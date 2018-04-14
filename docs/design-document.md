@@ -647,11 +647,9 @@ This module will perform any statistical calculations that need to be made on Da
 algorithms and data structs go here  
 
 ## User Interface Design and Implementation 
- 
+
 ---
-user interface information goes here  
-
-
+![Domain Model Diagram](./resources/YAAM%20UI%20Wireframe.jpg)
 
 ### Progress Report   
 

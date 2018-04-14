@@ -3,6 +3,12 @@
     -fx-background-color: #1F262D;
 }
 
+#brandName-text {
+    -fx-fill: white;
+    -fx-font-size: 40px;
+    -fx-font-family: "Maison Mono";
+}
+
 #path-container {
     -fx-border-color: black;
     -fx-border-width: 0 0 1 0;
@@ -10,10 +16,25 @@
     -fx-border-insets: -1;
 }
 
-#brandName-text {
-    -fx-fill: white;
-    -fx-font-size: 40px;
-    -fx-font-family: "Maison Mono";
+#header .navigation-option {
+    -fx-border-color: transparent #2e363f transparent #000;
+    -fx-border-width: 0 1 0 1;
+    -fx-border-style: solid;
+}
+
+#header .navigation-option-container {
+     -fx-border-color: transparent #000 transparent #2e363f;
+     -fx-border-width: 0 2 0 2;
+     -fx-border-style: solid;
+ }
+
+#header .navigation-option:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #000;
+}
+
+#header .navigation-option Text, #header .navigation-option FontAwesomeIconView {
+    -fx-fill: #CCC;
 }
 
 /** Sidebar **/
@@ -57,8 +78,43 @@
     -fx-fill: white;
 }
 
+/* Sidebar navigation selected */
+
+#sidebar .navigation-option.selected {
+    -fx-background-color: #27a9e3;
+    -fx-border-color: #26ace8 transparent #237fad transparent;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-style: solid;
+    -fx-background-image: url("/ui/img/menu-active.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right, center;
+}
+
+#sidebar .navigation-option.selected .arrow-container {
+    -fx-background-image: url("/ui/img/menu-active.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right, center;
+}
+
+#sidebar .navigation-option.selected FontAwesomeIconView, #sidebar .navigation-option.selected Text {
+    -fx-fill: white;
+}
+
+/* Sidebar navigation disabled */
+#sidebar.disabled .navigation-option:hover {
+    -fx-background-color: #2E363F;
+    -fx-border-color: #37414b transparent #1f262d transparent;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-style: solid;
+    -fx-cursor: default;
+}
+
+#sidebar.disabled .navigation-option FontAwesomeIconView, #sidebar.disabled .navigation-option Text {
+    -fx-fill: #666;
+}
+
 /* Sidebar footer */
-#sidebar .footer JFXRippler {
+#sidebar JFXRippler {
     -jfx-rippler-fill: #888;
 }
 
@@ -88,7 +144,7 @@
 
 /** Inner Content **/
 #content {
-    -fx-background-image: url("/ui/img/bg_white.png");
+    -fx-background-image: url("/ui/img/bg-white.png");
 }
 
 #content > * {

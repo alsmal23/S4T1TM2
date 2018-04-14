@@ -1,4 +1,4 @@
-package edu.csus.yaam.client.gui.util;
+package edu.csus.yaam.client.gui.javafx;
 
 import java.lang.reflect.Field;
 import java.util.function.Predicate;

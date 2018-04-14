@@ -48,7 +48,7 @@ public class ViewPursuits implements Endpoint
 
 		database.executeSync(connection ->
 		{
-			 statement = connection.prepareStatement(sql);
+			statement = connection.prepareStatement(sql);
 			statement.setString(1, project.toString());
 			ResultSet rs = statement.executeQuery();
 			JsonBuilder builder = new JsonBuilder();

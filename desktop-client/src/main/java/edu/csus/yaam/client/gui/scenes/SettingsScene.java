@@ -12,13 +12,13 @@ import lombok.Getter;
  * @author Ryan R
  * @date 4/12/2018
  */
-public class ProjectListScene implements YaamScene {
+public class SettingsScene implements YaamScene {
     private final YaamStage stage;
 
     @Getter
     private final StackPane scene;
 
-    public ProjectListScene(YaamStage stage) {
+    public SettingsScene(YaamStage stage) {
         this.stage = stage;
 
         scene = new StackPane();
@@ -29,6 +29,6 @@ public class ProjectListScene implements YaamScene {
 
     @Override
     public void show() {
-        stage.setPath(Path.of("Projects", FontAwesomeIcon.BOOK));
+        stage.setPath(Path.of("Settings", FontAwesomeIcon.COG));
     }
 }
