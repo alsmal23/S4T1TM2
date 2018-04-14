@@ -57,8 +57,30 @@
     -fx-fill: white;
 }
 
+/* Sidebar navigation selected */
+
+#sidebar .navigation-option.selected {
+    -fx-background-color: #27a9e3;
+    -fx-border-color: #26ace8 transparent #237fad transparent;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-style: solid;
+    -fx-background-image: url("/ui/img/menu-active.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right, center;
+}
+
+#sidebar .navigation-option.selected .arrow-container {
+    -fx-background-image: url("/ui/img/menu-active.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: right, center;
+}
+
+#sidebar .navigation-option.selected FontAwesomeIconView, #sidebar .navigation-option.selected Text {
+    -fx-fill: white;
+}
+
 /* Sidebar footer */
-#sidebar .footer JFXRippler {
+#sidebar JFXRippler {
     -jfx-rippler-fill: #888;
 }
 

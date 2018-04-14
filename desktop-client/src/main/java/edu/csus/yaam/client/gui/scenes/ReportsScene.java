@@ -4,13 +4,9 @@ import javafx.scene.layout.Region;
 
 /**
  * @author Ryan R
- * @date 4/12/2018
+ * @date 4/13/2018
  */
-public class DashboardScene implements YaamScene {
-    public DashboardScene() {
-
-    }
-
+public class ReportsScene implements YaamScene {
     @Override
     public Region getScene() {
         throw new UnsupportedOperationException();

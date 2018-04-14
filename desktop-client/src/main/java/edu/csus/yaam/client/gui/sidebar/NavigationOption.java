@@ -4,18 +4,24 @@ import com.jfoenix.controls.JFXRippler;
 import com.sun.javafx.binding.DoubleConstant;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import edu.csus.yaam.client.gui.scenes.YaamScene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import lombok.NonNull;
+import lombok.Getter;
 
 /**
  * @author Ryan R
  * @date 4/12/2018
  */
 public class NavigationOption extends Pane {
-    public NavigationOption(@NonNull FontAwesomeIcon icon, @NonNull String text) {
+    @Getter
+    private final Class<? extends YaamScene> yaamScene;
+
+    public NavigationOption(FontAwesomeIcon icon, String text, Class<? extends YaamScene> yaamScene) {
+        this.yaamScene = yaamScene;
+
         this.getStyleClass().add("navigation-option");
 
         // create container
@@ -44,6 +50,23 @@ public class NavigationOption extends Pane {
             }
         });
 
-        this.getChildren().add(navigationRippler);
+
+        // create arrow container
+        StackPane arrowContainer = new StackPane();
+        arrowContainer.getStyleClass().add("arrow-container");
+        arrowContainer.setPrefHeight(40);
+        arrowContainer.prefWidthProperty().bind(this.widthProperty());
+        arrowContainer.setPickOnBounds(false);
+
+
+        this.getChildren().addAll(navigationRippler, arrowContainer);
+    }
+
+    public void select() {
+        this.getStyleClass().add("selected");
+    }
+
+    public void unselect() {
+        this.getStyleClass().remove("selected");
     }
 }
