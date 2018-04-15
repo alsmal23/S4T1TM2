@@ -1,6 +1,8 @@
 package edu.csus.yaam.client;
 
 import java.io.File;
+import lombok.experimental.Delegate;
+import org.json.JSONObject;
 
 /**
  * @author Ryan R
@@ -8,6 +10,9 @@ import java.io.File;
  */
 public class LocalStorage {
     private final File settings;
+
+    @Delegate
+    private JSONObject object;
 
     public LocalStorage() {
         settings = null;

@@ -5,6 +5,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import edu.csus.yaam.client.gui.YaamStage;
 import edu.csus.yaam.client.gui.javafx.PathView;
 import edu.csus.yaam.client.gui.scenes.SettingsScene;
+import edu.csus.yaam.client.gui.scenes.UserLoginScene;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -25,6 +26,9 @@ public class HeaderPane extends Pane {
     @Accessors(fluent = true)
     private StackPane brandName;
     private PathView pathBar;
+
+    private HeaderNavigationAction loginAction;
+    private HeaderNavigationAction userAction;
 
     public HeaderPane(YaamStage stage) {
         this.stage = stage;
@@ -70,6 +74,17 @@ public class HeaderPane extends Pane {
         settingsIcon.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> stage.navigate(SettingsScene.class));
         actionBar.getChildren().add(settingsIcon);
 
+        loginAction = new HeaderNavigationAction(FontAwesomeIcon.SIGN_IN, "Sign in");
+        loginAction.layoutXProperty().bind(actionBar.widthProperty().subtract(loginAction.widthProperty()));
+        loginAction.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> stage.navigate(UserLoginScene.class));
+
+        userAction = new HeaderNavigationAction(FontAwesomeIcon.USER, "Ryan Riley");
+        userAction.layoutXProperty().bind(actionBar.widthProperty().subtract(userAction.widthProperty()));
+        settingsIcon.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
+
+        });
+        actionBar.getChildren().add(loginAction);
+
         this.getChildren().addAll(actionBar);
     }
 
@@ -79,7 +94,7 @@ public class HeaderPane extends Pane {
         pathBar = new PathView();
         pathBar.layoutYProperty().bind(DoubleConstant.valueOf(-1));
         pathBar.prefWidthProperty().bind(this.widthProperty());
-        Rectangle rectangle = new Rectangle(0, 1, 0, 0);
+        Rectangle rectangle = new Rectangle(0, 1, 0, 25);
         rectangle.widthProperty().bind(pathBar.widthProperty());
         rectangle.heightProperty().bind(this.heightProperty());
         pathBar.setClip(rectangle);

@@ -1,5 +1,6 @@
 package edu.csus.yaam.client;
 
+import edu.csus.yaam.client.api.RemoteClientAPI;
 import edu.csus.yaam.client.gui.YaamStage;
 import edu.csus.yaam.client.tray.TrayManager;
 import java.util.concurrent.Executors;

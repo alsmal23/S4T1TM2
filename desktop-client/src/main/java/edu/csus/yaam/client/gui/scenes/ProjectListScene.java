@@ -5,7 +5,6 @@ import edu.csus.yaam.client.gui.YaamStage;
 import edu.csus.yaam.client.gui.javafx.PathView.Path;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import lombok.Getter;
 
 /**
@@ -24,7 +23,7 @@ public class ProjectListScene implements YaamScene {
         scene = new StackPane();
         scene.setAlignment(Pos.CENTER);
 
-        scene.getChildren().add(new Text("Test"));
+
     }
 
     @Override

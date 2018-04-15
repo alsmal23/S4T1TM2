@@ -1,0 +1,29 @@
+#settings .jfx-tab-pane {
+    -fx-background-color: #F9F9F9;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+}
+
+#settings .urlLabel Text {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+#settings #button-area {
+    -fx-border-color: #ccc;
+    -fx-border-width: 1 0 0 0;
+    -fx-background-color: #DDD;
+}
+
+#settings JFXTextField {
+    -fx-background-color: #DDD;
+}
+
+#settings .side-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+#settings #save-button {
+    -fx-background-color: #569cd6;
+}

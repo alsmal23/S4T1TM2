@@ -30,8 +30,7 @@ public class FilterableTreeItem<T> extends TreeItem<T> {
         filteredList.predicateProperty().bind(Bindings.createObjectBinding(() -> child -> {
             // Set the predicate of child items to force filtering
             if (child instanceof FilterableTreeItem) {
-                FilterableTreeItem<T> filterableChild = (FilterableTreeItem<T>) child;
-                filterableChild.setPredicate(this.predicate.get());
+                ((FilterableTreeItem<T>) child).setPredicate(this.predicate.get());
             }
             // If there is no predicate, keep this tree item
             if (predicate.get() == null) { return true; }

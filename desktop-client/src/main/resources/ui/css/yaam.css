@@ -23,10 +23,10 @@
 }
 
 #header .navigation-option-container {
-     -fx-border-color: transparent #000 transparent #2e363f;
-     -fx-border-width: 0 2 0 2;
-     -fx-border-style: solid;
- }
+    -fx-border-color: transparent #000 transparent #2e363f;
+    -fx-border-width: 0 2 0 2;
+    -fx-border-style: solid;
+}
 
 #header .navigation-option:hover {
     -fx-cursor: hand;
@@ -35,6 +35,14 @@
 
 #header .navigation-option Text, #header .navigation-option FontAwesomeIconView {
     -fx-fill: #CCC;
+}
+
+#header .navigation-option .jfx-rippler {
+    -jfx-rippler-fill: white;
+}
+
+#header PathView .jfx-rippler {
+    -jfx-rippler-fill: #444;
 }
 
 /** Sidebar **/
@@ -58,7 +66,7 @@
     -fx-cursor: hand;
 }
 
-#sidebar .navigation-option JFXRippler {
+#sidebar .navigation-option .jfx-rippler {
     -jfx-rippler-fill: white;
 }
 
@@ -149,4 +157,20 @@
 
 #content > * {
     -fx-background-color: transparent;
+}
+
+#content .jfx-tab-pane .headers-region {
+    -fx-background-color: #2E363F;
+}
+
+#content .jfx-tab-pane .tab-header-background {
+    -fx-background-color: #2E363F;
+}
+
+#content .jfx-tab-pane .tab-selected-line {
+    -fx-background-color: #27a9e3;
+}
+
+#content .jfx-tab-pane .tab-header-area .jfx-rippler {
+    -jfx-rippler-fill: white;
 }
