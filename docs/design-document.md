@@ -664,6 +664,9 @@ Some UI Requirements that have UI Flow implications:
 ### Mockups
 UI mockups were done in Google Drawing because it’s free to use, easy to place elements as needed, cross platform, and very collaborative. We considered using Visio, but it’s harder to find free copies and it’s not as cross platform or collaborative. 
 
+![Login](./resources/YAAMMockupLogin.png)
+The user login will be the first page that the user sees when they launch the application. All of the application accessible via the side bars or menus will be inaccessible until the user logs in. In this drawing that’s been represented by both dimming the sidebar tabs and by removing the user profile menu.
+
 ### Progress Report   
 
 ---
