@@ -81,9 +81,9 @@ With automatic reminders tracking data will be more reliable. This will enable p
 The project architecture for our software incorporates various ideas from both our team and our product reviews. Our architecture will make use a cloud-based client-server approach to maximize team collaboration and accessibility. All software implementations (client and server) will be written in Java 8, with the exception of the server's persistent data storage. The client's role is to provide the means for inputting and reviewing project data. The server's role is to serve as a database endpoint to synchronize all relevant project data to an entire development team.
 
 #### Client
-The only software client will be a JavaFX-driven GUI desktop application. Users will be able to create, edit, and interact with projects and tasks; behind the scenes, all modification data will be sent to the server to handle and store. The desktop application will serve to organize tasks, track time spent on tasks, and provide a statistical aggregation breakdown for tasks. The client will synchronize all modified project data with the cloud server.
-
-The following third-party softwares will be used in the client architecture:
+The only software client will be a JavaFX-driven GUI desktop application. Users will be able to create, edit, and interact with projects and tasks; behind the scenes, all modification data will be sent to the server to handle and store. The desktop application will serve to organize tasks, track time spent on tasks, and provide a statistical aggregation breakdown for tasks. The client will synchronize all modified project data with the cloud server through a client API module dependency.
+##### UI Client
+The following third-party softwares will be used in the UI client architecture:
 - To provide a GUI with rich UI design:
   - **[JavaFX](http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html)**: "JavaFX is the next step in the evolution of Java as a rich client platform. It is designed to provide a lightweight, hardware-accelerated Java UI platform for enterprise business applications."
   - **[JFoenix](https://github.com/jfoenixadmin/JFoenix)**: "JFoenix is an open source Java library, that implements Google Material Design using Java components"
@@ -91,8 +91,13 @@ The following third-party softwares will be used in the client architecture:
   - **[Java Native Access](https://github.com/java-native-access/jna) (JNA)**: "JNA provides Java programs easy access to native shared libraries without writing anything but Java code - no JNI or native code is required." (e.g. access platform specific libraries to track program interaction)
   - **[system-hook](https://github.com/kristian/system-hook)**: "Java (low-level) System Hook provides a very light-weight global keyboard and mouse listener for Java."
 
+##### Client API
+The following third-party softwares will be used in the client API architecture:
+- **[JSON](https://github.com/stleary/JSON-java)**: "JSON is a light-weight, language independent, data interchange format." JSON will be used for data payloads for receiving and sending data to clients.
+- **[async-http-client](https://github.com/AsyncHttpClient/async-http-client)**: "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. The library also supports the WebSocket Protocol."
+
 #### Server
-The cloud server software will serve to store and retrieve all data related to users, projects, and tasks. Clients will send appropriate user data to the cloud server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of MySQL to store all relevant data related to users, projects, and tasks.
+The cloud server software will serve to store and retrieve all data related to users, projects, and tasks. Clients will send appropriate user data to the cloud server via a web server with a HTTP API endpoint that will process and store appropriate information. The web server will make use of embedded SQLite database to store all relevant data related to users, projects, and tasks.
 
 The following third-party softwares will be used in the server architecture:
 - To provide a HTTP API endpoint:
@@ -100,47 +105,44 @@ The following third-party softwares will be used in the server architecture:
     - **[Spark](http://sparkjava.com/)**: "A micro framework for creating web applications in Kotlin and Java 8 with minimal effort." Spark (which runs on Jetty) will be used to mitigate the overhead of programmatically creating a Jetty server for the HTTP API.
   - **[JSON](https://github.com/stleary/JSON-java)**: "JSON is a light-weight, language independent, data interchange format." JSON will be used for data payloads for receiving and sending data to clients.
 - To persistently store data:
-  - **[MySQL](https://www.mysql.com/)**: MySQL is a open source, relational SQL database management system. 
-  - **[HikaryCP](https://github.com/brettwooldridge/HikariCP)**: "HikariCP is a 'zero-overhead' production ready JDBC connection pool"
+  - **[SQLite](https://www.sqlite.org/index.html)**: SQLite is a embedded relational database management system.
   
   
 ## Project Requirements
-|REQ-###   |Priority|Description|
-|----------|----|-----------|
-|**REQ-1** | 20 |The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.|
-|**REQ-2** | 14 |The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.|
-|**REQ-3** | 13 |Users shall be able to register an account on the cloud server.|
-|**REQ-4** | 15 |Users shall be able to create a new project.|
-|**REQ-5** | 10 |Users, as a the project creator, shall be able to invite or remove additional registered users to view (and potentially modify) a project.|
-|**REQ-6** | 9  |Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.|
-|**REQ-7** | 17 |Users with appropriate permissions shall be able to create a sprint or task. |
-|**REQ-8** | 7  |Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.|
-|**REQ-9** | 6  |Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.|
-|**REQ-10**| 19 |Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors.|
-|**REQ-11**| 16 |Users shall be able to view work summaries for a specific project, sprint, task, or user.|
+| REQ-###    | Priority | Description                                                                                                                                                                                                           |
+|------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **REQ-1**  | 20       | The cloud server application shall store and provide a record of projects, sprints, tasks, and their associated attributes.                                                                                           |
+| **REQ-2**  | 14       | The desktop client application shall be the GUI access point for retrieving and modifying data (e.g. retrieve and modify the record of sprints, tasks, and their associated attributes) on the cloud server.          |
+| **REQ-3**  | 13       | Users shall be able to register an account on the cloud server.                                                                                                                                                       |
+| **REQ-4**  | 15       | Users shall be able to create a new project.                                                                                                                                                                          |
+| **REQ-5**  | 10       | Users, as a the project creator, shall be able to invite or remove additional registered users to view (and potentially modify) a project.                                                                            |
+| **REQ-6**  | 9        | Users who are project creators shall be able to set read, write, or other varying permissions for invited/added users.                                                                                                |
+| **REQ-7**  | 17       | Users with appropriate permissions shall be able to create a sprint or task.                                                                                                                                          |
+| **REQ-8**  | 7        | Users with appropriate permissions shall be able to specific attributes for sprints and tasks, such as descriptions, assignee(s), task size, due dates, and varying other properties.                                 |
+| **REQ-9**  | 6        | Users with the appropriate permissions shall be able to specify additional attribute types on per-project basis. For example: creating customizable task sizes.                                                       |
+| **REQ-10** | 19       | Users with the appropriate permissions shall be able to log the times when they started and stopped working on a task; they shall also be able to edit their own time task time histories to rectify clerical errors. |
+| **REQ-11** | 16       | Users shall be able to view work summaries for a specific project, sprint, task, or user.                                                                                                                             |
 
 __Priority justifications:__ Most important is anything that was part of the original TM program and adding agile functionality, the second most important thing is the cloud server implementation because it's easy and helps teams work together better, the third most important thing is that the program be able to support multiple projects and then multiple teams, finally it's important to manager user permissions so teams don't have to worry about correcting mistakes or misunderstandings with changes made by inexperienced or uninformed users. 
 
 ##### Possible Future Requirements
-|REQ-###|Description|
-|------|-----------|
-|**REQ-XX1**|Users with the appropriate permissions will be able to define and attach custom tags to tasks, on a per-project basis.|
-|**REQ-XX2**|Users shall be able to track time spent on tasks by checking user software interactivity|
-|**REQ-XX3**|The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress.|
+| REQ-###     | Description                                                                                                                                                                                                                                                                                                                                                                        |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **REQ-XX1** | Users with the appropriate permissions will be able to define and attach custom tags to tasks, on a per-project basis.                                                                                                                                                                                                                                                             |
+| **REQ-XX2** | Users shall be able to track time spent on tasks by checking user software interactivity                                                                                                                                                                                                                                                                                           |
+| **REQ-XX3** | The client application shall run in the background on the developers computer and shall use heuristics to determine if the developer is working on a task assigned to them.  If it makes such a determination and the developer **has not** logged work as being in progress the application shall send the a notification that will remind them to log work as being in progress. |
 
 
-Your requirements and previous sections should lead to your use cases. How will users use the system? What are the types of users?  This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.
+## Use Cases
+### Actors
+- **Anyone** - Generally meaning anyone or thing acting as a human person
+- **RegUser** - Generally meaning anyone who has registered and has a valid user account
+- **Developer** - Generally meaning the user with the lowest permissions for a project
+- **Manager** - Generally meaning the user with a high level of permissions for a project
+- **Server** - The data warehouse manager
+- **Client** - The customer service associate
 
-__Actors__
-Anyone - Generally meaning anyone or thing acting as a human person
-RegUser - Generally meaning anyone who has registered and has a valid user account
-Developer - Generally meaning the user with the lowest permissions for a project
-Manager - Generally meaning the user with a high level of permissions for a project
-Server - The data warehouse manager
-Client - The customer service associate
-
-__Derived Use Cases From Requirements__
-
+### Derived Use Cases From Requirements
 |Actor     |Actor's Goal                                                                            |Use Case Name         |
 |----------|----------------------------------------------------------------------------------------|----------------------|
 |RegUser   |Will be able to create projects and have them saved on the server.                      |CreateProj(UC1)       |
@@ -164,9 +166,7 @@ __Derived Use Cases From Requirements__
 |Developer|View statistical summaries page.						                             	    |ViewStats(UC26)       |
 |Developer|Manage view using filters with various project, sprint, and task attributes.	            |FilterStats(UC27)     |
 
-__Traceablility Matrix__ 
-There are more use cases than requirements, so I turned the table from what is in the  
-
+### Traceability Matrix
 |Req't|REQ1 |REQ2 |REQ3 |REQ4 |REQ5 |REQ6 |REQ7 |REQ8 |REQ9 |REQ10|REQ11|Max PW|Total PW|
 |----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|------|--------|
 |PW   | 20  | 14  | 13  | 15  | 10  |  9  | 17  |  7  |  6  | 19  | 16  | ---- | ------ |
@@ -176,9 +176,6 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC4  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
 |UC5  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
 |UC6  | x   |  x  |     |     |     |     |     |  x  |     |     |     |      |        |
-|UC7  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC8  |     |     |     |     |     |     |     |     |     |     |     |      |        |
-|UC9  |     |     |     |     |     |     |     |     |     |     |     |      |        |
 |UC10 | x   |  x  |  x  |     |     |     |     |     |     |     |     |      |        |
 |UC11 | x   |     |     |     |     |     |     |     |  x  |     |     |      |        |
 |UC12 | x   |     |     |     |     |     | x   |     |     |     |     |      |        |
@@ -195,422 +192,410 @@ There are more use cases than requirements, so I turned the table from what is i
 |UC25 | x   |     |     |     |     |     |     |     |     |  x  |     |      |        |
 |UC26 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
 |UC27 |     |  x  |     |     |     |     |     |     |     |     |  x  |      |        |
----
-__Detailed Use Cases__
 
-|UC-1            | Create Project|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-2, REQ-4|
-|Initiating Actor:|Regular User|
-|Actor's Goals|Create an Empty Project|
-|Participating Actors|None|
-|Preconditions|User must have an account|
-|Postconditions|User is manager within the new Project|
+### Detailed Use Cases
+---
+
+| UC-1                 | Create Project                         |
+|----------------------|----------------------------------------|
+| Related Requirements | REQ-1, REQ-2, REQ-4                    |
+| Initiating Actor     | Regular User                           |
+| Actor's Goals        | Create an Empty Project                |
+| Participating Actors | None                                   |
+| Preconditions        | User must have an account              |
+| Postconditions       | User is manager within the new Project |
 ##### Flow of Events
-1. → User: Selects Create Project
-2. ← System: Displays Form to User
-3. User: Completes Form
-4. → User: Submits Form
+1. → User: selects Create Project
+2. ← System: displays Form to User
+3. User: completes Form
+4. → User: submits Form
 5. ← System:
-	* (a) Creates Project 
-	* (b) Signals to User Project Created
----
+	* (a) creates Project 
+	* (b) signals to User Project Created
 ##### Extensions
-
 5(b).
 1. ← System: 
-	 * (a) signals that account information is incomplete/not unique
+    * (a) signals that account information is incomplete/not unique
 	* (b) returns form to user  
-3.  Return to 3.
-
+3.  Return to 3
 ---
-|UC-2            | Create Sprint|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-7|
-|Initiating Actor:|Manager|
-|Actor's Goals|Create a Sprint within a Project|
-|Participating Actors|None|
-|Preconditions|A project must already exist|
-|Postconditions|A sprint is created within a project|
+
+| UC-2                 | Create Sprint                        |
+|----------------------|--------------------------------------|
+| Related Requirements | REQ-1, REQ-7                         |
+| Initiating Actor     | Manager                              |
+| Actor's Goals        | Create a Sprint within a Project     |
+| Participating Actors | None                                 |
+| Preconditions        | A project must already exist         |
+| Postconditions       | A sprint is created within a project |
 ##### Flow of Events
 1. → User: selects create Sprint
-2.  System: Checks if User has permissions to create Sprint
-3. ← System: Sends form to Manager 
-4. Manger: completes required fields 
-5. →Manger: submits form
-6. System: Creates Sprint
+2.  System: checks if User has permissions to create Sprint
+3. ← System: sends form to Manager 
+4. Manager: completes required fields 
+5. → Manager: submits form
+6. System: creates Sprint
 ##### Extensions
 3a. 
 1. System Checks if User has permissions to create sprint
-2. ←System: indicates that Sprint cannot be created
+2. ← System: indicates that Sprint cannot be created
 
 6a.
-1. ←System returns incomplete or non-unique form
-2.  →User submits completed form
+1. ← System returns incomplete or non-unique form
+2. → User submits completed form
+---
 
-|UC-3            | Create Task|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-7,|
-|Initiating Actor:|Anyone|
-|Actor's Goals|Create task within a project|
-|Participating Actors|None|
-|Preconditions|Actor have sufficient permissions within the project, project must exist already|
-|Postconditions|Task is created on server and associated with project|
+| UC-3                 | Create Task                                                                      |
+|----------------------|----------------------------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-7                                                                     |
+| Initiating Actor     | Anyone                                                                           |
+| Actor's Goals        | Create task within a project                                                     |
+| Participating Actors | None                                                                             |
+| Preconditions        | Actor have sufficient permissions within the project, project must exist already |
+| Postconditions       | Task is created on server and associated with project                            |
 ##### Flow of Events
  1. → User: selects create task function
- 2. ← System: Displays a form to user
- 3. User: Fills out Form
- 4. → User: Submits Form
+ 2. ← System: displays a form to user
+ 3. User: fills out Form
+ 4. → User: submits Form
  5. ← System: 
 	 * (a) system stores task information
 	 * (b) signals completions
----
 ##### Extensions   
-
 5(b).
 1. ← System: 
 	* (a) signals that account information is incomplete/not unique
 	* (b) returns form to user  
-2.  return to step 3.
-
+2.  return to step 3
 ---
-|UC-4            | ModTaskAttrib|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-2,REQ-8|
-|Initiating Actor:|Developer|
-|Actor's Goals|Set the size,due date, tags, of a task|
-|Participating Actors|none|
-|Preconditions|a task must exist|
-|Postconditions|task attributes will be updated|
+
+| UC-4                 | ModTaskAttrib                          |
+|----------------------|----------------------------------------|
+| Related Requirements | REQ-1, REQ-2, REQ-8                    |
+| Initiating Actor     | Developer                              |
+| Actor's Goals        | Set the size,due date, tags, of a task |
+| Participating Actors | none                                   |
+| Preconditions        | a task must exist                      |
+| Postconditions       | task attributes will be updated        |
 ##### Flow of Events
-1. →User: selects a task
-2. ←System: displays task detailed view
-3. →User: 
+1. → User: selects a task
+2. ← System: displays task detailed view
+3. → User: 
 	* (a) selects attribute to change
 	* (b) selects new value for attribute
 4. System: updates value of task attribute
-
 ---
-|UC-5            | Move Task to sprint/backlog|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-2,REQ-8|
-|Initiating Actor:|Developer|
-|Actor's Goals|To move a task either off of the backlog and into a sprint, or vice-versa|
-|Participating Actors|None|
-|Preconditions|Tasks must already exist, a sprint must already exist, user must have adequate permissions|
-|Postconditions|a sprint will have a given task associated with it|
+| UC-5                 | Move Task to sprint/backlog                                                                |
+|----------------------|--------------------------------------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-2, REQ-8                                                                        |
+| Initiating Actor     | Developer                                                                                  |
+| Actor's Goals        | To move a task either off of the backlog and into a sprint, or vice-versa                  |
+| Participating Actors | None                                                                                       |
+| Preconditions        | Tasks must already exist, a sprint must already exist, user must have adequate permissions |
+| Postconditions       | a sprint will have a given task associated with it                                         |
 ##### Flow of Events
-1. →User: Selects sprints
-2. ←System:displays sprints, and backlog
-3. →User: selects sprint and destination (backlog/sprint).
-4. ←System:
-	* (a) Moves task into indicated sprint
-	* (b) Indicates to user that sprint has been moved.
-
+1. → User: selects sprints
+2. ← System: displays sprints, and backlog
+3. → User: selects sprint and destination (backlog/sprint)
+4. ← System:
+	* (a) moves task into indicated sprint
+	* (b) indicates to user that sprint has been moved
 ---
-|UC-6            | Edit Sprint Attributes|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-2, REQ-8|
-|Initiating Actor:|Manager|
-|Actor's Goals|change the attributes (due date,name, etc.) of a sprint|
-|Participating Actors|None|
-|Preconditions|A sprint must already exist, user must have sufficient permissions|
-|Postconditions|System will record changes to sprints attributes|
+
+| UC-6                 | Edit Sprint Attributes                                             |
+|----------------------|--------------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-2, REQ-8                                                |
+| Initiating Actor     | Manager                                                            |
+| Actor's Goals        | change the attributes (due date,name, etc.) of a sprint            |
+| Participating Actors | None                                                               |
+| Preconditions        | A sprint must already exist, user must have sufficient permissions |
+| Postconditions       | System will record changes to sprints attributes                   |
 ##### Flow of Events
-1. →User: Selects sprint to change
-2. ←System:displays sprint and associated data
-3. →User:
+1. → User: selects sprint to change
+2. ← System: displays sprint and associated data
+3. → User:
 	* (a) selects information to alter
 	* (b) enters new value
-4. ←System: 
-	* (a) records new value(s).
-	* (b) indicates to user that change is complete.
-
+4. ← System: 
+	* (a) records new value(s)
+	* (b) indicates to user that change is complete
 ---
-|UC-10            | Register Account|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-2,REQ-3|
-|Initiating Actor:|Anyone|
-|Actor's Goals|Create an account on the server|
-|Participating Actors|None|
-|Preconditions|Actor must not already have an account on the server|
-|Postconditions|User Account information stored by the server, User is given Manager permissions in new Project|
+
+| UC-10                | Register Account                                                                                |
+|----------------------|-------------------------------------------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-2, REQ-3                                                                             |
+| Initiating Actor     | Anyone                                                                                          |
+| Actor's Goals        | Create an account on the server                                                                 |
+| Participating Actors | None                                                                                            |
+| Preconditions        | Actor must not already have an account on the server                                            |
+| Postconditions       | User Account information stored by the server, User is given Manager permissions in new Project |
 ##### Flow of Events
  1. → User: selects create account function
- 2. ← System: Displays a form to user
- 3. User: Fills out Form
- 4. → User: Submits Form
+ 2. ← System: displays a form to user
+ 3. User: fills out Form
+ 4. → User: submits Form
  5. ← System: 
-	 * (a) Stores account information 
+	 * (a) stores account information 
 	 * (b) signals completions
----
 ##### Extensions   
-
 5(b).
 1. ← System: 
 	* (a) signals that account information is incomplete/not unique
 	* (b) returns form to user  
-2.  return to step 3.
-
+2.  return to step 3
 ---
-|UC-11                | OpenDsktpClient|
-|--------------------:|--------------|
-|Related Requirements:|REQ-2|
-|Initiating Actor    :|RegUser|
-|Actor's Goals        |To open and log into their client|
-|Participating Actors |None|
-|Preconditions        |The user is registered.|
-|Postconditions       |The user is logged into their client.|
+
+| UC-11                | OpenDsktpClient                       |
+|----------------------|---------------------------------------|
+| Related Requirements | REQ-2                                 |
+| Initiating Actor     | RegUser                               |
+| Actor's Goals        | To open and log into their client     |
+| Participating Actors | None                                  |
+| Preconditions        | The user is registered.               |
+| Postconditions       | The user is logged into their client. |
 ##### Flow of Events
-1. -> User launches client application
-2. <- System prompts User to log in
-3. -> User enters Username and Password
-4. <- System validates username and password, logs the user in, and stores a login token on User's computer
-
+1. → User: launches client application
+2. ← System: prompts User to log in
+3. → User: enters Username and Password
+4. ← System: validates username and password, logs the user in, and stores a login token on User's computer
 ##### Extensions
-
 4a.
-1. <- System reject username/password pair as invalid
+1. ← System reject username/password pair as invalid
 2. return to step 2
 
 ---
-|UC-12               | ViewProject|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1, REQ-7|
-|Initiating Actor    :|Developer|
-|Actor's Goals        |To see an overview of the project they are working on including the Tasks, Sprints and Backlog that constitute it.|
-|Participating Actors |None|
-|Preconditions        |The user is logged in and has access to the project.|
-|Postconditions       |None|
+| UC-12                | ViewProject                                                                                                        |
+|----------------------|--------------------------------------------------------------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-7                                                                                                       |
+| Initiating Actor     | Developer                                                                                                          |
+| Actor's Goals        | To see an overview of the project they are working on including the Tasks, Sprints and Backlog that constitute it. |
+| Participating Actors | None                                                                                                               |
+| Preconditions        | The user is logged in and has access to the project.                                                               |
+| Postconditions       | None                                                                                                               |
 ##### Flow of Events
-1. → User selects the project
-2. ← System displays a summary of all the Backlog, Sprints, and Tasks that are part of the project.
-
-
----
-|UC-14            | InviteToProj|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-5|
-|Initiating Actor:|Manager|
-|Actor's Goals|To add a new Developer to their project|
-|Participating Actors|RegUser|
-|Preconditions|The desired used is not part of the project in question.|
-|Postconditions|The desired User will be able to join the relevant project.|
-##### Flow of Events
-1. → Manager selects the invite user action for their project.
-2. Server checks that the user is a manager and has appropriate permissions.
-3. ← Client displays the invite user menu.
-4. → Manager enters the user name of the relevant user.
-5. ← Server sends confirmation message
-
-
+1. → User: selects the project
+2. ← System: displays a summary of all the Backlog, Sprints, and Tasks that are part of the project.
 ---
 
-|UC-16            | InviteNotify|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-5|
-|Initiating Actor:|Manager|
-|Actor's Goals|To add the desired new Developer to their team.|
-|Participating Actors|RegUser|
-|Preconditions|Manager invite to the new programmer.|
-|Postconditions|RegUser is notified that they have an invitation to become a Developer on the relevant project. New Developers Permissions set to Default|
+| UC-14                | InviteToProj                                               |
+|----------------------|------------------------------------------------------------|
+| Related Requirements | REQ-1,REQ-5                                                |
+| Initiating Actor     | Manager                                                    |
+| Actor's Goals        | To add a new Developer to their project                    |
+| Participating Actors | RegUser                                                    |
+| Preconditions        | The desired used is not part of the project in question    |
+| Postconditions       | The desired User will be able to join the relevant project |
 ##### Flow of Events
-1. → Manager finishes sending invite.
-2. ← Server sends invite once the target user's client is connected to the network.
-3. → Target user accepts invite.
-
-
+1. → Manager: selects the invite user action for their project
+2. Server: checks that the user is a manager and has appropriate permissions
+3. ← Client: displays the invite user menu
+4. → Manager: enters the user name of the relevant user
+5. ← Server: sends confirmation message
 ---
-|UC-17            | Manage Project Users|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1, REQ-5, REQ-6 |
-|Initiating Actor:|Manager|
-|Actor's Goals|Set permissions for developers on the users projects|
-|Participating Actors|None|
-|Preconditions|Project must exist, with Users|
-|Postconditions|Developers permissions on the Project changed|
+
+| UC-16                | InviteNotify                                                                                                                              |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Related Requirements | REQ-1,REQ-5                                                                                                                               |
+| Initiating Actor     | Manager                                                                                                                                   |
+| Actor's Goals        | To add the desired new Developer to their team                                                                                            |
+| Participating Actors | RegUser                                                                                                                                   |
+| Preconditions        | Manager invite to the new programmer                                                                                                      |
+| Postconditions       | RegUser is notified that they have an invitation to become a Developer on the relevant project. New Developers Permissions set to Default |
+##### Flow of Events
+1. → Manager: finishes sending invite
+2. ← Server: sends invite once the target user's client is connected to the network
+3. → Target: user accepts invite
+---
+
+| UC-17                | Manage Project Users                                 |
+|----------------------|------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-5, REQ-6                                  |
+| Initiating Actor     | Manager                                              |
+| Actor's Goals        | Set permissions for developers on the users projects |
+| Participating Actors | None                                                 |
+| Preconditions        | Project must exist, with Users                       |
+| Postconditions       | Developers permissions on the Project changed        |
 ##### Flow of Events
 1. → Manager: Selects Manage Developers on Project
-2. ← System: presents a list of users on the project.
+2. ← System: presents a list of users on the project
 3. → Manager: selects user they wish to edit
 4. ← System: presents available options to manager
 5. → Manager: selects permission they'd like to change and new value
 6. ← System:
-	* (a) updates permissions for user
-	* (b) indicates to Manager that changes have been logged
-
+    * (a) updates permissions for user
+    * (b) indicates to Manager that changes have been logged
 ---
-|UC-18            |Define Sizes|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-9|
-|Initiating Actor:|Manager|
-|Actor's Goals|Define a size system for a project|
-|Participating Actors|None|
-|Preconditions|Project must already exist, user must have sufficient permissions|
-|Postconditions|size system defined and associated with project|
+
+| UC-18                | Define Sizes                                                      |
+|----------------------|-------------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-9                                                      |
+| Initiating Actor     | Manager                                                           |
+| Actor's Goals        | Define a size system for a project                                |
+| Participating Actors | None                                                              |
+| Preconditions        | Project must already exist, user must have sufficient permissions |
+| Postconditions       | size system defined and associated with project                   |
 ##### Flow of Events
-1. →User: selects project
-2. ←System: displays project 
-3. →User: selects add tag
+1. → User: selects project
+2. ← System: displays project 
+3. → User: selects add tag
 4. ← system: Displays form
-5. →User: 
-	*(a) fills out form (indicating size names and associating integers with them)
-	*(b) submits form
+5. → User: 
+	* (a) fills out form (indicating size names and associating integers with them)
+	* (b) submits form
 6. ← System:
-	*(a) creates size within project
-	*(b) indicates to user that size created
+	* (a) creates size within project
+	* (b) indicates to user that size created
 ##### Extensions
 6(b).
-	1.<-System:
-		* (a) indicates that form is incomplete
-		* (b) system returns form
-	2.return to step 5
+1. ← System:
+	* (a) indicates that form is incomplete
+	* (b) system returns form
+2. return to step 5
+---
 
-|UC-20            | Define Tags|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-9|
-|Initiating Actor:|Manager|
-|Actor's Goals|create a new tag, for a project|
-|Participating Actors|None|
-|Preconditions|Project must already exist, user must have sufficient permissions|
-|Postconditions|new tag is defined and associated with project|
+| UC-20                | Define Tags                                                       |
+|----------------------|-------------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-9                                                      |
+| Initiating Actor     | Manager                                                           |
+| Actor's Goals        | create a new tag, for a project                                   |
+| Participating Actors | None                                                              |
+| Preconditions        | Project must already exist, user must have sufficient permissions |
+| Postconditions       | new tag is defined and associated with project                    |
 ##### Flow of Events
-1. →User: selects project
-2. ←System: displays project 
-3. →User: selects add tag
+1. → User: selects project
+2. ← System: displays project 
+3. → User: selects add tag
 4. ← system: Displays form
-5. →User: 
-	*(a) fills out form
-	*(b) submits form
+5. → User: 
+	* (a) fills out form
+	* (b) submits form
 6. ← System:
-	*(a) creates tag within project
-	*(b) indicates to user that tag created
+	* (a) creates tag within project
+	* (b) indicates to user that tag created
 ##### Extensions
 6(b).
-	1.<-System:
-		* (a) indicates that form is incomplete/non-unique
-		* (b) system returns form
-	2.return to step 5
-
+1. ← System:
+	* (a) indicates that form is incomplete/non-unique
+	* (b) system returns form
+2. return to step 5
 ---
-|UC-21            | Set Task Tags|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-8|
-|Initiating Actor:|Manager,Developer|
-|Actor's Goals|Associate a given tag with a given task|
-|Participating Actors|None|
-|Preconditions|Tag must already exist, task must already exist|
-|Postconditions|System records that tag is associated with task|
+
+| UC-21                | Set Task Tags                                   |
+|----------------------|-------------------------------------------------|
+| Related Requirements | REQ-1, REQ-8                                    |
+| Initiating Actor     | Manager,Developer                               |
+| Actor's Goals        | Associate a given tag with a given task         |
+| Participating Actors | None                                            |
+| Preconditions        | Tag must already exist, task must already exist |
+| Postconditions       | System records that tag is associated with task |
 ##### Flow of Events
-1. →User: selects task to tag
-2. ←System: Presents Options for Task
-3. →User:Selects add tag
-4. ←System: Presents available tags
-5. →User: Selects desired tag
-6. ←System:
+1. → User: selects task to tag
+2. ← System: presents Options for Task
+3. → User: selects add tag
+4. ← System: presents available tags
+5. → User: selects desired tag
+6. ← System:
 	* (a) associates tag with task
 	* (b) indicates to user that task is now tagged
-##### Extensions
-
 ---
-|UC-22            | Start Work on a Task|
-|--------------------:|--------------|
-|Related Requirements:|REQ-5, REQ-1, |
-|Initiating Actor:|Developer|
-|Actor's Goals|Log the time the actor began working on a task|
-|Participating Actors|none|
-|Preconditions|A Task must exist|
-|Postconditions|start time is logged and saved|
+
+| UC-22                | Start Work on a Task                           |
+|----------------------|------------------------------------------------|
+| Related Requirements | REQ-5, REQ-1                                   |
+| Initiating Actor     | Developer                                      |
+| Actor's Goals        | Log the time the actor began working on a task |
+| Participating Actors | none                                           |
+| Preconditions        | A Task must exist                              |
+| Postconditions       | start time is logged and saved                 |
 ##### Flow of Events
-1. →User:selects the task that they want to begin 
-2. ←System:Presents options for task
-3. →User: selects start work
+1. → User: selects the task that they want to begin 
+2. ← System: presents options for task
+3. → User: selects start work
 4. System logs start time
 ##### Extensions
 (4b). 
-	1.←System: indicates to user that task is already started
-	
+1. ← System: indicates to user that task is already started
 ---
-|UC-23            | Stop Work on a Task|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1, REQ-5|
-|Initiating Actor:|Developer|
-|Actor's Goals|Log the time user stopped working on a task|
-|Participating Actors|None|
-|Preconditions|Task must have already been started by user(UC-22)|
-|Postconditions|Stop time logged by system|
+
+| UC-23                | Stop Work on a Task                                |
+|----------------------|----------------------------------------------------|
+| Related Requirements | REQ-1, REQ-5                                       |
+| Initiating Actor     | Developer                                          |
+| Actor's Goals        | Log the time user stopped working on a task        |
+| Participating Actors | None                                               |
+| Preconditions        | Task must have already been started by user(UC-22) |
+| Postconditions       | Stop time logged by system                         |
 ##### Flow of Events
-1. →User:selects the task that they want to stop 
-2. ←System:Presents options for task
-3. →User: selects stop work
+1. → User: selects the task that they want to stop 
+2. ← System: presents options for task
+3. → User: selects stop work
 4. System logs stop time
 ##### Extensions
 (4b). 
-	1.←System: indicates to user that task is already stopped
-	
+1. ← System: indicates to user that task is already stopped
 ---
-|UC-24            | EditTaskTimes|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-10|
-|Initiating Actor:|Developer|
-|Actor's Goals|Edit start and stop time entries for a task to correct erroneous data|
-|Participating Actors|None|
-|Preconditions|task must already exist with times logged |
-|Postconditions|Selected Time entries will be updated|
-1. →User: indicates task to edit
-2. ←System: displays detailed information about task
-3. →User: User indicates times to change
-4. ←System: 
+
+| UC-24                | EditTaskTimes                                                         |
+|----------------------|-----------------------------------------------------------------------|
+| Related Requirements | REQ-1,REQ-10                                                          |
+| Initiating Actor     | Developer                                                             |
+| Actor's Goals        | Edit start and stop time entries for a task to correct erroneous data |
+| Participating Actors | None                                                                  |
+| Preconditions        | task must already exist with times logged                             |
+| Postconditions       | Selected Time entries will be updated                                 |
+1. → User: indicates task to edit
+2. ← System: displays detailed information about task
+3. → User: User indicates times to change
+4. ← System: 
 	* (a) updates times 
 	* (b) indicates to user that times are logged.
 ##### Extensions
 (4b).
-	1. ←System: indicates to user that times cannot be saved due to overlap.See UC-22,UC-23.
-	
+1. ← System: indicates to user that times cannot be saved due to overlap. See UC-22, UC-23.
 ---
 
-|UC-25            | Add task times|
-|--------------------:|--------------|
-|Related Requirements:|REQ-1,REQ-10|
-|Initiating Actor:|Developer|
-|Actor's Goals|Enter data for work that was not recorded due to a user error.|
-|Participating Actors|None|
-|Preconditions|task must exist|
-|Postconditions|a new start and stop time will be added to the task|
+| UC-25                | Add task times                                                |
+|----------------------|---------------------------------------------------------------|
+| Related Requirements | REQ-1, REQ-10                                                 |
+| Initiating Actor     | Developer                                                     |
+| Actor's Goals        | Enter data for work that was not recorded due to a user error |
+| Participating Actors | None                                                          |
+| Preconditions        | task must exist                                               |
+| Postconditions       | a new start and stop time will be added to the task           |
 ##### Flow of Events
-1. →User: indicates task to edit
-2. ←System: displays detailed information about task
-3. →User: User indicates times to add 
-4. ←System: 
-	* (a) adds times to task see (UC-22,UC-23)
-	* (b) indicates to user that times are logged.
-
+1. → User: indicates task to edit
+2. ← System: displays detailed information about task
+3. → User: indicates times to add 
+4. ← System: 
+	* (a) adds times to task see (UC-22, UC-23)
+	* (b) indicates to user that times are logged
 ---
-|UC-26          | View Statistics|
-|--------------------:|--------------|
-|Related Requirements:|REQ-11, REQ-2|
-|Initiating Actor:|Developer/Manager|
-|Actor's Goals|View Detailed Statistics about Tasks, projects|
-|Participating Actors|None|
-|Preconditions|Actor must have appropriate permissions to access given tasks and projects|
-|Postconditions|Detailed statistics are returned to the User|
-##### Flow of Events
-1. →User: selects statistics
-2. ←System: Displays Statistics for all projects and tasks User has permissions to view (which could be none).
 
----
-|UC-27            | Filter Statistics|
-|--------------------:|--------------|
-|Related Requirements:|REQ-11,REQ-2|
-|Initiating Actor:|Developer/Manager|
-|Actor's Goals|Change which tasks/projects/sprints are included in statistics|
-|Participating Actors|None|
-|Preconditions|Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters|
-|Postconditions|View will be updated and limited to the given parameters|
+| UC-26                | View Statistics                                                            |
+|----------------------|----------------------------------------------------------------------------|
+| Related Requirements | REQ-11, REQ-2                                                              |
+| Initiating Actor     | Developer/Manager                                                          |
+| Actor's Goals        | View Detailed Statistics about Tasks, projects                             |
+| Participating Actors | None                                                                       |
+| Preconditions        | Actor must have appropriate permissions to access given tasks and projects |
+| Postconditions       | Detailed statistics are returned to the User                               |
 ##### Flow of Events
-1. →User: Selects a filter(filter out project etc, include project etc.)
-2. System calculates statistics based on filters
-3. ←System: Displays filtered Statistics
+1. → User: selects statistics
+2. ← System: displays Statistics for all projects and tasks User has permissions to view (which could be none)
+---
+
+| UC-27                | Filter Statistics                                                                                                                                       |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Related Requirements | REQ-11, REQ-2                                                                                                                                           |
+| Initiating Actor     | Developer/Manager                                                                                                                                       |
+| Actor's Goals        | Change which tasks/projects/sprints are included in statistics                                                                                          |
+| Participating Actors | None                                                                                                                                                    |
+| Preconditions        | Actor must have appropriate permissions to view projects; Actors view is displaying the statistics screen, Statistics Screen Displays available filters |
+| Postconditions       | View will be updated and limited to the given parameters                                                                                                |
+##### Flow of Events
+1. → User: selects a filter (filter out project etc, include project etc)
+2. System: calculates statistics based on filters
+3. ← System: displays filtered Statistics
 
 
 ## Domain Model    
