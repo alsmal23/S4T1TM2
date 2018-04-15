@@ -621,8 +621,10 @@ This module will perform any statistical calculations that need to be made on Da
 
 
 ## System Design  
-#### Database Diagram  
+### Database Diagram  
 ![Database Diagram](./resources/DB.jpeg) 
+### Server API
+![Server API](resources/system-design-server-api.png)
 
 ## Algorithms and Data Structures  
 If your system has any complex algorithms, e.g., statistical inference, you will ned to describe them in detail here. You will also need to describe your data model in detail here. How are you storing your data and why? How do your choices mitigate issues that we faced in our original implementation of TM.  
