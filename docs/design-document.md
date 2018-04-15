@@ -634,6 +634,7 @@ algorithms and data structs go here
 ## User Interface Design and Implementation 
 
 ---
+### Flow Diagram
 ![UI Flow Diagram](./resources/UIFlowDiagram.jpeg)
 
 Interactions are modeled with an arrow are a required path. For instance, you must launch the YAMM.jar file before you login and you must login before you access the dashboard. Page representationsw with no arrow to them indicate optional access and should be grouped with a horizontal curly brace to indicate what page they can be accessed from. 
@@ -645,6 +646,11 @@ Some UI Requirements that have UI Flow implications:
 - User can access any of the Sidebar tabs at any time (Sidebar is always visible). 
 - User can access User Settings at any time (User Settings menu always visible).
 
+### Mockups
+UI mockups were done in Google Drawing because it’s free to use, easy to place elements as needed, cross platform, and very collaborative. We considered using Visio, but it’s harder to find free copies and it’s not as cross platform or collaborative. 
+
+![Login](./resources/YAAMMockupLogin.png)
+The user login will be the first page that the user sees when they launch the application. All of the application accessible via the side bars or menus will be inaccessible until the user logs in. In this drawing that’s been represented by both dimming the sidebar tabs and by removing the user profile menu.
 
 ### Progress Report   
 

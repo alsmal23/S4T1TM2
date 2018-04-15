@@ -10,6 +10,11 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -52,8 +57,7 @@ public class NewAccountDemo extends Application {
         contentPane.minWidth(300);
         contentPane.layoutXProperty().bind(rootPane.widthProperty().multiply(.5f).subtract(contentPane.widthProperty().divide(2)));
         contentPane.layoutYProperty().bind(rootPane.heightProperty().multiply(.5f).subtract(contentPane.heightProperty().divide(2)));
-        contentPane.setStyle("-fx-background-color: SNOW;");
-        contentPane.setStyle("-fx-border-color: GRAY;");
+        contentPane.setStyle("-fx-background-color: snow;-fx-border-color: GRAY");
         rootPane.getChildren().add(contentPane);
 
         StackPane newUserNameTitle = new StackPane(new Text("Your new username:"));
@@ -65,6 +69,8 @@ public class NewAccountDemo extends Application {
 
         JFXTextField newUserNameField = new JFXTextField();
         newUserNameField.setPromptText("You will login with this name");
+        newUserNameField.setStyle("-fx-background-color: lightgrey;-fx-border-color: GREY;-fx-border-width: 1px;-fx-padding: 5px");
+        newUserNameField.setUnFocusColor(Color.TRANSPARENT);
         newUserNameField.setFocusColor(Color.GREEN);
         newUserNameField.layoutXProperty().bind(contentPane.widthProperty().multiply(paddingPercent));
         newUserNameField.layoutYProperty().bind(newUserNameTitle.layoutYProperty().add(newUserNameTitle.heightProperty()).add(elementLeading/3));
@@ -80,6 +86,8 @@ public class NewAccountDemo extends Application {
 
         JFXTextField newDisplayNameField = new JFXTextField();
         newDisplayNameField.setPromptText("Other users will see this name");
+        newDisplayNameField.setStyle("-fx-background-color: lightgrey;-fx-border-color: GREY;-fx-border-width: 1px;-fx-padding: 5px");
+        newDisplayNameField.setUnFocusColor(Color.TRANSPARENT);
         newDisplayNameField.setFocusColor(Color.GREEN);
         newDisplayNameField.layoutXProperty().bind(contentPane.widthProperty().multiply(paddingPercent));
         newDisplayNameField.layoutYProperty().bind(newDisplayNameTitle.layoutYProperty().add(newDisplayNameTitle.heightProperty()).add(elementLeading/3));
@@ -95,8 +103,9 @@ public class NewAccountDemo extends Application {
 
         JFXPasswordField passwordFieldNew = new JFXPasswordField();
         passwordFieldNew.setPromptText("New password");
+        passwordFieldNew.setStyle("-fx-background-color: lightgrey;-fx-border-color: GREY;-fx-border-width: 1px;-fx-padding: 5px");
+        passwordFieldNew.setUnFocusColor(Color.TRANSPARENT);
         passwordFieldNew.setFocusColor(Color.GREEN);
-        passwordFieldNew.setStyle("-fx-text-box-border: Snow;");
         passwordFieldNew.layoutXProperty().bind(contentPane.widthProperty().multiply(paddingPercent));
         passwordFieldNew.layoutYProperty().bind(newPasswordTitle.layoutYProperty().add(newPasswordTitle.heightProperty()).add(elementLeading/3));
         passwordFieldNew.prefWidthProperty().bind(contentWidth.subtract(contentWidth.multiply(paddingPercent*2)));
@@ -104,21 +113,22 @@ public class NewAccountDemo extends Application {
 
         JFXPasswordField passwordFieldConfirm = new JFXPasswordField();
         passwordFieldConfirm.setPromptText("Confirm new password");
+        passwordFieldConfirm.setStyle("-fx-background-color: lightgrey;-fx-border-color: GREY;-fx-border-width: 1px;-fx-padding: 5px");
+        passwordFieldConfirm.setUnFocusColor(Color.TRANSPARENT);
         passwordFieldConfirm.setFocusColor(Color.GREEN);
-        passwordFieldConfirm.setStyle("-fx-text-box-border: Snow;");
         passwordFieldConfirm.layoutXProperty().bind(contentPane.widthProperty().multiply(paddingPercent));
         passwordFieldConfirm.layoutYProperty().bind(passwordFieldNew.layoutYProperty().add(passwordFieldNew.heightProperty().add(elementLeading/3)));
         passwordFieldConfirm.prefWidthProperty().bind(contentWidth.subtract(contentWidth.multiply(paddingPercent*2)));
         contentPane.getChildren().add(passwordFieldConfirm);
 
         JFXButton createAccountButton = new JFXButton("Create Account"); //Can we make this bold?
-        createAccountButton.setBackground(new Background(new BackgroundFill(Color.rgb(225, 225, 225), null, null)));
+        createAccountButton.setStyle("-fx-background-color: lightgrey;-fx-font-weight: bold; ");//-fx-text-fill: snow
+        //createAccountButton.setBackground(new Background(new BackgroundFill(Color.rgb(225, 225, 225), null, null)));
         createAccountButton.layoutXProperty().bind(contentPane.widthProperty().multiply(.5f).subtract(createAccountButton.widthProperty().divide(2)));
         createAccountButton.layoutYProperty().bind(passwordFieldConfirm.layoutYProperty().add(passwordFieldConfirm.heightProperty().add(elementLeading*3)));
         contentPane.getChildren().add(createAccountButton);
 
-        JFXButton cancelButton = new JFXButton("Cancel"); //Can we make this bold?
-        //cancelButton.setBackground(new Background(new BackgroundFill(Color.rgb(225, 225, 225), null, null)));
+        JFXButton cancelButton = new JFXButton("Cancel");
         cancelButton.layoutXProperty().bind(contentPane.widthProperty().multiply(.5f).subtract(cancelButton.widthProperty().divide(2)));
         cancelButton.layoutYProperty().bind(createAccountButton.layoutYProperty().add(createAccountButton.heightProperty().add(elementLeading/3)));
         contentPane.getChildren().add(cancelButton);
