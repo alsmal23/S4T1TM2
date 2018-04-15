@@ -596,11 +596,10 @@ __Priority justifications:__ Most important is anything that was part of the ori
 1. → User: selects a filter (filter out project etc, include project etc)
 2. System: calculates statistics based on filters
 3. ← System: displays filtered Statistics
+---
 
 
 ## Domain Model    
-
----
 ![Domain Model Diagram](./resources/YAAMDomainModel.jpeg)
 #### Responsibilities:
 ##### UI Request Receiver:
@@ -620,20 +619,20 @@ These modules interpret the messages forwarded by the Request Handler and gets o
 ##### Statistics Analyzer:
 This module will perform any statistical calculations that need to be made on Database Data before transmission.
 
-## System Design  
 
----
+## System Design  
 #### Database Diagram  
 ![Database Diagram](./resources/DB.jpeg) 
 
 ## Algorithms and Data Structures  
+If your system has any complex algorithms, e.g., statistical inference, you will ned to describe them in detail here. You will also need to describe your data model in detail here. How are you storing your data and why? How do your choices mitigate issues that we faced in our original implementation of TM.  
 
----
-algorithms and data structs go here  
+Possible concepts to flesh out:
+- recursively building a tree of sprints/tasks in memory based on their parent pursuit uuids
+- statistical average/sums
+- storing deserialized data in memory using model objects (User, Project, Sprint) rather than interpreting strings from a log file
 
 ## User Interface Design and Implementation 
-
----
 ### Flow Diagram
 ![UI Flow Diagram](./resources/UIFlowDiagram.jpeg)
 
@@ -652,33 +651,44 @@ UI mockups were done in Google Drawing because it’s free to use, easy to place
 ![Login](./resources/YAAMMockupLogin.png)
 The user login will be the first page that the user sees when they launch the application. All of the application accessible via the side bars or menus will be inaccessible until the user logs in. In this drawing that’s been represented by both dimming the sidebar tabs and by removing the user profile menu.
 
-### Progress Report   
 
----
+## Progress Report and Plan of Work
+### Progress Report
+#### Desktop Client
+The responsive desktop client UI framework has been implemented in JavaFX, which has a simplistic material UI design and a navigation system built in for "pages". 
+##### Actual screenshots of YAAM
+![Settings Page](resources/ui/settings.png)
+![Sign In Page](resources/ui/sign-in.png)
+##### Issues being tackled
+- integrating the client-api into the desktop-client
+    - hooking up login/create account page
+- allowing program minimization to tray icon
+- designing more complex UI views/"pages"
 
-##### Web Server  
-
----
+#### Client API
+#### Web Server 
 presently the SQLite database schema is defined with the Web Server responding correctly to a small subset of the planned API endpoints.
 
 
 ### Plan of Work  
+#### Desktop Client
+By next week, the following goals are aimed to be implemented:
+- integrating into the client-api module and support a few simple use cases
+- finish fleshing out the full UI experience (minimization to tray icon, user dropdowns)
+- attempt bundled application
 
----
+#### Client API
 
 ##### Web Server  
-
----
-
 1. all GET http requests will be implemented. 
 2. implement all POST http requests.
 3. Authentication will be last priority.
 
+
 ### Breakdown of Responsibilities  
+- **John**: Developing and testing HTTP YAAM API endpoint requests under the Server API module; additionally, using and verifying integrity of the SQLite schemas
+- **Lindsay**: Developing and testing UI views for user login, account creation, and user profile settingsm under the Desktop Client module.
+- **Paul**: Developing and testing communicating with the Server API through HTTP requests and representing deserialized data into memory data structures, under the Client API module.
+- **Ryan R**: Developing and testing the UI views for data pulled from the integrated Client API, under the Desktop Client. Developing and testing the Server API framework for handling requests.
 
----
-
-Server-API: John  
-Client-API: Paul  
-Desktop-Client: Lindsay and Ryan  
-
+Individual team members will coordinate integrating their respective responsibilities together (e.g. John and Paul will work together to integrate the server-api and client-api). Our team and various testing users will perform testing of the integrated software.
