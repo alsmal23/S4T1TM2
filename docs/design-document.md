@@ -651,6 +651,9 @@ UI mockups were done in Google Drawing because it’s free to use, easy to place
 ![Login](./resources/YAAMMockupLogin.png)
 The user login will be the first page that the user sees when they launch the application. All of the application accessible via the side bars or menus will be inaccessible until the user logs in. In this drawing that’s been represented by both dimming the sidebar tabs and by removing the user profile menu.
 
+### Implementation
+A rough implementation of the designed mockup
+![Sign In Page](resources/ui/sign-in.png)
 
 ## Progress Report and Plan of Work
 ### Progress Report
@@ -658,7 +661,6 @@ The user login will be the first page that the user sees when they launch the ap
 The responsive desktop client UI framework has been implemented in JavaFX, which has a simplistic material UI design and a navigation system built in for "pages". 
 ##### Actual screenshots of YAAM
 ![Settings Page](resources/ui/settings.png)
-![Sign In Page](resources/ui/sign-in.png)
 ##### Issues being tackled
 - integrating the client-api into the desktop-client
     - hooking up login/create account page
@@ -666,20 +668,25 @@ The responsive desktop client UI framework has been implemented in JavaFX, which
 - designing more complex UI views/"pages"
 
 #### Client API
-#### Web Server 
-presently the SQLite database schema is defined with the Web Server responding correctly to a small subset of the planned API endpoints.
+
+#### Server API
+The SQLite database schematics for the entire data backend have been written and revised. A layer on top of Spark's HTTP layer was implemented to allow a modular framework for constructing new API endpoints. A small subset of the planned API endpoints have been fleshed out.
+
+##### Issues being tackled
+- implementing simpler API endpoints
+- user authentication system
 
 
 ### Plan of Work  
 #### Desktop Client
 By next week, the following goals are aimed to be implemented:
-- integrating into the client-api module and support a few simple use cases
 - finish fleshing out the full UI experience (minimization to tray icon, user dropdowns)
-- attempt bundled application
+- integrating into the client-api module and support a few simple use cases
+- attempt bundling application script to produce a final product
 
 #### Client API
 
-##### Web Server  
+#### Server API 
 1. all GET http requests will be implemented. 
 2. implement all POST http requests.
 3. Authentication will be last priority.
