@@ -651,6 +651,11 @@ algorithms and data structs go here
 ---
 ![UI Flow Diagram](./resources/UIFlowDiagram.jpeg)
 
+Interactions are modeled with an arrow are a required path. For instance, you must launch the YAMM.jar file before you login and you must login before you access the dashboard. Page representationsw with no arrow to them indicate optional access and should be grouped with a horizontal curly brace to indicate what page they can be accessed from. 
+
+UI flow mocked up with lucid chart becuase it has good support for flow diagrams. 
+
+Some UI Requirements that have UI Flow implications:
 - User cannot access anything below login without successfully logging in.
 - User can access any of the Sidebar tabs at any time (Sidebar is always visible). 
 - User can access User Settings at any time (User Settings menu always visible).
